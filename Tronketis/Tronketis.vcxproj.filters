@@ -13,8 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Model">
-      <UniqueIdentifier>{e63d0bef-4886-45a1-947a-00e0886416c2}</UniqueIdentifier>
+    <Filter Include="Presentacio">
+      <UniqueIdentifier>{72ef0315-abc9-4e2f-a2f7-3ecf5cba26bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domini">
+      <UniqueIdentifier>{a7cc76ca-5daa-43be-bc90-1a96d5dc497a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dades">
+      <UniqueIdentifier>{51507464-4f96-4eab-ad08-f694be2b1909}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,9 +40,6 @@
     </ClInclude>
     <ClInclude Include="RegisterForm.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Usuari.h">
-      <Filter>Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
