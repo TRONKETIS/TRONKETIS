@@ -7,7 +7,7 @@ using namespace System;
 //    return 0;
 // }
 
-#include "Form1.h"
+#include "Presentacio/IniciarSesionForm.h"
 
 using namespace System::Windows::Forms;
 

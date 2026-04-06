@@ -14,13 +14,13 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Presentacio">
-      <UniqueIdentifier>{72ef0315-abc9-4e2f-a2f7-3ecf5cba26bc}</UniqueIdentifier>
+      <UniqueIdentifier>{da9ac9f8-efea-4a52-85fe-7d0be6d8f695}</UniqueIdentifier>
     </Filter>
     <Filter Include="Domini">
-      <UniqueIdentifier>{a7cc76ca-5daa-43be-bc90-1a96d5dc497a}</UniqueIdentifier>
+      <UniqueIdentifier>{10a2c0ae-0b03-41a2-9182-3698481062d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Dades">
-      <UniqueIdentifier>{51507464-4f96-4eab-ad08-f694be2b1909}</UniqueIdentifier>
+      <UniqueIdentifier>{4295eecb-1de1-4d7a-9b3b-3c2be354b90d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,11 +35,23 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Form1.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Presentacio\IniciarSesionForm.h">
+      <Filter>Presentacio</Filter>
     </ClInclude>
-    <ClInclude Include="RegisterForm.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Domini\CtrlIniciarSesion.h">
+      <Filter>Domini</Filter>
+    </ClInclude>
+    <ClInclude Include="Dades\AuthService.h">
+      <Filter>Dades</Filter>
+    </ClInclude>
+    <ClInclude Include="Dades\CercadorUsuari.h">
+      <Filter>Dades</Filter>
+    </ClInclude>
+    <ClInclude Include="Dades\DB.h">
+      <Filter>Dades</Filter>
+    </ClInclude>
+    <ClInclude Include="Dades\PasarelaUsuari.h">
+      <Filter>Dades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -52,16 +64,21 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Form1.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Presentacio\IniciarSesionForm.cpp">
+      <Filter>Presentacio</Filter>
     </ClCompile>
-    <ClCompile Include="RegisterForm.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Domini\CtrlIniciarSesion.cpp">
+      <Filter>Domini</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Presentacio\IniciarSesionForm.resx">
+      <Filter>Presentacio</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

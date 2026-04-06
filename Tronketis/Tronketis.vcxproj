@@ -130,26 +130,26 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Form1.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
+    <ClInclude Include="Dades\AuthService.h" />
+    <ClInclude Include="Dades\CercadorUsuari.h" />
+    <ClInclude Include="Dades\DB.h" />
+    <ClInclude Include="Dades\PasarelaUsuari.h" />
+    <ClInclude Include="Domini\CtrlIniciarSesion.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="RegisterForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
+    <ClInclude Include="Presentacio\IniciarSesionForm.h" />
     <ClInclude Include="Resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
-    <ClCompile Include="Form1.cpp" />
+    <ClCompile Include="Domini\CtrlIniciarSesion.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="RegisterForm.cpp" />
+    <ClCompile Include="Presentacio\IniciarSesionForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -163,6 +163,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Presentacio\IniciarSesionForm.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
