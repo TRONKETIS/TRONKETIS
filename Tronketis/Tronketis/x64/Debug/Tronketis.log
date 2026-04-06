@@ -1,3 +1,13 @@
 ﻿  CppCLR_WinFormsProject.cpp
-  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  Tronketis.vcxproj -> C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\x64\Debug\Tronketis.exe
+C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\CppCLR_WinFormsProject.cpp(10,10): error C1083: Cannot open include file: 'Presentacio/IniciarSesionForm.h': No such file or directory
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+  CtrlIniciarSesion.cpp
+\Domini\CtrlIniciarSesion.cpp(1,1): error C1083: Cannot open source file: 'Domini\CtrlIniciarSesion.cpp': No such file or directory
+  (compiling source file '/Domini/CtrlIniciarSesion.cpp')
+  
+  IniciarSesionForm.cpp
+\Presentacio\IniciarSesionForm.cpp(1,1): error C1083: Cannot open source file: 'Presentacio\IniciarSesionForm.cpp': No such file or directory
+  (compiling source file '/Presentacio/IniciarSesionForm.cpp')
+  
+  Generating Code...
