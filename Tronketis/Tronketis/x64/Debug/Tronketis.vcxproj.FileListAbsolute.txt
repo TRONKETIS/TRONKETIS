@@ -1,0 +1,4 @@
+C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\x64\Debug\MySql.Data.dll
+C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\x64\Debug\MySql.Data.xml
+C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.AssemblyReference.cache
+C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.Up2Date
