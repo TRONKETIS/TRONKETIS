@@ -1,1 +1,6 @@
 .vs/
+x64/
+Debug/
+*.obj
+*.log
+*.tlog

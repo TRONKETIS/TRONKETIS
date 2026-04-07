@@ -35,23 +35,26 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Presentacio\IniciarSesionForm.h">
-      <Filter>Presentacio</Filter>
+    <ClInclude Include="AuthService.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Domini\CtrlIniciarSesion.h">
-      <Filter>Domini</Filter>
+    <ClInclude Include="CercadorUsuari.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dades\AuthService.h">
-      <Filter>Dades</Filter>
+    <ClInclude Include="CtrlIniciarSesion.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dades\CercadorUsuari.h">
-      <Filter>Dades</Filter>
+    <ClInclude Include="DB.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dades\DB.h">
-      <Filter>Dades</Filter>
+    <ClInclude Include="IniciarSesionForm.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dades\PasarelaUsuari.h">
-      <Filter>Dades</Filter>
+    <ClInclude Include="PasarelaUsuari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistrarForm.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -64,21 +67,19 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Presentacio\IniciarSesionForm.cpp">
-      <Filter>Presentacio</Filter>
+    <ClCompile Include="CtrlIniciarSesion.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Domini\CtrlIniciarSesion.cpp">
-      <Filter>Domini</Filter>
+    <ClCompile Include="IniciarSesionForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistrarForm.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
       <Filter>Resource Files</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Presentacio\IniciarSesionForm.resx">
-      <Filter>Presentacio</Filter>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>

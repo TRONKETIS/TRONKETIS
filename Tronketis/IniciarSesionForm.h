@@ -138,10 +138,16 @@ namespace Tronketis {
 	}
 	private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	}
+
+	// El evento de click del botón de login
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ email = txtEmail->Text;
 		String^ password = txtPassword->Text;
-
+		if (String::IsNullOrEmpty(email) || String::IsNullOrEmpty(password))
+		{
+			MessageBox::Show("Rellena todos los campos");
+			return;
+		}
 		String^ rol;
 
 		bool ok = CtrlIniciarSesion::Execute(email, password, rol);
