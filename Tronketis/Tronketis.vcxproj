@@ -133,6 +133,7 @@
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CercadorUsuari.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
+    <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
@@ -143,12 +144,15 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="UsuariDTO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
+    <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
+    <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

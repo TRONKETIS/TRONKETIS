@@ -4,4 +4,6 @@ Debug/
 *.obj
 *.log
 *.tlog
+*.pch
+*.exe
 *.pdb
