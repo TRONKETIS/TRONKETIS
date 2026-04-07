@@ -4,3 +4,4 @@ C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tr
 C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.Up2Date
 C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.IniciarSesionForm.resources
 C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.GenerateResource.cache
+C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.RegistrarForm.resources

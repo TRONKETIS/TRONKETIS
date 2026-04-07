@@ -1,3 +1,10 @@
-﻿  CtrlIniciarSesion.cpp
+﻿  CppCLR_WinFormsProject.cpp
+  CtrlIniciarSesion.cpp
+  IniciarSesionForm.cpp
+C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\CercadorUsuari.h(17,27): warning C4101: 'e': unreferenced local variable
+  (compiling source file '/CtrlIniciarSesion.cpp')
+  
+  RegistrarForm.cpp
+  Generating Code...
   AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Tronketis.vcxproj -> C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\x64\Debug\Tronketis.exe

@@ -11,7 +11,12 @@ public:
     static bool CercaPerEmail(String^ email, String^% password, String^% rol)
     {
         MySqlConnection^ conn = DB::GetConnection();
-        conn->Open();
+        try{
+            conn->Open();
+        }
+        catch (Exception^ e){
+            return false;
+        }
 
         String^ query = "SELECT user_pass, user_role FROM usuari WHERE email_addr = @email";
 
