@@ -1,4 +1,5 @@
 #pragma once
+#include "CtrlIniciarSesion.h"
 
 namespace Tronketis {
 
@@ -34,6 +35,20 @@ namespace Tronketis {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ lblEmail;
+	private: System::Windows::Forms::TextBox^ txtEmail;
+	private: System::Windows::Forms::Label^ lblPassword;
+	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::Windows::Forms::Button^ btnLogin;
+
+
+	protected:
+
+	protected:
+
+	protected:
+
+	protected:
 
 	private:
 		/// <summary>
@@ -48,12 +63,96 @@ namespace Tronketis {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"IniciarSesionForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->lblEmail = (gcnew System::Windows::Forms::Label());
+			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
+			this->lblPassword = (gcnew System::Windows::Forms::Label());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->btnLogin = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// lblEmail
+			// 
+			this->lblEmail->Location = System::Drawing::Point(64, 64);
+			this->lblEmail->Name = L"lblEmail";
+			this->lblEmail->Size = System::Drawing::Size(97, 51);
+			this->lblEmail->TabIndex = 0;
+			this->lblEmail->Text = L"Email";
+			this->lblEmail->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->lblEmail->Click += gcnew System::EventHandler(this, &IniciarSesionForm::label1_Click);
+			// 
+			// txtEmail
+			// 
+			this->txtEmail->Location = System::Drawing::Point(226, 78);
+			this->txtEmail->Name = L"txtEmail";
+			this->txtEmail->Size = System::Drawing::Size(198, 22);
+			this->txtEmail->TabIndex = 1;
+			// 
+			// lblPassword
+			// 
+			this->lblPassword->Location = System::Drawing::Point(64, 152);
+			this->lblPassword->Name = L"lblPassword";
+			this->lblPassword->Size = System::Drawing::Size(97, 51);
+			this->lblPassword->TabIndex = 2;
+			this->lblPassword->Text = L"Contraseña";
+			this->lblPassword->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->lblPassword->Click += gcnew System::EventHandler(this, &IniciarSesionForm::label1_Click_1);
+			// 
+			// txtPassword
+			// 
+			this->txtPassword->Location = System::Drawing::Point(226, 166);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->Size = System::Drawing::Size(198, 22);
+			this->txtPassword->TabIndex = 3;
+			this->txtPassword->UseSystemPasswordChar = true;
+			// 
+			// btnLogin
+			// 
+			this->btnLogin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->btnLogin->Location = System::Drawing::Point(313, 255);
+			this->btnLogin->Name = L"btnLogin";
+			this->btnLogin->Size = System::Drawing::Size(111, 38);
+			this->btnLogin->TabIndex = 4;
+			this->btnLogin->Text = L"Entrar";
+			this->btnLogin->UseVisualStyleBackColor = false;
+			this->btnLogin->Click += gcnew System::EventHandler(this, &IniciarSesionForm::btnLogin_Click);
+			// 
+			// IniciarSesionForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(581, 443);
+			this->Controls->Add(this->btnLogin);
+			this->Controls->Add(this->txtPassword);
+			this->Controls->Add(this->lblPassword);
+			this->Controls->Add(this->txtEmail);
+			this->Controls->Add(this->lblEmail);
+			this->Name = L"IniciarSesionForm";
+			this->Text = L"IniciarSesionForm";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
 		}
 #pragma endregion
-	};
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ email = txtEmail->Text;
+		String^ password = txtPassword->Text;
+
+		String^ rol;
+
+		bool ok = CtrlIniciarSesion::Execute(email, password, rol);
+
+		if (!ok)
+		{
+			MessageBox::Show("Credenciales incorrectas");
+			return;
+		}
+
+		MessageBox::Show("Login correcto. Rol: " + rol);
+	}
+};
 }
