@@ -13,15 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Presentacio">
-      <UniqueIdentifier>{da9ac9f8-efea-4a52-85fe-7d0be6d8f695}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Domini">
-      <UniqueIdentifier>{10a2c0ae-0b03-41a2-9182-3698481062d1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Dades">
-      <UniqueIdentifier>{4295eecb-1de1-4d7a-9b3b-3c2be354b90d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -56,6 +47,12 @@
     <ClInclude Include="RegistrarForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CtrlRegistrarUsuari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -74,7 +71,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RegistrarForm.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlRegistrarUsuari.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaUsuari.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

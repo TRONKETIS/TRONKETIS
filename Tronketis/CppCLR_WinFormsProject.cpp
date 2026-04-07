@@ -7,7 +7,8 @@ using namespace System;
 //    return 0;
 // }
 
-#include "IniciarSesionForm.h"
+//#include "IniciarSesionForm.h"
+#include "RegistrarForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -16,6 +17,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::IniciarSesionForm());
+  Application::Run(gcnew Tronketis::RegistrarForm());
   return 0;
 }
