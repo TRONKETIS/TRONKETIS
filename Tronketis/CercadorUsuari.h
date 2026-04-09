@@ -20,7 +20,7 @@ public:
             return false;
         }
 
-        String^ query = "SELECT user_pass, user_role FROM usuari WHERE email_addr = @email";
+        String^ query = "SELECT user_pass, user_role FROM usuari WHERE email_addr = @email AND state = 'Active'";
 
         MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
         cmd->Parameters->AddWithValue("@email", email);
