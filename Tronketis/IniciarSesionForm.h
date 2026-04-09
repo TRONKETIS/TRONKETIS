@@ -1,5 +1,6 @@
 #pragma once
 #include "CtrlIniciarSesion.h"
+#include "MenuAdminForm.h"
 
 namespace Tronketis {
 
@@ -157,8 +158,18 @@ namespace Tronketis {
 			MessageBox::Show("Credenciales incorrectas");
 			return;
 		}
-
-		MessageBox::Show("Login correcto. Rol: " + rol);
+		if (rol == "Administrador")
+		{
+			MenuAdminForm^ adminForm = gcnew MenuAdminForm();
+			adminForm->Show();
+		}
+		else
+		{
+			MessageBox::Show("Login correcto. Rol: " + rol);
+		}
+		//shila: al hacer hide el proceso del login sigue vivo, por lo que si se cierra el menu admin, el login sigue abierto pero oculto
+		this->Hide(); // ocultar login
+		
 	}
 };
 }

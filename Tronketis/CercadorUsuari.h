@@ -39,7 +39,7 @@ public:
         return true;
     }
 
-    // 🔥 NUEVO: comprobar si email ya existe
+    // comprobar si email ya existe
     static bool existeEmail(String^ email)
     {
         MySqlConnection^ conn = DB::GetConnection();
@@ -55,7 +55,7 @@ public:
         return count > 0;
     }
 
-    // 🔥 NUEVO: comprobar si DNI ya existe
+    // comprobar si DNI ya existe
     static bool existeDni(String^ dni)
     {
         MySqlConnection^ conn = DB::GetConnection();
