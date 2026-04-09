@@ -34,7 +34,7 @@ namespace Tronketis {
             return false;
         }
 
-        if (CercadorUsuari::existeEmail(u->email)) {
+        if (CercadorUsuari::existeDni(u->dni)) {
             error = "El DNI ya esta registrado";
             return false;
         }
