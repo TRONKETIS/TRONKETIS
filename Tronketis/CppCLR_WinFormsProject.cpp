@@ -8,7 +8,8 @@ using namespace System;
 // }
 
 #include "IniciarSesionForm.h"
-//#include "RegistrarForm.h"
+#include "RegistrarForm.h"
+#include "ModificarUsuariForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -17,6 +18,7 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::IniciarSesionForm());
+  Application::Run(gcnew Tronketis::ModificarUsuariForm());
+  //Application::Run(gcnew Tronketis::IniciarSesionForm());
   return 0;
 }

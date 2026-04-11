@@ -53,6 +53,12 @@
     <ClInclude Include="UsuariDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ModificarUsuariForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlModificarUsuari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -77,6 +83,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PasarelaUsuari.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificarUsuariForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlModificarUsuari.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

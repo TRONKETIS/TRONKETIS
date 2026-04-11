@@ -12,4 +12,5 @@ public ref class PasarelaUsuari
 {
 public:
     static void insertar(UsuariDTO^ u);
+	static bool modificarUsuari(UsuariDTO^ u);
 };
