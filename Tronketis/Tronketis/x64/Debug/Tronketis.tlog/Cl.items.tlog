@@ -1,7 +1,8 @@
-C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\AssemblyInfo.cpp;C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\AssemblyInfo.obj
-C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\CppCLR_WinFormsProject.cpp;C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\CppCLR_WinFormsProject.obj
-C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\CtrlIniciarSesion.cpp;C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\CtrlIniciarSesion.obj
-C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\IniciarSesionForm.cpp;C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\IniciarSesionForm.obj
-C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\pch.cpp;C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\pch.obj
-C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\RegistrarForm.cpp;C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\RegistrarForm.obj
-C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cpp;C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\AssemblyInfo.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\AssemblyInfo.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\AuthService.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\AuthService.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\CppCLR_WinFormsProject.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\CppCLR_WinFormsProject.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\CtrlIniciarSesion.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\CtrlIniciarSesion.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\IniciarSesionForm.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\IniciarSesionForm.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\pch.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\pch.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\RegistrarForm.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\RegistrarForm.obj
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cpp;C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.obj

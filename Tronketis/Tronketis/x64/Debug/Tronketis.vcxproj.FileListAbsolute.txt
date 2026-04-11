@@ -5,3 +5,9 @@ C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tr
 C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.IniciarSesionForm.resources
 C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.GenerateResource.cache
 C:\Users\makia\source\repos\TRONKETIS\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.RegistrarForm.resources
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\x64\Debug\MySql.Data.xml
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.AssemblyReference.cache
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.IniciarSesionForm.resources
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.RegistrarForm.resources
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.GenerateResource.cache
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.Up2Date

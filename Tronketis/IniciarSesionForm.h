@@ -154,11 +154,19 @@ namespace Tronketis {
 
 		if (!ok)
 		{
-			MessageBox::Show("Credenciales incorrectas");
+			if (rol == "ERROR_EMAIL")
+				MessageBox::Show("Correo no registrado");
+
+			else if (rol == "ERROR_PASSWORD")
+				MessageBox::Show("Contraseña incorrecta");
+
+			
+
 			return;
 		}
 
 		MessageBox::Show("Login correcto. Rol: " + rol);
+
 	}
 };
 }
