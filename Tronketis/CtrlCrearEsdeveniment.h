@@ -9,6 +9,6 @@ namespace Tronketis {
 
     public ref class CtrlCrearEsdeveniment {
     public:
-        void crearEsdeveniment(EsdevenimentDTO^ e);
+        static void crearEsdeveniment(EsdevenimentDTO^ e);
     };
 }

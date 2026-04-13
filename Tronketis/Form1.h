@@ -90,6 +90,7 @@ namespace CppCLRWinFormsProject {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 24);
 			this->comboBox1->TabIndex = 0;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Form1::comboBox1_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -101,7 +102,6 @@ namespace CppCLRWinFormsProject {
 			this->label1->Size = System::Drawing::Size(177, 20);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Tipus d\'esdeveniment*";
-			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
 			// 
 			// label2
 			// 
@@ -185,7 +185,6 @@ namespace CppCLRWinFormsProject {
 			this->label6->Size = System::Drawing::Size(319, 37);
 			this->label6->TabIndex = 10;
 			this->label6->Text = L"Crear un esdeveniment";
-			this->label6->Click += gcnew System::EventHandler(this, &Form1::label6_Click);
 			// 
 			// button1
 			// 
@@ -217,7 +216,6 @@ namespace CppCLRWinFormsProject {
 			this->label7->Size = System::Drawing::Size(261, 16);
 			this->label7->TabIndex = 13;
 			this->label7->Text = L"Amb * estan marcats els camps obligatoris";
-			this->label7->Click += gcnew System::EventHandler(this, &Form1::label7_Click);
 			// 
 			// Form1
 			// 
