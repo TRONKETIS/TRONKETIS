@@ -1,59 +1,82 @@
-#pragma once
+﻿#pragma once
+#include "CercadorUsuari.h"
 
 namespace CppCLRWinFormsProject {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
+    using namespace System;
+    using namespace System::Windows::Forms;
 
-	/// <summary>
-	/// Summary for Form1
-	/// </summary>
-	public ref class Form1 : public System::Windows::Forms::Form
-	{
-	public:
-		Form1(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+    public ref class Form1 : public Form
+    {
+    public:
+        Form1(void)
+        {
+            InitializeComponent();
+        }
 
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~Form1()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
+    protected:
+        ~Form1()
+        {
+            if (components)
+                delete components;
+        }
 
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+    private:
+        TextBox^ txtUsername;
+        Button^ btnBuscar;
+        Label^ lblResultado;
+        System::ComponentModel::Container^ components;
 
-#pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		void InitializeComponent(void)
-		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Form1";
-			this->Padding = System::Windows::Forms::Padding(0);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		}
-#pragma endregion
-	};
+        void InitializeComponent(void)
+        {
+            this->txtUsername = gcnew TextBox();
+            this->btnBuscar = gcnew Button();
+            this->lblResultado = gcnew Label();
+
+            this->SuspendLayout();
+
+            // txtUsername
+            this->txtUsername->Location = System::Drawing::Point(50, 50);
+            this->txtUsername->Size = System::Drawing::Size(200, 26);
+
+            // btnBuscar
+            this->btnBuscar->Location = System::Drawing::Point(50, 100);
+            this->btnBuscar->Text = "Buscar";
+            this->btnBuscar->Click += gcnew EventHandler(this, &Form1::btnBuscar_Click);
+
+            // lblResultado
+            this->lblResultado->Location = System::Drawing::Point(50, 150);
+            this->lblResultado->Size = System::Drawing::Size(500, 30);
+
+            // Form
+            this->Controls->Add(this->txtUsername);
+            this->Controls->Add(this->btnBuscar);
+            this->Controls->Add(this->lblResultado);
+
+            this->Text = "Buscar Usuario";
+            this->ClientSize = System::Drawing::Size(600, 300);
+
+            this->ResumeLayout(false);
+        }
+
+    private:
+        System::Void btnBuscar_Click(System::Object^ sender, System::EventArgs^ e)
+        {
+            String^ username = txtUsername->Text;
+
+            String^ dni;
+            String^ password;
+            String^ rol;
+
+            // 🔥 ORDEN CORRECTO
+            if (CercadorUsuari::CercaPerUsername(username, dni, password, rol))
+            {
+                lblResultado->Text = "DNI: " + dni + " | Password: " + password + " | Rol: " + rol;
+            }
+            else
+            {
+                lblResultado->Text = "Usuario no encontrado";
+            }
+        }
+    };
 }

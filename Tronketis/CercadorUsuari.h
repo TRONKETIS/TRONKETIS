@@ -3,38 +3,48 @@
 #include "DB.h"
 
 using namespace System;
+using namespace System::Data;
 using namespace MySql::Data::MySqlClient;
 
 public ref class CercadorUsuari
 {
 public:
-    static bool CercaPerEmail(String^ email, String^% password, String^% rol)
+    static bool CercaPerUsername(String^ username, String^% dni, String^% password, String^% rol)
     {
         MySqlConnection^ conn = DB::GetConnection();
-        try{
+
+        try {
             conn->Open();
+
+            String^ query = "SELECT dni, user_pass, user_role FROM usuari WHERE user_name = @user";
+
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@user", username);
+
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+
+            if (reader->Read()) {
+                dni = reader["dni"]->ToString();
+                password = reader["user_pass"]->ToString();
+                rol = reader["user_role"]->ToString();
+
+                reader->Close();
+                conn->Close();
+                return true;
+            }
+            else {
+                reader->Close();
+                conn->Close();
+                return false;
+            }
         }
-        catch (Exception^ e){
+        catch (Exception^ e) {
+            System::Windows::Forms::MessageBox::Show("Error: " + e->Message);
+
+            if (conn->State == ConnectionState::Open)
+                conn->Close();
+
             return false;
         }
-
-        String^ query = "SELECT user_pass, user_role FROM usuari WHERE email_addr = @email";
-
-        MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-        cmd->Parameters->AddWithValue("@email", email);
-
-        MySqlDataReader^ reader = cmd->ExecuteReader();
-
-        if (!reader->Read())
-        {
-            conn->Close();
-            return false;
-        }
-
-        password = reader["user_pass"]->ToString();
-        rol = reader["user_role"]->ToString();
-
-        conn->Close();
-        return true;
     }
 };
