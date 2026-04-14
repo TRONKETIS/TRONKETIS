@@ -3,7 +3,14 @@
 
 #include <string>
 
-// Les declaracions de les funcions d'utilitat
-bool esDataValida(const std::string& data);
+namespace Tronketis {
+
+    class Utils {
+    public:
+        // Declaració de la funció d'utilitat com a estàtica
+        static bool esDataValida(const std::string& data);
+    };
+
+}
 
 #endif

@@ -1,6 +1,7 @@
 #pragma once
 
 using namespace System;
+using namespace MySql::Data::MySqlClient;
 
 namespace Tronketis {
 

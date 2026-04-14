@@ -8,7 +8,7 @@ using namespace System;
 
 namespace Tronketis {
 
-    bool esDataValida(const std::string& data) {
+    bool Utils::esDataValida(const std::string& data) {
         // 1. Comprovar la longitud exacta ("DD-MM-AAAA" són 10 caràcters)
         if (data.length() != 10) {
             return false;
@@ -62,9 +62,9 @@ namespace Tronketis {
 
         localtime_s(&now, &t);
 
-        int anyActual = now->tm_year + 1900; // tm_year és anys des de 1900
-        int mesActual = now->tm_mon + 1;    // tm_mon és mesos des de gener (0-11)
-        int diaActual = now->tm_mday;       // tm_mday és el dia del mes (1-31)
+        int anyActual = now.tm_year + 1900; // tm_year és anys des de 1900
+        int mesActual = now.tm_mon + 1;    // tm_mon és mesos des de gener (0-11)
+        int diaActual = now.tm_mday;       // tm_mday és el dia del mes (1-31)
 
         // Comprovem si l'any de la data és menor que l'any actual
         if (any < anyActual) {
