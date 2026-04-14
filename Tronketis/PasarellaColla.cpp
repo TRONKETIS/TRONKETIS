@@ -8,7 +8,7 @@ using namespace Tronketis;
 
 namespace Tronketis {
 
-    // Versió simplificada sense transaccions avançades
+    
     bool PasarelaColla::insertar(CollaDTO^ colla, String^% error) {
         MySqlConnection^ conn = nullptr;
 
