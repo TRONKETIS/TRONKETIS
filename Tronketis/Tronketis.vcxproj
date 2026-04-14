@@ -130,6 +130,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppColors.h" />
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CercadorUsuari.h" />
     <ClInclude Include="CollaDTO.h" />
@@ -137,13 +138,20 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CtrlCrearColla.h" />
+    <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
+    <ClInclude Include="InhabilitarUsuarioForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PasarelaColla.h" />
+    <ClInclude Include="MenuAdminForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PasarelaUsuari.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RegistrarForm.h">
@@ -159,7 +167,9 @@
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
+    <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
+    <ClCompile Include="MenuAdminForm.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="PasarellaColla.cpp" />
     <ClCompile Include="pch.cpp">
@@ -186,9 +196,14 @@
   <ItemGroup>
     <EmbeddedResource Include="CrearCollaForm.resx">
       <DependentUpon>CrearCollaForm.h</DependentUpon>
+    <EmbeddedResource Include="InhabilitarUsuarioForm.resx">
+      <DependentUpon>InhabilitarUsuarioForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesionForm.resx">
       <DependentUpon>IniciarSesionForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAdminForm.resx">
+      <DependentUpon>MenuAdminForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarForm.resx">
       <DependentUpon>RegistrarForm.h</DependentUpon>

@@ -63,6 +63,16 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CrearCollaForm.h">
+    <ClInclude Include="MenuAdminForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppColors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlAdminMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InhabilitarUsuarioForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -98,6 +108,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CrearCollaForm.cpp">
+    <ClCompile Include="MenuAdminForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InhabilitarUsuarioForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

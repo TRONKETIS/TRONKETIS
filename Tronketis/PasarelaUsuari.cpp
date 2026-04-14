@@ -4,7 +4,7 @@ using namespace System;
 using namespace System::Data;
 using namespace MySql::Data::MySqlClient;
 using namespace Tronketis;
-
+using namespace System;
 void PasarelaUsuari::insertar(UsuariDTO^ u)
 {
     MySqlConnection^ conn = DB::GetConnection();
@@ -37,26 +37,32 @@ String^ PasarelaUsuari::obtenirRolUsuari(int usuariId)
     try {
         conn->Open();
 
-        String^ query = "SELECT user_role FROM usuari WHERE id = @id AND state = 'Active'";
+    cmd->ExecuteNonQuery();
+    conn->Close();
+}
+
+
+bool PasarelaUsuari::Inhabilitar(String^ dni)
+{
+    MySqlConnection^ conn = DB::GetConnection();
+
+    try {
+        conn->Open();
+
+        String^ query = "UPDATE usuari SET state = 'Inactive' WHERE dni = @dni";
+
         MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-        cmd->Parameters->AddWithValue("@id", usuariId);
+        cmd->Parameters->AddWithValue("@dni", dni);
 
-        Object^ result = cmd->ExecuteScalar();
+        int rows = cmd->ExecuteNonQuery();
 
-        return result != nullptr ? result->ToString() : nullptr;
+        conn->Close();
+
+        return rows > 0;
     }
     catch (Exception^) {
-        return nullptr;
-    }
-    finally {
-        if (conn->State == ConnectionState::Open) {
-            conn->Close();
-        }
+        return false;
     }
 }
 
-bool PasarelaUsuari::esAdministrador(int usuariId)
-{
-    String^ rol = obtenirRolUsuari(usuariId);
-    return rol != nullptr && rol->ToLower() == "admin";
-}
+

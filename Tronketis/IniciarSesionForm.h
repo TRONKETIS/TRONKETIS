@@ -1,5 +1,6 @@
 #pragma once
 #include "CtrlIniciarSesion.h"
+#include "MenuAdminForm.h"
 
 namespace Tronketis {
 
@@ -157,8 +158,20 @@ namespace Tronketis {
 			MessageBox::Show("Credenciales incorrectas");
 			return;
 		}
+		if (rol == "Administrador")
+		{
+			MenuAdminForm^ adminForm = gcnew MenuAdminForm();
+			this->Hide();
 
-		MessageBox::Show("Login correcto. Rol: " + rol);
+			adminForm->ShowDialog(); 
+
+			this->Close(); 
+		}
+		else
+		{
+			MessageBox::Show("Login correcto. Rol: " + rol);
+		}
+		
 	}
 };
 }
