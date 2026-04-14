@@ -2,7 +2,7 @@
 #include "PasarelaUsuari.h"
 
 using namespace Tronketis;
-
+using namespace System;
 void PasarelaUsuari::insertar(UsuariDTO^ u)
 {
     MySqlConnection^ conn = DB::GetConnection();
@@ -22,3 +22,29 @@ void PasarelaUsuari::insertar(UsuariDTO^ u)
     cmd->ExecuteNonQuery();
     conn->Close();
 }
+
+
+bool PasarelaUsuari::Inhabilitar(String^ dni)
+{
+    MySqlConnection^ conn = DB::GetConnection();
+
+    try {
+        conn->Open();
+
+        String^ query = "UPDATE usuari SET state = 'Inactive' WHERE dni = @dni";
+
+        MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+        cmd->Parameters->AddWithValue("@dni", dni);
+
+        int rows = cmd->ExecuteNonQuery();
+
+        conn->Close();
+
+        return rows > 0;
+    }
+    catch (Exception^) {
+        return false;
+    }
+}
+
+

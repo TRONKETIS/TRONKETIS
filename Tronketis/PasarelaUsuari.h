@@ -8,8 +8,13 @@ using namespace Tronketis;
 using namespace System;
 using namespace MySql::Data::MySqlClient;
 
-public ref class PasarelaUsuari
-{
-public:
-    static void insertar(UsuariDTO^ u);
-};
+namespace Tronketis {
+
+    public ref class PasarelaUsuari
+    {
+    public:
+        static void insertar(UsuariDTO^ u);
+        static bool Inhabilitar(String^ dni);
+    };
+
+}

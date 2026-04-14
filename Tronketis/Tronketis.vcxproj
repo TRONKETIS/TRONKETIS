@@ -133,9 +133,13 @@
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CercadorUsuari.h" />
+    <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
+    <ClInclude Include="InhabilitarUsuarioForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -155,6 +159,7 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
+    <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
@@ -180,6 +185,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="InhabilitarUsuarioForm.resx">
+      <DependentUpon>InhabilitarUsuarioForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesionForm.resx">
       <DependentUpon>IniciarSesionForm.h</DependentUpon>
     </EmbeddedResource>

@@ -1,5 +1,8 @@
 #pragma once
 #include "AppColors.h"
+#include "CtrlAdminMenu.h"
+#include "RegistrarForm.h"
+#include "InhabilitarUsuarioForm.h"
 namespace Tronketis {
 
 	using namespace System;
@@ -128,6 +131,7 @@ namespace Tronketis {
 			this->btnGoToDelUser->TabIndex = 3;
 			this->btnGoToDelUser->Text = L"Borrar Usuario";
 			this->btnGoToDelUser->UseVisualStyleBackColor = false;
+			this->btnGoToDelUser->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToDelUser_Click);
 			// 
 			// MenuAdminForm
 			// 
@@ -161,7 +165,19 @@ namespace Tronketis {
 	
 		   // button click event handlers
 	private: System::Void btnGoToRegUser_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		CtrlAdminMenu::IrARegistrarUsuario();
+
+		RegistrarForm^ form = gcnew RegistrarForm();
+		form->ShowDialog();
 	}
+
+
+
+
+	private: System::Void btnGoToDelUser_Click(System::Object^ sender, System::EventArgs^ e) {
+		InhabilitarUsuarioForm^ form = gcnew InhabilitarUsuarioForm();
+		form->ShowDialog(); 
+	}
+
 };
 }

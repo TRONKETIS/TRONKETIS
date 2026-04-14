@@ -59,6 +59,12 @@
     <ClInclude Include="AppColors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CtrlAdminMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InhabilitarUsuarioForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -86,6 +92,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MenuAdminForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InhabilitarUsuarioForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
