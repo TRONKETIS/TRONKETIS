@@ -132,12 +132,18 @@
   <ItemGroup>
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CercadorUsuari.h" />
+    <ClInclude Include="CollaDTO.h" />
+    <ClInclude Include="CrearCollaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PasarelaColla.h" />
     <ClInclude Include="PasarelaUsuari.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RegistrarForm.h">
@@ -149,10 +155,13 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
+    <ClCompile Include="CrearCollaForm.cpp" />
+    <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
+    <ClCompile Include="PasarellaColla.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -175,6 +184,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CrearCollaForm.resx">
+      <DependentUpon>CrearCollaForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesionForm.resx">
       <DependentUpon>IniciarSesionForm.h</DependentUpon>
     </EmbeddedResource>
