@@ -196,6 +196,7 @@
   <ItemGroup>
     <EmbeddedResource Include="CrearCollaForm.resx">
       <DependentUpon>CrearCollaForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InhabilitarUsuarioForm.resx">
       <DependentUpon>InhabilitarUsuarioForm.h</DependentUpon>
     </EmbeddedResource>
