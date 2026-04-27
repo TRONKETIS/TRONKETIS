@@ -31,7 +31,7 @@ void PasarelaUsuari::insertar(UsuariDTO^ u)
     }
 }
 
-String^ PasarelaUsuari::obtenirRolUsuari(int usuariId)
+/*String^ PasarelaUsuari::obtenirRolUsuari(int usuariId)
 {
     MySqlConnection^ conn = DB::GetConnection();
     try {
@@ -39,7 +39,7 @@ String^ PasarelaUsuari::obtenirRolUsuari(int usuariId)
 
     cmd->ExecuteNonQuery();
     conn->Close();
-}
+}*/
 
 
 bool PasarelaUsuari::Inhabilitar(String^ dni)
