@@ -3,10 +3,9 @@
 #include "DB.h"
 #include "UsuariDTO.h"
 
-using namespace Tronketis;
-
 using namespace System;
 using namespace MySql::Data::MySqlClient;
+using namespace Tronketis;
 
 namespace Tronketis {
 
