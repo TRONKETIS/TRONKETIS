@@ -23,7 +23,7 @@ Class DB: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class CercadorUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
-    CercaPerUsername(String, String&, String&, String&): PrivateScope, Public, Static, HideBySig
+    CercaPerMail(String, String&, String&, String&, String&): PrivateScope, Public, Static, HideBySig
 Class CppCLRWinFormsProject.Form1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
