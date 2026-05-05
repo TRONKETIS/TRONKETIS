@@ -181,7 +181,7 @@ namespace Tronketis {
 			// 
 			this->comboBoxRol->FormattingEnabled = true;
 			this->comboBoxRol->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L"Casteller", L"Cap de colla", L"Administrador"
+				L"Casteller", L"CapColla", L"Administrador"
 			});
 			this->comboBoxRol->Location = System::Drawing::Point(254, 274);
 			this->comboBoxRol->Name = L"comboBoxRol";
