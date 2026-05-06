@@ -132,11 +132,13 @@
   <ItemGroup>
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AuthService.h" />
+    <ClInclude Include="CercadorMembre.h" />
     <ClInclude Include="CercadorUsuari.h" />
     <ClInclude Include="CollaDTO.h" />
     <ClInclude Include="CrearCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CtrlAfegirMembreColla.h" />
     <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
@@ -152,6 +154,7 @@
     <ClInclude Include="MenuAdminForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PasarelaMembre.h" />
     <ClInclude Include="PasarelaUsuari.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RegistrarForm.h">
@@ -164,12 +167,14 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
+    <ClCompile Include="CtrlAfegirMembreColla.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
+    <ClCompile Include="PasarelaMembre.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="PasarellaColla.cpp" />
     <ClCompile Include="pch.cpp">
