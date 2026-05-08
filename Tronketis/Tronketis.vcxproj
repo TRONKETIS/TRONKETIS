@@ -144,7 +144,10 @@
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
-    <ClInclude Include="GestionMembresForm.h">
+    <ClInclude Include="AfegirMembresForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GestioMembresForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="InhabilitarUsuarioForm.h">
@@ -177,7 +180,8 @@
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
-    <ClCompile Include="GestionMembresForm.cpp" />
+    <ClCompile Include="AfegirMembresForm.cpp" />
+    <ClCompile Include="GestioMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
@@ -209,6 +213,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CrearCollaForm.resx">
       <DependentUpon>CrearCollaForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioMembresForm.resx">
+      <DependentUpon>GestioMembresForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InhabilitarUsuarioForm.resx">
       <DependentUpon>InhabilitarUsuarioForm.h</DependentUpon>

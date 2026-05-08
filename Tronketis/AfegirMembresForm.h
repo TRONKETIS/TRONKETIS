@@ -11,16 +11,16 @@ namespace Tronketis {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	public ref class GestionMembresForm : public System::Windows::Forms::Form
+	public ref class AfegirMembresForm : public System::Windows::Forms::Form
 	{
 	public:
-		GestionMembresForm(void)
+		AfegirMembresForm(void)
 		{
 			InitializeComponent();
 		}
 
 	protected:
-		~GestionMembresForm()
+		~AfegirMembresForm()
 		{
 			if (components)
 			{
@@ -37,7 +37,7 @@ namespace Tronketis {
 		System::Windows::Forms::TextBox^ txtColla;
 		System::Windows::Forms::TextBox^ txtUni;
 		System::Windows::Forms::Button^ btnAfegir;
-		System::Windows::Forms::Button^ btnVolver;
+		System::Windows::Forms::Button^ btnTornar;
 		System::Windows::Forms::Label^ lblMissatge;
 
 		System::ComponentModel::Container^ components;
@@ -53,7 +53,7 @@ namespace Tronketis {
 			this->txtColla = (gcnew System::Windows::Forms::TextBox());
 			this->txtUni = (gcnew System::Windows::Forms::TextBox());
 			this->btnAfegir = (gcnew System::Windows::Forms::Button());
-			this->btnVolver = (gcnew System::Windows::Forms::Button());
+			this->btnTornar = (gcnew System::Windows::Forms::Button());
 			this->lblMissatge = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
@@ -65,7 +65,7 @@ namespace Tronketis {
 			this->lblTitol->Name = L"lblTitol";
 			this->lblTitol->Size = System::Drawing::Size(310, 31);
 			this->lblTitol->TabIndex = 0;
-			this->lblTitol->Text = L"Gestió de membres colla";
+			this->lblTitol->Text = L"Afegir membres a la colla";
 			// 
 			// lblDni
 			// 
@@ -123,17 +123,17 @@ namespace Tronketis {
 			this->btnAfegir->TabIndex = 7;
 			this->btnAfegir->Text = L"Afegir membre";
 			this->btnAfegir->UseVisualStyleBackColor = true;
-			this->btnAfegir->Click += gcnew System::EventHandler(this, &GestionMembresForm::btnAfegir_Click);
+			this->btnAfegir->Click += gcnew System::EventHandler(this, &AfegirMembresForm::btnAfegir_Click);
 			// 
-			// btnVolver
+			// btnTornar
 			// 
-			this->btnVolver->Location = System::Drawing::Point(280, 265);
-			this->btnVolver->Name = L"btnVolver";
-			this->btnVolver->Size = System::Drawing::Size(110, 32);
-			this->btnVolver->TabIndex = 8;
-			this->btnVolver->Text = L"Volver";
-			this->btnVolver->UseVisualStyleBackColor = true;
-			this->btnVolver->Click += gcnew System::EventHandler(this, &GestionMembresForm::btnVolver_Click);
+			this->btnTornar->Location = System::Drawing::Point(280, 265);
+			this->btnTornar->Name = L"btnTornar";
+			this->btnTornar->Size = System::Drawing::Size(110, 32);
+			this->btnTornar->TabIndex = 8;
+			this->btnTornar->Text = L"Tornar";
+			this->btnTornar->UseVisualStyleBackColor = true;
+			this->btnTornar->Click += gcnew System::EventHandler(this, &AfegirMembresForm::btnTornar_Click);
 			// 
 			// lblMissatge
 			// 
@@ -144,13 +144,13 @@ namespace Tronketis {
 			this->lblMissatge->Size = System::Drawing::Size(0, 16);
 			this->lblMissatge->TabIndex = 9;
 			// 
-			// GestionMembresForm
+			// AfegirMembresForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(520, 420);
 			this->Controls->Add(this->lblMissatge);
-			this->Controls->Add(this->btnVolver);
+			this->Controls->Add(this->btnTornar);
 			this->Controls->Add(this->btnAfegir);
 			this->Controls->Add(this->txtUni);
 			this->Controls->Add(this->txtColla);
@@ -159,7 +159,7 @@ namespace Tronketis {
 			this->Controls->Add(this->lblColla);
 			this->Controls->Add(this->lblDni);
 			this->Controls->Add(this->lblTitol);
-			this->Name = L"GestionMembresForm";
+			this->Name = L"AfegirMembresForm";
 			this->Text = L"Gestió de membres";
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -185,7 +185,7 @@ namespace Tronketis {
 		}
 	}
 
-	private: System::Void btnVolver_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnTornar_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
 	};

@@ -89,7 +89,10 @@
     <ClInclude Include="MenuCapColla.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GestionMembresForm.h">
+    <ClInclude Include="AfegirMembresForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GestioMembresForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -142,7 +145,10 @@
     <ClCompile Include="MenuCapColla.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GestionMembresForm.cpp">
+    <ClCompile Include="AfegirMembresForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GestioMembresForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

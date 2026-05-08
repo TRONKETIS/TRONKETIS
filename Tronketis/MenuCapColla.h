@@ -1,5 +1,5 @@
 #pragma once
-#include "GestionMembresForm.h"
+#include "GestioMembresForm.h"
 
 namespace Tronketis {
 
@@ -153,7 +153,7 @@ namespace Tronketis {
 #pragma endregion
 
 	private: System::Void btnGestionarMembres_Click(System::Object^ sender, System::EventArgs^ e) {
-		GestionMembresForm^ f = gcnew GestionMembresForm();
+		GestioMembresForm^ f = gcnew GestioMembresForm();
 		f->ShowDialog();
 	}
 
