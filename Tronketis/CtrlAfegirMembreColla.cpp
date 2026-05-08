@@ -1,6 +1,8 @@
+#include "pch.h"
 #include "CtrlAfegirMembreColla.h"
 
-bool CtrlAfegirMembreColla::afegirMembre(String^ dni, String^ collaName, String^ uniName, String^% error)
+
+bool Tronketis::CtrlAfegirMembreColla::afegirMembre(String^ dni, String^ collaName, String^ uniName, String^% error)
 {
 	bool correcte = false;
 	error = "";

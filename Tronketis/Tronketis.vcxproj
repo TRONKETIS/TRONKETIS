@@ -150,6 +150,9 @@
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MenuCapColla.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PasarelaColla.h" />
     <ClInclude Include="MenuAdminForm.h">
       <FileType>CppForm</FileType>
@@ -174,6 +177,7 @@
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
+    <ClCompile Include="MenuCapColla.cpp" />
     <ClCompile Include="PasarelaMembre.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="PasarellaColla.cpp" />
@@ -210,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdminForm.resx">
       <DependentUpon>MenuAdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuCapColla.resx">
+      <DependentUpon>MenuCapColla.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarForm.resx">
       <DependentUpon>RegistrarForm.h</DependentUpon>

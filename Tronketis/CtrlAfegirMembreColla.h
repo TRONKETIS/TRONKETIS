@@ -4,10 +4,15 @@
 #include "PasarelaMembre.h"
 #include "CercadorUsuari.h"
 
-using namespace System;
+namespace Tronketis {
+	using namespace System;
 
-ref class CtrlAfegirMembreColla
-{
-public:
-	static bool afegirMembre(String^ dni, String^ collaName, String^ uniName, String^% error);
-};
+	public ref class CtrlAfegirMembreColla
+	{
+	public:
+		static bool afegirMembre(String^ dni, String^ collaName, String^ uniName, String^% error);
+	};
+}
+
+
+

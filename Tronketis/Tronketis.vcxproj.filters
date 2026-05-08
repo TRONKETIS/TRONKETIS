@@ -63,8 +63,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CrearCollaForm.h">
-		<Filter>Header Files</Filter>
-	</ClInclude>
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="MenuAdminForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,6 +75,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InhabilitarUsuarioForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorMembre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlAfegirMembreColla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaMembre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCapColla.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -110,12 +122,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CrearCollaForm.cpp">
-		<Filter>Source Files</Filter>
-	</ClCompile>
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="MenuAdminForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InhabilitarUsuarioForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlAfegirMembreColla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaMembre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCapColla.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

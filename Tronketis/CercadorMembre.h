@@ -5,7 +5,7 @@
 using namespace System;
 using namespace MySql::Data::MySqlClient;
 
-ref class CercadorMembre
+public ref class CercadorMembre
 {
 public:
 	static bool existeixMembre(String^ dni, String^ collaName, String^ uniName)
