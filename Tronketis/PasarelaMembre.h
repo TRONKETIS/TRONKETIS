@@ -2,14 +2,15 @@
 
 #include "DB.h"
 
+using namespace System;
 
 public ref class PasarelaMembre
 {
 public:
-    static bool insertar(System::String^ dni,
-        System::String^ collaName,
-        System::String^ uniName,
-        System::DateTime joinDate);
+    static bool insertar(String^ dni,
+        String^ collaName,
+        String^ uniName,
+        DateTime joinDate);
 };
 
 

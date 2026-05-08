@@ -144,6 +144,9 @@
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
+    <ClInclude Include="GestionMembresForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="InhabilitarUsuarioForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -174,6 +177,7 @@
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
+    <ClCompile Include="GestionMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />

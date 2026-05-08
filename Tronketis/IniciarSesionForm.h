@@ -1,6 +1,7 @@
 #pragma once
 #include "CtrlIniciarSesion.h"
 #include "MenuAdminForm.h"
+#include "MenuCapColla.h"
 
 namespace Tronketis {
 
@@ -166,6 +167,15 @@ namespace Tronketis {
 			adminForm->ShowDialog(); 
 
 			this->Close(); 
+		}
+		else if (rol == "CapColla")
+		{
+			MenuCapColla^ capCollaForm = gcnew MenuCapColla();
+			this->Hide();
+
+			capCollaForm->ShowDialog();
+
+			this->Close();
 		}
 		else
 		{
