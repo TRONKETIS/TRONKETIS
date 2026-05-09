@@ -177,7 +177,10 @@ namespace Tronketis {
 		if (ok) {
 			lblMissatge->ForeColor = Color::Green;
 			lblMissatge->Text = L"Membre afegit correctament";
+
 			txtDni->Clear();
+			txtColla->Clear();
+			txtUni->Clear();
 		}
 		else {
 			lblMissatge->ForeColor = Color::Red;

@@ -28,7 +28,6 @@ bool PasarelaMembre::insertar(String^ dni,
         correcte = (cmd->ExecuteNonQuery() == 1);
     }
     catch (Exception^ ex) {
-        System::Windows::Forms::MessageBox::Show(ex->Message, "Error SQL");
         correcte = false;
     }
     finally {
@@ -52,7 +51,6 @@ bool PasarelaMembre::eliminarMembre(String^ dni)
         correcte = (cmd->ExecuteNonQuery() == 1);
     }
     catch (Exception^ ex) {
-        System::Windows::Forms::MessageBox::Show(ex->Message, "Error SQL");
         correcte = false;
     }
     finally {
