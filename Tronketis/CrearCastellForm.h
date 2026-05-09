@@ -411,8 +411,8 @@ namespace Tronketis {
 			LabelMissatge->ForeColor = System::Drawing::Color::Green;
 
 			MessageBox::Show(
-				"El castell \"" + nom + "\" s'ha creat amb èxit!\n\nID: " + nouCastell->id,
-				L"Èxit",
+				"El castell \"" + nom + "\" s'ha creat amb exit!\n\nID: " + nouCastell->id,
+				L"Exit",
 				MessageBoxButtons::OK,
 				MessageBoxIcon::Information
 			);

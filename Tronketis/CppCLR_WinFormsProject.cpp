@@ -8,7 +8,7 @@ using namespace System;
 // }
 //#include "CrearCollaForm.h"
 //#include "RegistrarForm.h"
-#include "CrearCastellForm.h"
+#include "IniciarSesionForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -17,6 +17,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::CrearCastellForm());
+  Application::Run(gcnew Tronketis::IniciarSesionForm());
   return 0;
 }
