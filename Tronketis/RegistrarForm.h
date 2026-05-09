@@ -1,6 +1,7 @@
 #pragma once
 #include "UsuariDTO.h"
 #include "CtrlRegistrarUsuari.h"
+#include "RegisterCastellerForm.h"
 namespace Tronketis {
 
 	using namespace System;
@@ -246,6 +247,10 @@ namespace Tronketis {
 		}
 		else {
 			MessageBox::Show("Usuario registrado correctamente");
+			if (u->rol == "Casteller") {
+				RegisterCastellerForm^ form = gcnew RegisterCastellerForm(u->dni);
+				form->ShowDialog();
+			}
 		}
 	}
 };
