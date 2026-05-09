@@ -11,6 +11,7 @@ public:
         String^ collaName,
         String^ uniName,
         DateTime joinDate);
+    static bool eliminarMembre(String^ dni);
 };
 
 

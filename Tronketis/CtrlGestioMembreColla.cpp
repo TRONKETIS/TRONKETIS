@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "CtrlAfegirMembreColla.h"
+#include "CtrlGestioMembreColla.h"
 
 using namespace System;
 
-bool Tronketis::CtrlAfegirMembreColla::afegirMembre(String^ dni,
+bool Tronketis::CtrlGestioMembreColla::afegirMembre(String^ dni,
     String^ collaName,
     String^ uniName,
     String^% error)
@@ -34,6 +34,28 @@ bool Tronketis::CtrlAfegirMembreColla::afegirMembre(String^ dni,
 
         if (!correcte) {
             error = "Error al insertar el miembro en la colla";
+        }
+    }
+
+    return correcte;
+}
+
+bool Tronketis::CtrlGestioMembreColla::eliminarMembre(String^ dni, String^% error)
+{
+    bool correcte = false;
+    error = "";
+
+    if (String::IsNullOrWhiteSpace(dni)) {
+        error = "El DNI no puede estar vacio";
+    }
+    else if (!CercadorMembre::existeixMembre(dni)) {
+        error = "El usuario no pertenece a ninguna colla";
+    }
+    else {
+        correcte = PasarelaMembre::eliminarMembre(dni);
+
+        if (!correcte) {
+            error = "Error al eliminar el miembro de la colla";
         }
     }
 

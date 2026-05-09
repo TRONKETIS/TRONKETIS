@@ -33,6 +33,28 @@ public:
 		}
 		return existeix;
 	}
+
+	static bool existeixMembre(String^ dni)
+	{
+		bool existeix = false;
+		MySqlConnection^ conn = DB::GetConnection();
+		try {
+			conn->Open();
+			String^ sql = "SELECT COUNT(*) FROM membre WHERE dni = @dni";
+			MySqlCommand^ cmd = gcnew MySqlCommand(sql, conn);
+			cmd->Parameters->AddWithValue("@dni", dni);
+			int count = Convert::ToInt32(cmd->ExecuteScalar());
+			existeix = (count > 0);
+		}
+		catch (Exception^) {
+			return false;
+		}
+		finally {
+			conn->Close();
+		}
+		return existeix;
+	}
+
 	static bool teAlgunaColla(String^ dni)
 	{
 		bool teColla = false;

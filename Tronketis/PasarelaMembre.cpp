@@ -37,3 +37,26 @@ bool PasarelaMembre::insertar(String^ dni,
 
     return correcte;
 }
+
+bool PasarelaMembre::eliminarMembre(String^ dni)
+{
+    bool correcte = false;
+    MySqlConnection^ conn = DB::GetConnection();
+    try {
+        conn->Open();
+        String^ sql =
+            "DELETE FROM membre "
+            "WHERE dni = @dni";
+        MySqlCommand^ cmd = gcnew MySqlCommand(sql, conn);
+        cmd->Parameters->AddWithValue("@dni", dni);
+        correcte = (cmd->ExecuteNonQuery() == 1);
+    }
+    catch (Exception^ ex) {
+        System::Windows::Forms::MessageBox::Show(ex->Message, "Error SQL");
+        correcte = false;
+    }
+    finally {
+        conn->Close();
+    }
+    return correcte;
+}

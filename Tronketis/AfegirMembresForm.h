@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CtrlAfegirMembreColla.h"
+#include "CtrlGestioMembreColla.h"
 
 namespace Tronketis {
 
@@ -172,7 +172,7 @@ namespace Tronketis {
 		String^ uniName = txtUni->Text->Trim();
 
 		String^ error = "";
-		bool ok = CtrlAfegirMembreColla::afegirMembre(dni, collaName, uniName, error);
+		bool ok = CtrlGestioMembreColla::afegirMembre(dni, collaName, uniName, error);
 
 		if (ok) {
 			lblMissatge->ForeColor = Color::Green;

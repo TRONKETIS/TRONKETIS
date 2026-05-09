@@ -1,5 +1,6 @@
 #pragma once
 #include "AfegirMembresForm.h"
+#include "EliminarMembreForm.h"
 
 namespace Tronketis {
 
@@ -119,7 +120,8 @@ namespace Tronketis {
 	}
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		MessageBox::Show("Pantalla d'eliminar membre pendent");
+		EliminarMembreForm^ f = gcnew EliminarMembreForm();
+		f->ShowDialog();
 	}
 
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {

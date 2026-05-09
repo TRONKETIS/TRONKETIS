@@ -138,13 +138,16 @@
     <ClInclude Include="CrearCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="CtrlAfegirMembreColla.h" />
+    <ClInclude Include="CtrlGestioMembreColla.h" />
     <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="AfegirMembresForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EliminarMembreForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GestioMembresForm.h">
@@ -176,11 +179,12 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
-    <ClCompile Include="CtrlAfegirMembreColla.cpp" />
+    <ClCompile Include="CtrlGestioMembreColla.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="AfegirMembresForm.cpp" />
+    <ClCompile Include="EliminarMembreForm.cpp" />
     <ClCompile Include="GestioMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />

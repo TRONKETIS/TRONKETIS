@@ -7,10 +7,11 @@
 namespace Tronketis {
 	using namespace System;
 
-	public ref class CtrlAfegirMembreColla
+	public ref class CtrlGestioMembreColla
 	{
 	public:
 		static bool afegirMembre(String^ dni, String^ collaName, String^ uniName, String^% error);
+		static bool eliminarMembre(String^ dni, String^% error);
 	};
 }
 
