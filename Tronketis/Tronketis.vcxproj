@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AuthService.h" />
+    <ClInclude Include="CastellerDTO.h" />
     <ClInclude Include="CercadorUsuari.h" />
     <ClInclude Include="CollaDTO.h" />
     <ClInclude Include="CrearCollaForm.h">
@@ -140,12 +141,17 @@
     <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
+    <ClInclude Include="CtrlRegisterCasteller.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="InhabilitarUsuarioForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="IniciarSesionForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PasarelaCasteller.h" />
+    <ClInclude Include="RegisterCastellerForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PasarelaColla.h" />
@@ -166,10 +172,13 @@
     <ClCompile Include="CrearCollaForm.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
+    <ClCompile Include="CtrlRegisterCasteller.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
+    <ClCompile Include="PasarelaCasteller.cpp" />
+    <ClCompile Include="RegisterCastellerForm.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="PasarellaColla.cpp" />
     <ClCompile Include="pch.cpp">
@@ -205,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdminForm.resx">
       <DependentUpon>MenuAdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterCastellerForm.resx">
+      <DependentUpon>RegisterCastellerForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarForm.resx">
       <DependentUpon>RegistrarForm.h</DependentUpon>
