@@ -10,6 +10,7 @@ namespace Tronketis {
 
         String^ dniCasteller;
         String^ telefon;
+        String^ nomUsuari;
     };
 
 }
