@@ -7,8 +7,8 @@ using namespace System;
 //    return 0;
 // }
 
-//#include "IniciarSesionForm.h"
-#include "ConsultarCastellForm.h"
+#include "IniciarSesionForm.h"
+//#include "ConsultarCastellForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -17,6 +17,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::ConsultarCastellForm());
+  Application::Run(gcnew Tronketis::IniciarSesionForm());
   return 0;
 }
