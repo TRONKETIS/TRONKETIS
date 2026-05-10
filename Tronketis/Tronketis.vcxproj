@@ -135,6 +135,8 @@
     <ClInclude Include="CastellDTO.h" />
     <ClInclude Include="CastellerDTO.h" />
     <ClInclude Include="CercadorCastell.h" />
+    <ClInclude Include="CercadorCasteller.h" />
+    <ClInclude Include="CercadorDiada.h" />
     <ClInclude Include="CercadorUsuari.h" />
     <ClInclude Include="CollaDTO.h" />
     <ClInclude Include="ConsultarCastellForm.h">
@@ -152,16 +154,20 @@
     <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegisterCasteller.h" />
+    <ClInclude Include="CtrlRegistrarAssistencia.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
+    <ClInclude Include="DiadaDTO.h" />
     <ClInclude Include="InhabilitarUsuarioForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ParticipacioDiadaDTO.h" />
     <ClInclude Include="PasarelaCastell.h" />
     <ClInclude Include="PasarelaCasteller.h" />
+    <ClInclude Include="PasarelaParticipacioDiada.h" />
     <ClInclude Include="RegisterCastellerForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -171,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="PasarelaUsuari.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="RegistrarAssistenciaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="RegistrarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -180,6 +189,8 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
+    <ClCompile Include="CercadorCasteller.cpp" />
+    <ClCompile Include="CercadorDiada.cpp" />
     <ClCompile Include="ConsultarCastellForm.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />
@@ -189,12 +200,14 @@
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegisterCasteller.cpp" />
+    <ClCompile Include="CtrlRegistrarAssistencia.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
     <ClCompile Include="PasarelaCasteller.cpp" />
+    <ClCompile Include="PasarelaParticipacioDiada.cpp" />
     <ClCompile Include="RegisterCastellerForm.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="PasarellaColla.cpp" />
@@ -204,6 +217,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="RegistrarAssistenciaForm.cpp" />
     <ClCompile Include="RegistrarForm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterCastellerForm.resx">
       <DependentUpon>RegisterCastellerForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarAssistenciaForm.resx">
+      <DependentUpon>RegistrarAssistenciaForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarForm.resx">
       <DependentUpon>RegistrarForm.h</DependentUpon>

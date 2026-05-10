@@ -8,8 +8,7 @@ using namespace System;
 // }
 
 #include "IniciarSesionForm.h"
-//#include "ConsultarCastellForm.h"
-//#include "CrearCastellForm.h"
+//#include "RegistrarAssistenciaForm.h"
 
 using namespace System::Windows::Forms;
 
