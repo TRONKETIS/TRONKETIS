@@ -143,10 +143,14 @@
     <ClInclude Include="ConsultarCastellForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CrearCastellForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CrearCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CtrlConsultarCastell.h" />
+    <ClInclude Include="CtrlCrearCastell.h" />
     <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
@@ -182,8 +186,10 @@
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="ConsultarCastellForm.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
+    <ClCompile Include="CrearCastellForm.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
     <ClCompile Include="CtrlConsultarCastell.cpp" />
+    <ClCompile Include="CtrlCrearCastell.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegisterCasteller.cpp" />

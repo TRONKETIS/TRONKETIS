@@ -181,6 +181,7 @@ namespace Tronketis {
 				c->getPisos(),
 				c->getTipus()
 			);
+			//MessageBox::Show(c->getPisos().ToString());
 		}
 	}
 };

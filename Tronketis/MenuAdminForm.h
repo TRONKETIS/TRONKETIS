@@ -14,45 +14,47 @@ namespace Tronketis {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Summary for MenuAdminForm
-	/// </summary>
 	public ref class MenuAdminForm : public System::Windows::Forms::Form
 	{
 	public:
+		// Constructor por defecto
 		MenuAdminForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			ConfigurarBotones();
+		}
 
-			/*go to reg button begg*/
+		// Constructor con nombre de admin (el que usa tu login)
+		MenuAdminForm(String^ adminName)
+		{
+			InitializeComponent();
+			lblAdminName->Text = adminName;
+			ConfigurarBotones();
+		}
+
+	private:
+		// Función auxiliar para no repetir código de colores
+		void ConfigurarBotones() {
+			// Registrar Usuario
 			this->btnGoToRegUser->BackColor = AppColors::Yellow;
-			this->btnGoToRegUser->ForeColor = AppColors::Black; // <-- Letra siempre negra
+			this->btnGoToRegUser->ForeColor = AppColors::Black;
 			this->btnGoToRegUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToRegUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
-			/*go to reg button end*/
 
-			/*delete user button begg*/
+			// Borrar Usuario
 			this->btnGoToDelUser->BackColor = AppColors::Yellow;
-			this->btnGoToDelUser->ForeColor = AppColors::Black; // <-- Letra siempre negra
+			this->btnGoToDelUser->ForeColor = AppColors::Black;
 			this->btnGoToDelUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToDelUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
-			/*delete user button end*/
 
-			/*asignar cap button begg*/
+			// Asignar Cap
 			this->btnGoToAsignarCap->BackColor = AppColors::Yellow;
-			this->btnGoToAsignarCap->ForeColor = AppColors::Black; // <-- Letra siempre negra
+			this->btnGoToAsignarCap->ForeColor = AppColors::Black;
 			this->btnGoToAsignarCap->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToAsignarCap->FlatAppearance->MouseDownBackColor = AppColors::Black;
-			/*asignar cap button end*/
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~MenuAdminForm()
 		{
 			if (components)
@@ -60,26 +62,15 @@ namespace Tronketis {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::Label^ lblWelcom;
-	protected:
 	private: System::Windows::Forms::Label^ lblAdminName;
 	private: System::Windows::Forms::Button^ btnGoToRegUser;
 	private: System::Windows::Forms::Button^ btnGoToDelUser;
 	private: System::Windows::Forms::Button^ btnGoToAsignarCap;
-
-	protected:
-
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container^ components;
+	private: System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuAdminForm::typeid));
@@ -110,8 +101,7 @@ namespace Tronketis {
 			// 
 			// btnGoToRegUser
 			// 
-			this->btnGoToRegUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->btnGoToRegUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold));
 			this->btnGoToRegUser->Location = System::Drawing::Point(187, 123);
 			this->btnGoToRegUser->Name = L"btnGoToRegUser";
 			this->btnGoToRegUser->Size = System::Drawing::Size(206, 36);
@@ -122,10 +112,7 @@ namespace Tronketis {
 			// 
 			// btnGoToDelUser
 			// 
-			this->btnGoToDelUser->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->btnGoToDelUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->btnGoToDelUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold));
 			this->btnGoToDelUser->Location = System::Drawing::Point(187, 178);
 			this->btnGoToDelUser->Name = L"btnGoToDelUser";
 			this->btnGoToDelUser->Size = System::Drawing::Size(206, 36);
@@ -136,10 +123,7 @@ namespace Tronketis {
 			// 
 			// btnGoToAsignarCap
 			// 
-			this->btnGoToAsignarCap->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->btnGoToAsignarCap->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->btnGoToAsignarCap->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold));
 			this->btnGoToAsignarCap->Location = System::Drawing::Point(187, 233);
 			this->btnGoToAsignarCap->Name = L"btnGoToAsignarCap";
 			this->btnGoToAsignarCap->Size = System::Drawing::Size(206, 36);
@@ -158,7 +142,6 @@ namespace Tronketis {
 			this->Controls->Add(this->btnGoToRegUser);
 			this->Controls->Add(this->lblAdminName);
 			this->Controls->Add(this->lblWelcom);
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MenuAdminForm";
 			this->Text = L"MenuAdminForm";
 			this->ResumeLayout(false);
@@ -167,9 +150,7 @@ namespace Tronketis {
 		}
 #pragma endregion
 
-		// button click event handlers
 	private: System::Void btnGoToRegUser_Click(System::Object^ sender, System::EventArgs^ e) {
-		CtrlAdminMenu::IrARegistrarUsuario();
 		RegistrarForm^ form = gcnew RegistrarForm();
 		form->ShowDialog();
 	}
@@ -183,6 +164,5 @@ namespace Tronketis {
 		AsignarCapForm^ form = gcnew AsignarCapForm();
 		form->ShowDialog();
 	}
-
 	};
-}-
+}

@@ -38,7 +38,7 @@ CercadorCastell::cercaPerNom(String^ nom)
 
             dto->nom =
                 reader["nom"]->ToString();
-
+            //MessageBox::Show(reader["num_pisos"]->ToString());
             dto->pisos =
                 Convert::ToInt32(reader["num_pisos"]);
 

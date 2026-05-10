@@ -79,7 +79,6 @@ namespace Tronketis {
 			this->lblEmail->TabIndex = 0;
 			this->lblEmail->Text = L"Email";
 			this->lblEmail->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->lblEmail->Click += gcnew System::EventHandler(this, &IniciarSesionForm::label1_Click);
 			// 
 			// txtEmail
 			// 
@@ -96,7 +95,6 @@ namespace Tronketis {
 			this->lblPassword->TabIndex = 2;
 			this->lblPassword->Text = L"Contraseña";
 			this->lblPassword->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->lblPassword->Click += gcnew System::EventHandler(this, &IniciarSesionForm::label1_Click_1);
 			// 
 			// txtPassword
 			// 
@@ -135,10 +133,6 @@ namespace Tronketis {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
 
 	// El evento de click del botón de login
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -160,7 +154,7 @@ namespace Tronketis {
 		}
 		if (rol == "Administrador")
 		{
-			MenuAdminForm^ adminForm = gcnew MenuAdminForm();
+			MenuAdminForm^ adminForm = gcnew MenuAdminForm(email);
 			this->Hide();
 
 			adminForm->ShowDialog(); 
