@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "PasarelaCastell.h"
 #include "DB.h"
+
 using namespace System;
 using namespace System::Data;
-using namespace System::Collections::Generic;
 using namespace MySql::Data::MySqlClient;
 using namespace Tronketis;
 
@@ -21,14 +21,15 @@ namespace Tronketis {
             MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
             cmd->Parameters->AddWithValue("@nom", castell->nom);
             cmd->Parameters->AddWithValue("@tipus", castell->tipus);
-            cmd->Parameters->AddWithValue("@num_pisos", castell->numPisos);
+            cmd->Parameters->AddWithValue("@num_pisos", castell->pisos);
 
             cmd->ExecuteNonQuery();
 
             cmd = gcnew MySqlCommand("SELECT LAST_INSERT_ID()", conn);
-            castell->id = Convert::ToInt32(cmd->ExecuteScalar());
+            castell->idCastell = Convert::ToInt32(cmd->ExecuteScalar());
 
             return true;
+            
         }
         catch (Exception^ ex) {
             error = "Error: " + ex->Message;
@@ -41,58 +42,27 @@ namespace Tronketis {
         }
     }
 
-    bool PasarelaCastell::existeixNom(String^ nom) {
-        MySqlConnection^ conn = nullptr;
-        try {
-            conn = DB::GetConnection();
-            conn->Open();
-
-            String^ query = "SELECT COUNT(*) FROM castell WHERE nom = @nom";
-            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-            cmd->Parameters->AddWithValue("@nom", nom);
-
-            int count = Convert::ToInt32(cmd->ExecuteScalar());
-            return count > 0;
-        }
-        catch (Exception^ ex) {
-            throw gcnew Exception("Error comprovant nom: " + ex->Message);
-        }
-        finally {
-            if (conn != nullptr && conn->State == ConnectionState::Open) {
-                conn->Close();
-            }
-        }
+    PasarelaCastell::PasarelaCastell(CastellDTO^ dto)
+    {
+        this->dto = dto;
+    }
+    int PasarelaCastell::getId()
+    {
+        return dto->idCastell;
     }
 
-    List<CastellDTO^>^ PasarelaCastell::obtenirTots() {
-        MySqlConnection^ conn = nullptr;
-        List<CastellDTO^>^ castells = gcnew List<CastellDTO^>();
-        try {
-            conn = DB::GetConnection();
-            conn->Open();
-
-            String^ query = "SELECT id, nom, tipus, num_pisos FROM castell ORDER BY tipus, num_pisos";
-            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-
-            MySqlDataReader^ reader = cmd->ExecuteReader();
-            while (reader->Read()) {
-                CastellDTO^ c = gcnew CastellDTO();
-                c->id       = reader->GetInt32("id");
-                c->nom      = reader->GetString("nom");
-                c->tipus    = reader->GetString("tipus");
-                c->numPisos = reader->GetInt32("num_pisos");
-                castells->Add(c);
-            }
-            return castells;
-        }
-        catch (Exception^) {
-            return castells;
-        }
-        finally {
-            if (conn != nullptr && conn->State == ConnectionState::Open) {
-                conn->Close();
-            }
-        }
+    String^ PasarelaCastell::getNom()
+    {
+        return dto->nom;
     }
 
+    int PasarelaCastell::getPisos()
+    {
+        return dto->pisos;
+    }
+
+    String^ PasarelaCastell::getTipus()
+    {
+        return dto->tipus;
+    }
 }

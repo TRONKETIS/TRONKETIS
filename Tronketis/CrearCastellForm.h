@@ -401,7 +401,7 @@ namespace Tronketis {
 		CastellDTO^ nouCastell = gcnew CastellDTO();
 		nouCastell->nom      = nom;
 		nouCastell->tipus    = tipus;
-		nouCastell->numPisos = pisos;
+		nouCastell->pisos = pisos;
 
 		String^ error;
 		bool resultat = CtrlCrearCastell::Crear(nouCastell, error);
@@ -411,7 +411,7 @@ namespace Tronketis {
 			LabelMissatge->ForeColor = System::Drawing::Color::Green;
 
 			MessageBox::Show(
-				"El castell \"" + nom + "\" s'ha creat amb exit!\n\nID: " + nouCastell->id,
+				"El castell \"" + nom + "\" s'ha creat amb exit!\n\nID: " + nouCastell->idCastell,
 				L"Exit",
 				MessageBoxButtons::OK,
 				MessageBoxIcon::Information

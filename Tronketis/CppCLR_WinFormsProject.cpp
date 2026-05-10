@@ -6,9 +6,10 @@ using namespace System;
 // {
 //    return 0;
 // }
-//#include "CrearCollaForm.h"
-//#include "RegistrarForm.h"
+
 #include "IniciarSesionForm.h"
+//#include "ConsultarCastellForm.h"
+//#include "CrearCastellForm.h"
 
 using namespace System::Windows::Forms;
 
