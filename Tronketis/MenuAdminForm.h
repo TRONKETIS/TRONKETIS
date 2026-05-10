@@ -3,6 +3,8 @@
 #include "CtrlAdminMenu.h"
 #include "RegistrarForm.h"
 #include "InhabilitarUsuarioForm.h"
+#include "AsignarCapForm.h"
+
 namespace Tronketis {
 
 	using namespace System;
@@ -26,26 +28,25 @@ namespace Tronketis {
 			//
 
 			/*go to reg button begg*/
-			this->btnGoToRegUser->BackColor = AppColors::DarkRed;
-			//this->btnGoToRegUser->ForeColor = AppColors::White;
-
+			this->btnGoToRegUser->BackColor = AppColors::Yellow;
+			this->btnGoToRegUser->ForeColor = AppColors::Black; // <-- Letra siempre negra
 			this->btnGoToRegUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToRegUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
-
-			this->btnGoToRegUser->MouseEnter += gcnew EventHandler(this, &MenuAdminForm::OnHoverEnter);
-			this->btnGoToRegUser->MouseLeave += gcnew EventHandler(this, &MenuAdminForm::OnHoverLeave);
 			/*go to reg button end*/
 
 			/*delete user button begg*/
-			this->btnGoToDelUser->BackColor = AppColors::DarkRed;
-			//this->btnGoToRegUser->ForeColor = AppColors::White;
-
+			this->btnGoToDelUser->BackColor = AppColors::Yellow;
+			this->btnGoToDelUser->ForeColor = AppColors::Black; // <-- Letra siempre negra
 			this->btnGoToDelUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToDelUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
-
-			this->btnGoToDelUser->MouseEnter += gcnew EventHandler(this, &MenuAdminForm::OnHoverEnter);
-			this->btnGoToDelUser->MouseLeave += gcnew EventHandler(this, &MenuAdminForm::OnHoverLeave);
 			/*delete user button end*/
+
+			/*asignar cap button begg*/
+			this->btnGoToAsignarCap->BackColor = AppColors::Yellow;
+			this->btnGoToAsignarCap->ForeColor = AppColors::Black; // <-- Letra siempre negra
+			this->btnGoToAsignarCap->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
+			this->btnGoToAsignarCap->FlatAppearance->MouseDownBackColor = AppColors::Black;
+			/*asignar cap button end*/
 		}
 
 	protected:
@@ -64,8 +65,7 @@ namespace Tronketis {
 	private: System::Windows::Forms::Label^ lblAdminName;
 	private: System::Windows::Forms::Button^ btnGoToRegUser;
 	private: System::Windows::Forms::Button^ btnGoToDelUser;
-
-
+	private: System::Windows::Forms::Button^ btnGoToAsignarCap;
 
 	protected:
 
@@ -73,7 +73,7 @@ namespace Tronketis {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -87,6 +87,7 @@ namespace Tronketis {
 			this->lblAdminName = (gcnew System::Windows::Forms::Label());
 			this->btnGoToRegUser = (gcnew System::Windows::Forms::Button());
 			this->btnGoToDelUser = (gcnew System::Windows::Forms::Button());
+			this->btnGoToAsignarCap = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// lblWelcom
@@ -133,11 +134,26 @@ namespace Tronketis {
 			this->btnGoToDelUser->UseVisualStyleBackColor = false;
 			this->btnGoToDelUser->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToDelUser_Click);
 			// 
+			// btnGoToAsignarCap
+			// 
+			this->btnGoToAsignarCap->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->btnGoToAsignarCap->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnGoToAsignarCap->Location = System::Drawing::Point(187, 233);
+			this->btnGoToAsignarCap->Name = L"btnGoToAsignarCap";
+			this->btnGoToAsignarCap->Size = System::Drawing::Size(206, 36);
+			this->btnGoToAsignarCap->TabIndex = 4;
+			this->btnGoToAsignarCap->Text = L"Asignar Cap de Colla";
+			this->btnGoToAsignarCap->UseVisualStyleBackColor = false;
+			this->btnGoToAsignarCap->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToAsignarCap_Click);
+			// 
 			// MenuAdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(581, 443);
+			this->Controls->Add(this->btnGoToAsignarCap);
 			this->Controls->Add(this->btnGoToDelUser);
 			this->Controls->Add(this->btnGoToRegUser);
 			this->Controls->Add(this->lblAdminName);
@@ -150,34 +166,23 @@ namespace Tronketis {
 
 		}
 #pragma endregion
-	private: System::Void OnHoverEnter(System::Object^ sender, System::EventArgs^ e)
-	{
-		btnGoToRegUser->ForeColor = AppColors::Black;
-		btnGoToDelUser->ForeColor = AppColors::Black;
 
-	}
-	private: System::Void OnHoverLeave(System::Object^ sender, System::EventArgs^ e)
-	{
-		btnGoToRegUser->ForeColor = AppColors::White;
-		btnGoToDelUser->ForeColor = AppColors::Black;
-	}
-	
-	
-		   // button click event handlers
+		// button click event handlers
 	private: System::Void btnGoToRegUser_Click(System::Object^ sender, System::EventArgs^ e) {
 		CtrlAdminMenu::IrARegistrarUsuario();
-
 		RegistrarForm^ form = gcnew RegistrarForm();
 		form->ShowDialog();
 	}
 
-
-
-
 	private: System::Void btnGoToDelUser_Click(System::Object^ sender, System::EventArgs^ e) {
 		InhabilitarUsuarioForm^ form = gcnew InhabilitarUsuarioForm();
-		form->ShowDialog(); 
+		form->ShowDialog();
 	}
 
-};
-}
+	private: System::Void btnGoToAsignarCap_Click(System::Object^ sender, System::EventArgs^ e) {
+		AsignarCapForm^ form = gcnew AsignarCapForm();
+		form->ShowDialog();
+	}
+
+	};
+}-

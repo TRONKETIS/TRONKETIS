@@ -65,4 +65,38 @@ bool PasarelaUsuari::Inhabilitar(String^ dni)
     }
 }
 
+System::Collections::Generic::List<UsuariDTO^>^ PasarelaUsuari::obtenirTots() {
+    System::Collections::Generic::List<UsuariDTO^>^ lista = gcnew System::Collections::Generic::List<UsuariDTO^>();
+    MySqlConnection^ conn = nullptr;
+    try {
+        conn = DB::GetConnection();
+        conn->Open();
+
+        // 🔹 Solo traemos a los usuarios que NO estén inhabilitados
+        String^ query = "SELECT * FROM usuari WHERE(state != 'Inactive' OR state IS NULL) AND user_role = 'CapColla'";
+       
+        MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+        MySqlDataReader^ reader = cmd->ExecuteReader();
+
+        while (reader->Read()) {
+            UsuariDTO^ usuari = gcnew UsuariDTO();
+            usuari->dni = reader->GetString("dni");
+
+            // 🔹 Usamos user_name y username que coinciden con tu DTO y BD
+            usuari->username = reader->GetString("user_name");
+
+            lista->Add(usuari);
+        }
+        return lista;
+    }
+    catch (Exception^) {
+        return lista;
+    }
+    finally {
+        if (conn != nullptr && conn->State == ConnectionState::Open) {
+            conn->Close();
+        }
+    }
+}
+
 

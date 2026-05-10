@@ -131,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppColors.h" />
+    <ClInclude Include="AsignarCapForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CastellDTO.h" />
     <ClInclude Include="CastellerDTO.h" />
@@ -174,6 +177,7 @@
     <ClInclude Include="UsuariDTO.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AsignarCapForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="ConsultarCastellForm.cpp" />
@@ -214,6 +218,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AsignarCapForm.resx">
+      <DependentUpon>AsignarCapForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultarCastellForm.resx">
       <DependentUpon>ConsultarCastellForm.h</DependentUpon>
     </EmbeddedResource>
