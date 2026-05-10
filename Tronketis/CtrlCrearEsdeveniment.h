@@ -3,8 +3,6 @@
 #include "EsdevenimentDTO.h"
 #include "PassarellaEsdeveniment.h"
 
-using namespace System;
-
 namespace Tronketis {
 
     public ref class CtrlCrearEsdeveniment {

@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "PassarellaEsdeveniment.h"
 
+using namespace System;
+using namespace MySql::Data::MySqlClient;
+
 using namespace Tronketis;
 
 void PassarellaEsdeveniment::insertar(EsdevenimentDTO^ e)

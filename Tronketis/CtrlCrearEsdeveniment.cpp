@@ -5,6 +5,8 @@
 #include "PassarellaEsdeveniment.h"
 #include <msclr\marshal_cppstd.h>
 
+using namespace System;
+
 namespace Tronketis
 {
     void CtrlCrearEsdeveniment::crearEsdeveniment(EsdevenimentDTO^ e)
@@ -15,8 +17,9 @@ namespace Tronketis
         }
 
         //Data en format correcte i no anterior a l'actual
-        std::string dataConvertida = msclr::interop::marshal_as<std::string>(e->date);
-        if (!esDataValida(dataConvertida)) {
+        msclr::interop::marshal_context ctx;
+        std::string dataConvertida = ctx.marshal_as<std::string>(e->date);
+        if (!Utils::esDataValida(dataConvertida)) {
             throw gcnew ArgumentException("Data incorrecta.");
         }
 

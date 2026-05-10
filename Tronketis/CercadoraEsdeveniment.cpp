@@ -2,6 +2,9 @@
 #include "DB.h"
 #include "CercadoraEsdeveniment.h"
 
+using namespace System;
+using namespace MySql::Data::MySqlClient;
+
 using namespace Tronketis;
 
 // Mètode que comprovarà si la combinació nom+data ja existeix a la DB
