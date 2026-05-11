@@ -13,6 +13,8 @@ namespace Tronketis {
         static bool existeixNom(String^ nom);
 
         static CollaDTO^ obtenirPerId(int id);
+
+        static bool actualitzar(CollaDTO^ colla, String^% error);
     };
 
 }
