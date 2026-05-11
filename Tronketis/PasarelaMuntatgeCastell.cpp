@@ -127,6 +127,7 @@ namespace Tronketis {
             tx->Commit();
             return true;
         }
+
         catch (Exception^ ex) {
             if (tx != nullptr) try { tx->Rollback(); } catch (...) {}
             error = "Error desant les assignacions: " + ex->Message;
