@@ -70,4 +70,25 @@ public:
 
         return count > 0;
     }
+
+    // obtenir dnis castellers actius
+    static Collections::Generic::List<String^>^ obtenirDnisCastellersActius()
+    {
+        Collections::Generic::List<String^>^ dnis = gcnew Collections::Generic::List<String^>();
+        MySqlConnection^ conn = DB::GetConnection();
+        try {
+            conn->Open();
+            String^ query = "SELECT dni FROM usuari WHERE user_role = 'Casteller' AND state = 'Active'";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+            while (reader->Read()) {
+                dnis->Add(reader["dni"]->ToString());
+            }
+        }
+        catch (Exception^) {
+            conn->Close();
+		}
+    
+        return dnis;
+	}
 };

@@ -1,12 +1,15 @@
 #pragma once
 
 #include "CtrlGestioMembreColla.h"
+#include "CercadorUsuari.h"
+#include "CercadorColla.h"
 
 namespace Tronketis {
 
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -17,6 +20,8 @@ namespace Tronketis {
 		AfegirMembresForm(void)
 		{
 			InitializeComponent();
+			CarregarCastellers();
+			CarregarColles();
 		}
 
 	protected:
@@ -32,10 +37,8 @@ namespace Tronketis {
 		System::Windows::Forms::Label^ lblTitol;
 		System::Windows::Forms::Label^ lblDni;
 		System::Windows::Forms::Label^ lblColla;
-		System::Windows::Forms::Label^ lblUni;
-		System::Windows::Forms::TextBox^ txtDni;
-		System::Windows::Forms::TextBox^ txtColla;
-		System::Windows::Forms::TextBox^ txtUni;
+		System::Windows::Forms::ComboBox^ cmbDni;
+		System::Windows::Forms::ComboBox^ cmbColla;
 		System::Windows::Forms::Button^ btnAfegir;
 		System::Windows::Forms::Button^ btnTornar;
 		System::Windows::Forms::Label^ lblMissatge;
@@ -48,10 +51,8 @@ namespace Tronketis {
 			this->lblTitol = (gcnew System::Windows::Forms::Label());
 			this->lblDni = (gcnew System::Windows::Forms::Label());
 			this->lblColla = (gcnew System::Windows::Forms::Label());
-			this->lblUni = (gcnew System::Windows::Forms::Label());
-			this->txtDni = (gcnew System::Windows::Forms::TextBox());
-			this->txtColla = (gcnew System::Windows::Forms::TextBox());
-			this->txtUni = (gcnew System::Windows::Forms::TextBox());
+			this->cmbDni = (gcnew System::Windows::Forms::ComboBox());
+			this->cmbColla = (gcnew System::Windows::Forms::ComboBox());
 			this->btnAfegir = (gcnew System::Windows::Forms::Button());
 			this->btnTornar = (gcnew System::Windows::Forms::Button());
 			this->lblMissatge = (gcnew System::Windows::Forms::Label());
@@ -70,67 +71,55 @@ namespace Tronketis {
 			// lblDni
 			// 
 			this->lblDni->AutoSize = true;
-			this->lblDni->Location = System::Drawing::Point(95, 110);
+			this->lblDni->Location = System::Drawing::Point(95, 120);
 			this->lblDni->Name = L"lblDni";
-			this->lblDni->Size = System::Drawing::Size(28, 16);
+			this->lblDni->Size = System::Drawing::Size(97, 16);
 			this->lblDni->TabIndex = 1;
-			this->lblDni->Text = L"DNI";
+			this->lblDni->Text = L"DNI casteller";
 			// 
 			// lblColla
 			// 
 			this->lblColla->AutoSize = true;
-			this->lblColla->Location = System::Drawing::Point(95, 155);
+			this->lblColla->Location = System::Drawing::Point(95, 175);
 			this->lblColla->Name = L"lblColla";
 			this->lblColla->Size = System::Drawing::Size(37, 16);
 			this->lblColla->TabIndex = 2;
 			this->lblColla->Text = L"Colla";
 			// 
-			// lblUni
+			// cmbDni
 			// 
-			this->lblUni->AutoSize = true;
-			this->lblUni->Location = System::Drawing::Point(95, 200);
-			this->lblUni->Name = L"lblUni";
-			this->lblUni->Size = System::Drawing::Size(73, 16);
-			this->lblUni->TabIndex = 3;
-			this->lblUni->Text = L"Universitat";
+			this->cmbDni->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cmbDni->FormattingEnabled = true;
+			this->cmbDni->Location = System::Drawing::Point(210, 117);
+			this->cmbDni->Name = L"cmbDni";
+			this->cmbDni->Size = System::Drawing::Size(180, 24);
+			this->cmbDni->TabIndex = 3;
 			// 
-			// txtDni
+			// cmbColla
 			// 
-			this->txtDni->Location = System::Drawing::Point(210, 107);
-			this->txtDni->Name = L"txtDni";
-			this->txtDni->Size = System::Drawing::Size(180, 22);
-			this->txtDni->TabIndex = 4;
-			// 
-			// txtColla
-			// 
-			this->txtColla->Location = System::Drawing::Point(210, 152);
-			this->txtColla->Name = L"txtColla";
-			this->txtColla->Size = System::Drawing::Size(180, 22);
-			this->txtColla->TabIndex = 5;
-			// 
-			// txtUni
-			// 
-			this->txtUni->Location = System::Drawing::Point(210, 197);
-			this->txtUni->Name = L"txtUni";
-			this->txtUni->Size = System::Drawing::Size(180, 22);
-			this->txtUni->TabIndex = 6;
+			this->cmbColla->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cmbColla->FormattingEnabled = true;
+			this->cmbColla->Location = System::Drawing::Point(210, 172);
+			this->cmbColla->Name = L"cmbColla";
+			this->cmbColla->Size = System::Drawing::Size(180, 24);
+			this->cmbColla->TabIndex = 4;
 			// 
 			// btnAfegir
 			// 
-			this->btnAfegir->Location = System::Drawing::Point(145, 265);
+			this->btnAfegir->Location = System::Drawing::Point(145, 255);
 			this->btnAfegir->Name = L"btnAfegir";
 			this->btnAfegir->Size = System::Drawing::Size(110, 32);
-			this->btnAfegir->TabIndex = 7;
+			this->btnAfegir->TabIndex = 5;
 			this->btnAfegir->Text = L"Afegir membre";
 			this->btnAfegir->UseVisualStyleBackColor = true;
 			this->btnAfegir->Click += gcnew System::EventHandler(this, &AfegirMembresForm::btnAfegir_Click);
 			// 
 			// btnTornar
 			// 
-			this->btnTornar->Location = System::Drawing::Point(280, 265);
+			this->btnTornar->Location = System::Drawing::Point(280, 255);
 			this->btnTornar->Name = L"btnTornar";
 			this->btnTornar->Size = System::Drawing::Size(110, 32);
-			this->btnTornar->TabIndex = 8;
+			this->btnTornar->TabIndex = 6;
 			this->btnTornar->Text = L"Tornar";
 			this->btnTornar->UseVisualStyleBackColor = true;
 			this->btnTornar->Click += gcnew System::EventHandler(this, &AfegirMembresForm::btnTornar_Click);
@@ -138,11 +127,11 @@ namespace Tronketis {
 			// lblMissatge
 			// 
 			this->lblMissatge->AutoSize = true;
-			this->lblMissatge->Location = System::Drawing::Point(95, 330);
+			this->lblMissatge->Location = System::Drawing::Point(95, 320);
 			this->lblMissatge->MaximumSize = System::Drawing::Size(320, 0);
 			this->lblMissatge->Name = L"lblMissatge";
 			this->lblMissatge->Size = System::Drawing::Size(0, 16);
-			this->lblMissatge->TabIndex = 9;
+			this->lblMissatge->TabIndex = 7;
 			// 
 			// AfegirMembresForm
 			// 
@@ -152,35 +141,59 @@ namespace Tronketis {
 			this->Controls->Add(this->lblMissatge);
 			this->Controls->Add(this->btnTornar);
 			this->Controls->Add(this->btnAfegir);
-			this->Controls->Add(this->txtUni);
-			this->Controls->Add(this->txtColla);
-			this->Controls->Add(this->txtDni);
-			this->Controls->Add(this->lblUni);
+			this->Controls->Add(this->cmbColla);
+			this->Controls->Add(this->cmbDni);
 			this->Controls->Add(this->lblColla);
 			this->Controls->Add(this->lblDni);
 			this->Controls->Add(this->lblTitol);
 			this->Name = L"AfegirMembresForm";
-			this->Text = L"Gestió de membres";
+			this->Text = L"Afegir membres";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 		}
 #pragma endregion
 
+	private:
+		void CarregarCastellers()
+		{
+			cmbDni->Items->Clear();
+
+			List<String^>^ castellers = CercadorUsuari::obtenirDnisCastellersActius();
+			for each (String ^ dni in castellers) {
+				cmbDni->Items->Add(dni);
+			}
+		}
+
+		void CarregarColles()
+		{
+			cmbColla->Items->Clear();
+
+			List<String^>^ colles = CercadorColla::obtenirNomsColles();
+			for each (String ^ nom in colles) {
+				cmbColla->Items->Add(nom);
+			}
+		}
+
 	private: System::Void btnAfegir_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ dni = txtDni->Text->Trim();
-		String^ collaName = txtColla->Text->Trim();
-		String^ uniName = txtUni->Text->Trim();
+		String^ dni = "";
+		String^ collaName = "";
+
+		if (cmbDni->SelectedItem != nullptr) {
+			dni = cmbDni->SelectedItem->ToString();
+		}
+
+		if (cmbColla->SelectedItem != nullptr) {
+			collaName = cmbColla->SelectedItem->ToString();
+		}
 
 		String^ error = "";
-		bool ok = CtrlGestioMembreColla::afegirMembre(dni, collaName, uniName, error);
+		bool ok = CtrlGestioMembreColla::afegirMembre(dni, collaName, error);
 
 		if (ok) {
 			lblMissatge->ForeColor = Color::Green;
 			lblMissatge->Text = L"Membre afegit correctament";
-
-			txtDni->Clear();
-			txtColla->Clear();
-			txtUni->Clear();
+			cmbDni->SelectedIndex = -1;
+			cmbColla->SelectedIndex = -1;
 		}
 		else {
 			lblMissatge->ForeColor = Color::Red;

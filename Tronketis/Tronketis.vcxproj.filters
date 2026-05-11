@@ -98,6 +98,9 @@
     <ClInclude Include="EliminarMembreForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CercadorColla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">

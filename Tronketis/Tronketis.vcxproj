@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="AppColors.h" />
     <ClInclude Include="AuthService.h" />
+    <ClInclude Include="CercadorColla.h" />
     <ClInclude Include="CercadorMembre.h" />
     <ClInclude Include="CercadorUsuari.h" />
     <ClInclude Include="CollaDTO.h" />
