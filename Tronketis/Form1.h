@@ -109,7 +109,7 @@ namespace CppCLRWinFormsProject {
             String^ password;
             String^ rol;
 
-            if (CercadorUsuari::CercaPerMail(mail, dni, username, password, rol))
+            if (CercadorUsuari::CercaPerEmail(mail, dni, username, password, rol))
             {
                 lblResultado->Text = "Mail: " + mail + " | DNI: " + dni + " | Usuari: " + username + " | Rol: " + rol;
             }
