@@ -5,6 +5,7 @@ namespace CppCLRWinFormsProject {
 
     using namespace System;
     using namespace System::Windows::Forms;
+    using namespace MySql::Data::MySqlClient;
 
     public ref class Form1 : public Form
     {
@@ -15,15 +16,15 @@ namespace CppCLRWinFormsProject {
         ~Form1() { if (components) delete components; }
 
     private:
-        System::Windows::Forms::TextBox^ txtNomColla;
+        System::Windows::Forms::ComboBox^ txtNomColla;
         System::Windows::Forms::Button^ btnInhabilitar;
         System::Windows::Forms::Label^ lblResultado;
         System::Windows::Forms::Label^ label1;
         System::ComponentModel::Container^ components;
-
         void InitializeComponent(void)
         {
-            this->txtNomColla = (gcnew System::Windows::Forms::TextBox());
+            // ✅ PRIMERO inicializar TODOS los controles
+            this->txtNomColla = (gcnew System::Windows::Forms::ComboBox());
             this->btnInhabilitar = (gcnew System::Windows::Forms::Button());
             this->lblResultado = (gcnew System::Windows::Forms::Label());
             this->label1 = (gcnew System::Windows::Forms::Label());
@@ -40,16 +41,17 @@ namespace CppCLRWinFormsProject {
             this->label1->ForeColor = System::Drawing::Color::FromArgb(60, 60, 60);
             this->label1->TabIndex = 0;
 
-            // TEXTBOX
+            // COMBOBOX
             this->txtNomColla->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10));
             this->txtNomColla->Location = System::Drawing::Point(50, 65);
             this->txtNomColla->Size = System::Drawing::Size(280, 34);
             this->txtNomColla->TabIndex = 1;
+            this->txtNomColla->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDown;
 
             // BOTÓN
             this->btnInhabilitar->Location = System::Drawing::Point(50, 115);
             this->btnInhabilitar->Size = System::Drawing::Size(150, 38);
-            this->btnInhabilitar->Text = L"🚫 Inhabilitar";
+            this->btnInhabilitar->Text = L"Inhabilitar";
             this->btnInhabilitar->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10, System::Drawing::FontStyle::Bold));
             this->btnInhabilitar->BackColor = System::Drawing::Color::FromArgb(200, 50, 50);
             this->btnInhabilitar->ForeColor = System::Drawing::Color::White;
@@ -74,14 +76,43 @@ namespace CppCLRWinFormsProject {
             this->Name = L"Form1";
             this->Text = L"Inhabilitar Colla";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+            this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load); // ✅ Load antes de ResumeLayout
             this->ResumeLayout(false);
             this->PerformLayout();
         }
+
+    private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e)
+    {
+        CarregarColles();
+    }
+
+    private: void CarregarColles()
+    {
+        MySqlConnection^ conn = DB::GetConnection();
+        try {
+            conn->Open();
+            String^ query = "SELECT name FROM colla ORDER BY name";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+            while (reader->Read()) {
+                txtNomColla->Items->Add(reader["name"]->ToString());
+            }
+            reader->Close();
+            conn->Close();
+        }
+        catch (Exception^ ex) {
+            MessageBox::Show("Error carregant colles: " + ex->Message);
+        }
+    }
 
     private:
         System::Void btnInhabilitar_Click(System::Object^ sender, System::EventArgs^ e)
         {
             String^ nom = txtNomColla->Text->Trim();
+            if (nom == "") {
+                lblResultado->Text = "Introdueix o selecciona una colla.";
+                return;
+            }
 
             if (nom == "")
             {
