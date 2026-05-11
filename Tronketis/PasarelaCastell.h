@@ -11,6 +11,7 @@ namespace Tronketis {
         static bool insertar(CastellDTO^ castell, String^% error);
         static bool existeixNom(String^ nom);
         static List<CastellDTO^>^ obtenirTots();
+        static CastellDTO^ obtenirPerId(int id);
     };
 
 }

@@ -17,6 +17,9 @@
     <ClCompile Include="CrearCastellForm.cpp" />
     <ClCompile Include="CtrlCrearCastell.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
+    <ClCompile Include="CtrlAssignarCastellers.cpp" />
+    <ClCompile Include="PasarelaMuntatgeCastell.cpp" />
+    <ClCompile Include="AssignarCastellersForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppColors.h" />
@@ -42,6 +45,11 @@
     <ClInclude Include="CtrlCrearCastell.h" />
     <ClInclude Include="PasarelaCastell.h" />
     <ClInclude Include="CastellDTO.h" />
+    <ClInclude Include="AssignarCastellersForm.h" />
+    <ClInclude Include="PosicioCastellDTO.h" />
+    <ClInclude Include="MembreDTO.h" />
+    <ClInclude Include="CtrlAssignarCastellers.h" />
+    <ClInclude Include="PasarelaMuntatgeCastell.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

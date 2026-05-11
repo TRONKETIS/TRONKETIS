@@ -95,4 +95,35 @@ namespace Tronketis {
         }
     }
 
+    CastellDTO^ PasarelaCastell::obtenirPerId(int id) {
+        MySqlConnection^ conn = nullptr;
+        try {
+            conn = DB::GetConnection();
+            conn->Open();
+
+            String^ query = "SELECT id, nom, tipus, num_pisos FROM castell WHERE id = @id";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@id", id);
+
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+            if (reader->Read()) {
+                CastellDTO^ c = gcnew CastellDTO();
+                c->id       = reader->GetInt32("id");
+                c->nom      = reader->GetString("nom");
+                c->tipus    = reader->GetString("tipus");
+                c->numPisos = reader->GetInt32("num_pisos");
+                return c;
+            }
+            return nullptr;
+        }
+        catch (Exception^) {
+            return nullptr;
+        }
+        finally {
+            if (conn != nullptr && conn->State == ConnectionState::Open) {
+                conn->Close();
+            }
+        }
+    }
+
 }
