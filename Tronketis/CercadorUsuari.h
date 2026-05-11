@@ -1,6 +1,6 @@
 #pragma once
 #include "DB.h"
-
+#include "UsuariDTO.h"
 
 using namespace System;
 using namespace System::Data;
@@ -93,57 +93,6 @@ public:
     static bool existeDni(String^ dni)
     {
         MySqlConnection^ conn = DB::GetConnection();
-        conn->Open();
-
-        String^ query = "SELECT COUNT(*) FROM usuari WHERE dni = @dni";
-        MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-        cmd->Parameters->AddWithValue("@dni", dni);
-
-        int count = Convert::ToInt32(cmd->ExecuteScalar());
-        conn->Close();
-
-        return count > 0;
-    }
-    // 🔥 NUEVO: Buscar usuario completo por DNI
-    static UsuariDTO^ buscaPorDNI(String^ dni)
-    {
-        UsuariDTO^ usuari = nullptr;
-        MySqlConnection^ conn = DB::GetConnection();
-
-        try {
-            conn->Open();
-            String^ query = "SELECT dni, user_name, email_addr, user_pass, user_role, state FROM usuari WHERE dni = @dni";
-
-            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-            cmd->Parameters->AddWithValue("@dni", dni);
-
-            MySqlDataReader^ reader = cmd->ExecuteReader();
-
-            if (reader->Read()) {
-                // Instanciamos el DTO con los datos de la base de datos
-                usuari = gcnew UsuariDTO();
-                usuari->dni = reader["dni"]->ToString();
-                usuari->username = reader["user_name"]->ToString();
-                usuari->email = reader["email_addr"]->ToString();
-                usuari->password = reader["user_pass"]->ToString();
-                usuari->rol = reader["user_role"]->ToString();
-              
-            }
-
-            reader->Close();
-        }
-        catch (Exception^ ex) {
-            // Opcional: Manejo de errores o logs
-            throw ex;
-        }
-        finally {
-            if (conn->State == ConnectionState::Open) {
-                conn->Close();
-            }
-        }
-
-        return usuari; // Retorna el objeto si lo encuentra, o nullptr si no existe
-    }
         try {
             conn->Open();
             String^ query = "SELECT COUNT(*) FROM usuari WHERE dni = @dni";
@@ -158,5 +107,61 @@ public:
             if (conn->State == ConnectionState::Open) conn->Close();
             return false;
         }
+    }
+
+    // 🔥 NUEVO: Buscar usuario completo por DNI
+    static UsuariDTO^ buscaPorDNI(String^ dni)
+    {
+        UsuariDTO^ usuari = nullptr;
+        MySqlConnection^ conn = DB::GetConnection();
+        try {
+            conn->Open();
+            String^ query = "SELECT dni, user_name, email_addr, user_pass, user_role FROM usuari WHERE dni = @dni";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@dni", dni);
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+
+            if (reader->Read()) {
+                usuari = gcnew UsuariDTO();
+                usuari->dni = reader["dni"]->ToString();
+                usuari->username = reader["user_name"]->ToString();
+                usuari->email = reader["email_addr"]->ToString();
+                usuari->password = reader["user_pass"]->ToString();
+                usuari->rol = reader["user_role"]->ToString();
+            }
+            reader->Close();
+        }
+        catch (Exception^ ex) {
+            System::Windows::Forms::MessageBox::Show("Error en buscaPorDNI: " + ex->Message);
+        }
+        finally {
+            if (conn->State == ConnectionState::Open) {
+                conn->Close();
+            }
+        }
+        return usuari;
+    }
+    // Añade esto a la clase CercadorUsuari
+    static List<String^>^ obtenerTodosLosDnis() {
+        List<String^>^ lista = gcnew List<String^>();
+        MySqlConnection^ conn = DB::GetConnection();
+        try {
+            conn->Open();
+            String^ query = "SELECT dni FROM usuari WHERE state = 'Active'"; // Solo usuarios activos
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+
+            while (reader->Read()) {
+                lista->Add(reader["dni"]->ToString());
+            }
+            reader->Close();
+        }
+        catch (Exception^ ex) {
+            System::Windows::Forms::MessageBox::Show("Error al listar DNIs: " + ex->Message);
+        }
+        finally {
+            if (conn->State == ConnectionState::Open) conn->Close();
+        }
+        return lista;
     }
 };

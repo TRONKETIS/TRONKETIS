@@ -14,12 +14,7 @@ namespace Tronketis {
     public:
         static void insertar(UsuariDTO^ u);
         static bool Inhabilitar(String^ dni);
+        static bool modificarUsuari(UsuariDTO^ u);
     };
 
 }
-public ref class PasarelaUsuari
-{
-public:
-    static void insertar(UsuariDTO^ u);
-	static bool modificarUsuari(UsuariDTO^ u);
-};

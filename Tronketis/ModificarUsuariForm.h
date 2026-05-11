@@ -1,5 +1,6 @@
 #pragma once
 #include "CtrlModificarUsuari.h"
+#include "CercadorUsuari.h" // Necesario para obtener los DNIs
 #include "UsuariDTO.h"
 
 namespace Tronketis {
@@ -7,6 +8,7 @@ namespace Tronketis {
     using namespace System;
     using namespace System::ComponentModel;
     using namespace System::Collections;
+    using namespace System::Collections::Generic; // Para List
     using namespace System::Windows::Forms;
     using namespace System::Data;
     using namespace System::Drawing;
@@ -18,16 +20,9 @@ namespace Tronketis {
         {
             InitializeComponent();
             ctrl = gcnew CtrlModificarUsuari();
-        }
 
-        // Método para cargar los datos del usuario seleccionado
-        void cargarUsuario(UsuariDTO^ u)
-        {
-            txtDNI->Text = u->dni;
-            txtUsername->Text = u->username;
-            txtEmail->Text = u->email;
-            txtPassword->Text = u->password;
-            comboRol->SelectedItem = u->rol;
+            // Cargamos los DNIs al iniciar el formulario
+            this->CargarListaDNIs();
         }
 
     protected:
@@ -43,7 +38,7 @@ namespace Tronketis {
         CtrlModificarUsuari^ ctrl;
 
         System::Windows::Forms::Label^ lblDNI;
-        System::Windows::Forms::TextBox^ txtDNI;
+        System::Windows::Forms::ComboBox^ comboDNI; // Ahora es ComboBox
         System::Windows::Forms::Label^ lblUsername;
         System::Windows::Forms::TextBox^ txtUsername;
         System::Windows::Forms::Label^ lblEmail;
@@ -60,7 +55,7 @@ namespace Tronketis {
         void InitializeComponent(void)
         {
             this->lblDNI = (gcnew System::Windows::Forms::Label());
-            this->txtDNI = (gcnew System::Windows::Forms::TextBox());
+            this->comboDNI = (gcnew System::Windows::Forms::ComboBox());
             this->lblUsername = (gcnew System::Windows::Forms::Label());
             this->txtUsername = (gcnew System::Windows::Forms::TextBox());
             this->lblEmail = (gcnew System::Windows::Forms::Label());
@@ -74,11 +69,14 @@ namespace Tronketis {
 
             // lblDNI
             this->lblDNI->Location = System::Drawing::Point(40, 40);
-            this->lblDNI->Text = L"DNI";
+            this->lblDNI->Text = L"Seleccionar DNI";
+            this->lblDNI->Size = System::Drawing::Size(120, 20);
 
-            // txtDNI
-            this->txtDNI->Location = System::Drawing::Point(180, 40);
-            this->txtDNI->ReadOnly = false;
+            // comboDNI
+            this->comboDNI->Location = System::Drawing::Point(180, 40);
+            this->comboDNI->Size = System::Drawing::Size(200, 25);
+            this->comboDNI->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+            this->comboDNI->SelectedIndexChanged += gcnew System::EventHandler(this, &ModificarUsuariForm::comboDNI_SelectedIndexChanged);
 
             // lblUsername
             this->lblUsername->Location = System::Drawing::Point(40, 90);
@@ -86,6 +84,7 @@ namespace Tronketis {
 
             // txtUsername
             this->txtUsername->Location = System::Drawing::Point(180, 90);
+            this->txtUsername->Size = System::Drawing::Size(200, 25);
 
             // lblEmail
             this->lblEmail->Location = System::Drawing::Point(40, 140);
@@ -93,6 +92,7 @@ namespace Tronketis {
 
             // txtEmail
             this->txtEmail->Location = System::Drawing::Point(180, 140);
+            this->txtEmail->Size = System::Drawing::Size(200, 25);
 
             // lblPassword
             this->lblPassword->Location = System::Drawing::Point(40, 190);
@@ -100,6 +100,7 @@ namespace Tronketis {
 
             // txtPassword
             this->txtPassword->Location = System::Drawing::Point(180, 190);
+            this->txtPassword->Size = System::Drawing::Size(200, 25);
 
             // lblRol
             this->lblRol->Location = System::Drawing::Point(40, 240);
@@ -107,17 +108,19 @@ namespace Tronketis {
 
             // comboRol
             this->comboRol->Location = System::Drawing::Point(180, 240);
+            this->comboRol->Size = System::Drawing::Size(200, 25);
             this->comboRol->Items->AddRange(gcnew cli::array<Object^> { L"Casteller", L"Administrador", L"CapColla" });
 
             // btnGuardar
             this->btnGuardar->Location = System::Drawing::Point(180, 300);
+            this->btnGuardar->Size = System::Drawing::Size(100, 40);
             this->btnGuardar->Text = L"Guardar";
             this->btnGuardar->Click += gcnew System::EventHandler(this, &ModificarUsuariForm::btnGuardar_Click);
 
             // Form
-            this->ClientSize = System::Drawing::Size(450, 380);
+            this->ClientSize = System::Drawing::Size(450, 400);
             this->Controls->Add(this->lblDNI);
-            this->Controls->Add(this->txtDNI);
+            this->Controls->Add(this->comboDNI);
             this->Controls->Add(this->lblUsername);
             this->Controls->Add(this->txtUsername);
             this->Controls->Add(this->lblEmail);
@@ -134,10 +137,42 @@ namespace Tronketis {
 #pragma endregion
 
     private:
+        // Carga los DNIs de la base de datos al ComboBox
+        void CargarListaDNIs() {
+            try {
+                List<String^>^ lista = CercadorUsuari::obtenerTodosLosDnis();
+                comboDNI->Items->Clear();
+                for each (String ^ dni in lista) {
+                    comboDNI->Items->Add(dni);
+                }
+            }
+            catch (Exception^ e) {
+                MessageBox::Show("Error cargando DNIs: " + e->Message);
+            }
+        }
+
+        // Al cambiar el DNI seleccionado, cargamos sus datos automáticamente
+        System::Void comboDNI_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+            if (comboDNI->SelectedItem != nullptr) {
+                String^ dni = comboDNI->SelectedItem->ToString();
+                UsuariDTO^ u = CercadorUsuari::buscaPorDNI(dni);
+                if (u != nullptr) {
+                    txtUsername->Text = u->username;
+                    txtEmail->Text = u->email;
+                    txtPassword->Text = u->password;
+                    comboRol->SelectedItem = u->rol;
+                }
+            }
+        }
+
         System::Void btnGuardar_Click(System::Object^ sender, System::EventArgs^ e) {
+            if (comboDNI->SelectedItem == nullptr) {
+                MessageBox::Show("Si us plau, selecciona un DNI.");
+                return;
+            }
 
             UsuariDTO^ u = gcnew UsuariDTO();
-            u->dni = txtDNI->Text;
+            u->dni = comboDNI->SelectedItem->ToString();
             u->username = txtUsername->Text;
             u->email = txtEmail->Text;
             u->password = txtPassword->Text;
