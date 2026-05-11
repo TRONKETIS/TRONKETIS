@@ -5,7 +5,7 @@ namespace Tronketis {
 
     bool CtrlRegistrarUsuari::registrar(UsuariDTO^ u, String^% error) {
 
-        // 🔹 1. Validaciones básicas
+        //  Validaciones básicas
         if (u->dni == "" || u->username == "" ||
             u->email == "" || u->password == "" ||
             u->rol == "") {
@@ -14,19 +14,19 @@ namespace Tronketis {
             return false;
         }
 
-        // 🔹 Email válido
+        // Email válido
         if (!u->email->Contains("@")) {
             error = "Email no válido";
             return false;
         }
 
-        // 🔹 Password mínima
+        // Password mínima
         if (u->password->Length < 4) {
             error = "La contrasenya es demasiado corta";
             return false;
         }
 
-        // 🔹 2. Comprobar duplicados
+        // Comprobar duplicados
         //CercadorUsuari^ cercador = gcnew CercadorUsuari();
 
         if (CercadorUsuari::existeEmail(u->email)) {
@@ -39,7 +39,7 @@ namespace Tronketis {
             return false;
         }
 
-        // 🔹 3. Insertar usuario
+        //Insertar usuario
         PasarelaUsuari::insertar(u);
 
         return true;

@@ -8,6 +8,7 @@ using namespace System;
 // }
 
 #include "IniciarSesionForm.h"
+//#include "RegistrarAssistenciaForm.h"
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
 
