@@ -26,10 +26,109 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Form1.h">
+    <ClInclude Include="AuthService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RegisterForm.h">
+    <ClInclude Include="CercadorUsuari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlIniciarSesion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IniciarSesionForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaUsuari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistrarForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlRegistrarUsuari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlCrearColla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollaDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaColla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrearCollaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuAdminForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppColors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlAdminMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InhabilitarUsuarioForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CastellDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CastellerDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorCastell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultarCastellForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrearCastellForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlConsultarCastell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlCrearCastell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlRegisterCasteller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaCastell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaCasteller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterCastellerForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlRegistrarAssistencia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticipacioDiadaDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaParticipacioDiada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DiadaDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorDiada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorCasteller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistrarAssistenciaForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -43,16 +142,80 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Form1.cpp">
+    <ClCompile Include="CtrlIniciarSesion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RegisterForm.cpp">
+    <ClCompile Include="IniciarSesionForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistrarForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlRegistrarUsuari.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaUsuari.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlCrearColla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarellaColla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrearCollaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuAdminForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InhabilitarUsuarioForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorCastell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultarCastellForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrearCastellForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlConsultarCastell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlCrearCastell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlRegisterCasteller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaCastell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaCasteller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterCastellerForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlRegistrarAssistencia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaParticipacioDiada.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorDiada.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorCasteller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistrarAssistenciaForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="app.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <Image Include="app.ico" />
   </ItemGroup>
 </Project>
