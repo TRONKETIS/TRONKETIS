@@ -8,7 +8,7 @@ using namespace System;
 // }
 
 #include "IniciarSesionForm.h"
-//#include "MenuCapColla.h"
+//#include "RegistrarForm.h"
 
 using namespace System::Windows::Forms;
 

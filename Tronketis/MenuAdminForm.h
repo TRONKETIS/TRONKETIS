@@ -48,6 +48,32 @@ namespace Tronketis {
 			/*delete user button end*/
 		}
 
+		MenuAdminForm(String^ adminName)
+		{
+			InitializeComponent();
+
+			lblAdminName->Text = adminName;
+
+			/*go to reg button begg*/
+			this->btnGoToRegUser->BackColor = AppColors::DarkRed;
+
+			this->btnGoToRegUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
+			this->btnGoToRegUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
+
+			this->btnGoToRegUser->MouseEnter += gcnew EventHandler(this, &MenuAdminForm::OnHoverEnter);
+			this->btnGoToRegUser->MouseLeave += gcnew EventHandler(this, &MenuAdminForm::OnHoverLeave);
+
+			/*delete user button begg*/
+			this->btnGoToDelUser->BackColor = AppColors::DarkRed;
+
+			this->btnGoToDelUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
+			this->btnGoToDelUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
+
+			this->btnGoToDelUser->MouseEnter += gcnew EventHandler(this, &MenuAdminForm::OnHoverEnter);
+			this->btnGoToDelUser->MouseLeave += gcnew EventHandler(this, &MenuAdminForm::OnHoverLeave);
+		}
+
+
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.

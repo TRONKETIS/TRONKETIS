@@ -1,108 +1,107 @@
-﻿#pragma once
-
+#pragma once
 #include "DB.h"
-
 using namespace System;
+using namespace System::Data;
 using namespace MySql::Data::MySqlClient;
 
 public ref class CercadorUsuari
 {
 public:
-
-    // 🔹 YA EXISTENTE (login)
-    static bool CercaPerEmail(String^ email, String^% dni, String^% password, String^% rol)
+    // Para el login (AuthService)
+    static bool CercaPerEmail(String^ email, String^% password, String^% rol)
     {
         MySqlConnection^ conn = DB::GetConnection();
         try {
             conn->Open();
-        }
-        catch (Exception^) {
-            return false;
-        }
-
-        String^ query = "SELECT dni, user_pass, user_role "
-            "FROM usuari "
-            "WHERE email_addr = @email AND state = 'Active'";
-
-        MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-        cmd->Parameters->AddWithValue("@email", email);
-
-        MySqlDataReader^ reader = cmd->ExecuteReader();
-
-        if (!reader->Read()) {
+            String^ query = "SELECT user_pass, user_role FROM usuari WHERE email_addr = @mail";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@mail", email);
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+            if (reader->Read()) {
+                password = reader["user_pass"]->ToString();
+                rol = reader["user_role"]->ToString();
+                reader->Close();
+                conn->Close();
+                return true;
+            }
+            reader->Close();
             conn->Close();
             return false;
         }
-
-        dni = reader["dni"]->ToString();
-        password = reader["user_pass"]->ToString();
-        rol = reader["user_role"]->ToString();
-
-        conn->Close();
-        return true;
+        catch (Exception^ e) {
+            System::Windows::Forms::MessageBox::Show("Error: " + e->Message);
+            if (conn->State == ConnectionState::Open) conn->Close();
+            return false;
+        }
     }
 
-    // comprobar si email ya existe
+    // Para consultar usuari (Form1)
+    static bool CercaPerEmail(String^ email, String^% dni, String^% username, String^% password, String^% rol)
+    {
+        MySqlConnection^ conn = DB::GetConnection();
+        try {
+            conn->Open();
+            String^ query = "SELECT dni, user_name, user_pass, user_role FROM usuari WHERE email_addr = @mail";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@mail", email);
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+            if (reader->Read()) {
+                dni = reader["dni"]->ToString();
+                username = reader["user_name"]->ToString();
+                password = reader["user_pass"]->ToString();
+                rol = reader["user_role"]->ToString();
+                reader->Close();
+                conn->Close();
+                return true;
+            }
+            reader->Close();
+            conn->Close();
+            return false;
+        }
+        catch (Exception^ e) {
+            System::Windows::Forms::MessageBox::Show("Error: " + e->Message);
+            if (conn->State == ConnectionState::Open) conn->Close();
+            return false;
+        }
+    }
+
+    // Para registrar: comprobar si email ya existe
     static bool existeEmail(String^ email)
     {
         MySqlConnection^ conn = DB::GetConnection();
-        conn->Open();
-
-        String^ query = "SELECT COUNT(*) FROM usuari WHERE email_addr = @email";
-        MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-        cmd->Parameters->AddWithValue("@email", email);
-
-        int count = Convert::ToInt32(cmd->ExecuteScalar());
-        conn->Close();
-
-        return count > 0;
+        try {
+            conn->Open();
+            String^ query = "SELECT COUNT(*) FROM usuari WHERE email_addr = @mail";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@mail", email);
+            int count = Convert::ToInt32(cmd->ExecuteScalar());
+            conn->Close();
+            return count > 0;
+        }
+        catch (Exception^ e) {
+            System::Windows::Forms::MessageBox::Show("Error: " + e->Message);
+            if (conn->State == ConnectionState::Open) conn->Close();
+            return false;
+        }
     }
 
-    // comprobar si DNI ya existe
+    // Para registrar: comprobar si DNI ya existe
     static bool existeDni(String^ dni)
     {
         MySqlConnection^ conn = DB::GetConnection();
-        conn->Open();
-
-        String^ query = "SELECT COUNT(*) FROM usuari WHERE dni = @dni";
-        MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-        cmd->Parameters->AddWithValue("@dni", dni);
-
-        int count = Convert::ToInt32(cmd->ExecuteScalar());
-        conn->Close();
-
-        return count > 0;
-    }
-
-    // obtenir dnis castellers actius
-    static Collections::Generic::List<String^>^ obtenirDnisCastellersActius()
-    {
-        Collections::Generic::List<String^>^ dnis = gcnew Collections::Generic::List<String^>();
-        MySqlConnection^ conn = DB::GetConnection();
         try {
             conn->Open();
-
-            String^ query =
-                "SELECT u.dni "
-                "FROM usuari u "
-                "INNER JOIN casteller c ON u.dni = c.dni "
-                "LEFT JOIN membre m ON u.dni = m.dni "
-                "WHERE u.user_role = 'Casteller' "
-                "AND u.state = 'Active' "
-                "AND m.dni IS NULL "
-                "ORDER BY u.dni";
-
+            String^ query = "SELECT COUNT(*) FROM usuari WHERE dni = @dni";
             MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-            MySqlDataReader^ reader = cmd->ExecuteReader();
-
-            while (reader->Read()) {
-                dnis->Add(reader["dni"]->ToString());
-            }
-        }
-        catch (Exception^) {
+            cmd->Parameters->AddWithValue("@dni", dni);
+            int count = Convert::ToInt32(cmd->ExecuteScalar());
             conn->Close();
-		}
-    
-        return dnis;
-	}
+            return count > 0;
+        }
+        catch (Exception^ e) {
+            System::Windows::Forms::MessageBox::Show("Error: " + e->Message);
+            if (conn->State == ConnectionState::Open) conn->Close();
+            return false;
+        }
+    }
 };

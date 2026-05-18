@@ -4,11 +4,33 @@
 
 using namespace System;
 using namespace MySql::Data::MySqlClient;
+using namespace System::Data;
 using namespace System::Collections::Generic;
 
 public ref class CercadorColla
 {
 public:
+    static bool InhabilitarColla(String^ nomColla)
+    {
+        MySqlConnection^ conn = DB::GetConnection();
+        try {
+            conn->Open();
+            String^ query = "UPDATE colla SET state = 'I' WHERE name = @nom";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@nom", nomColla);
+            int files = cmd->ExecuteNonQuery();
+            conn->Close();
+            return files > 0;
+        }
+        catch (Exception^ e) {
+            System::Windows::Forms::MessageBox::Show("Error: " + e->Message);
+            if (conn->State == ConnectionState::Open)
+                conn->Close();
+            return false;
+        }
+    }
+
+
     static List<String^>^ obtenirNomsColles()
     {
         List<String^>^ colles = gcnew List<String^>();
@@ -95,4 +117,7 @@ public:
 
         return trobada;
     }
+
+
+
 };
