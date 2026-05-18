@@ -15,7 +15,7 @@ bool Tronketis::CtrlGestioMembreColla::afegirMembre(String^ dni,
 	}
 
 	if (String::IsNullOrWhiteSpace(collaName)) {
-		error += "Has de seleccionar una colla.\n";
+		error += "No hi ha cap colla assignada.\n";
 	}
 
 	if (error == "") {
@@ -45,22 +45,27 @@ bool Tronketis::CtrlGestioMembreColla::afegirMembre(String^ dni,
 	return correcte;
 }
 
-bool Tronketis::CtrlGestioMembreColla::eliminarMembre(String^ dni, String^% error)
+bool Tronketis::CtrlGestioMembreColla::eliminarMembre(String^ dni,
+	String^ collaName,
+	String^% error)
 {
 	bool correcte = false;
 	error = "";
 
 	if (String::IsNullOrWhiteSpace(dni)) {
-		error = "El DNI no puede estar vacio";
+		error = "Has de seleccionar un membre.";
+	}
+	else if (String::IsNullOrWhiteSpace(collaName)) {
+		error = "No hi ha cap colla assignada.";
 	}
 	else if (!CercadorMembre::existeixMembre(dni)) {
-		error = "El usuario no pertenece a ninguna colla";
+		error = "El usuario no pertenece a ninguna colla.";
 	}
 	else {
 		correcte = PasarelaMembre::eliminarMembre(dni);
 
 		if (!correcte) {
-			error = "Error al eliminar el miembro de la colla";
+			error = "Error al eliminar el miembro de la colla.";
 		}
 	}
 

@@ -7,11 +7,11 @@ using namespace System;
 public ref class AuthService
 {
 public:
-    static bool Login(String^ email, String^ inputPass, String^% rol)
+    static bool Login(String^ email, String^ inputPass, String^% dni, String^% rol)
     {
         String^ dbPass;
 
-        bool exists = CercadorUsuari::CercaPerEmail(email, dbPass, rol);
+        bool exists = CercadorUsuari::CercaPerEmail(email, dni, dbPass, rol);
 
         if (!exists)
             return false;

@@ -2,6 +2,7 @@
 #include "CtrlIniciarSesion.h"
 #include "MenuAdminForm.h"
 #include "MenuCapColla.h"
+#include "CercadorColla.h"
 
 namespace Tronketis {
 
@@ -150,9 +151,9 @@ namespace Tronketis {
 			MessageBox::Show("Rellena todos los campos");
 			return;
 		}
-		String^ rol;
-
-		bool ok = CtrlIniciarSesion::Execute(email, password, rol);
+		String^ dni = "";
+		String^ rol = "";
+		bool ok = CtrlIniciarSesion::Execute(email, password, dni, rol);
 
 		if (!ok)
 		{
@@ -170,11 +171,15 @@ namespace Tronketis {
 		}
 		else if (rol == "CapColla")
 		{
-			MenuCapColla^ capCollaForm = gcnew MenuCapColla();
-			this->Hide();
+			String^ collaName = "";
 
-			capCollaForm->ShowDialog();
-
+			if (CercadorColla::obtenirCollaPerCap(dni, collaName)) {
+				MenuCapColla^ capCollaForm = gcnew MenuCapColla(collaName);
+				capCollaForm->ShowDialog();
+			}
+			else {
+				MessageBox::Show("Aquest usuari no té cap colla assignada.");
+			}
 			this->Close();
 		}
 		else

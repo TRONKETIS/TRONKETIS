@@ -12,12 +12,13 @@ namespace Tronketis {
 	public ref class MenuCapColla : public System::Windows::Forms::Form
 	{
 	public:
-		MenuCapColla(void);
+		MenuCapColla(String^ collaName);
 
 	protected:
 		~MenuCapColla();
 
 	private:
+		String^ collaName;
 		System::Windows::Forms::Label^ lblTitol;
 		System::Windows::Forms::Button^ btnGestioMembres;
 		System::Windows::Forms::Button^ btnTancarSessio;

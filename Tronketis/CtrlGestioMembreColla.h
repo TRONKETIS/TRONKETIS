@@ -12,9 +12,6 @@ namespace Tronketis {
 	{
 	public:
 		static bool afegirMembre(String^ dni, String^ collaName, String^% error);
-		static bool eliminarMembre(String^ dni, String^% error);
+		static bool eliminarMembre(String^ dni, String^ collaName, String^% error);
 	};
 }
-
-
-

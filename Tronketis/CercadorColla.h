@@ -64,4 +64,35 @@ public:
 
         return trobada;
     }
+
+    static bool obtenirCollaPerCap(String^ dniCap, String^% collaName)
+    {
+        bool trobada = false;
+        collaName = "";
+
+        MySqlConnection^ conn = DB::GetConnection();
+
+        try {
+            conn->Open();
+
+            String^ query = "SELECT name FROM colla WHERE cap_de_colla_dni = @dniCap";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@dniCap", dniCap);
+
+            Object^ resultat = cmd->ExecuteScalar();
+
+            if (resultat != nullptr && resultat != DBNull::Value) {
+                collaName = resultat->ToString();
+                trobada = true;
+            }
+        }
+        catch (Exception^) {
+            trobada = false;
+        }
+        finally {
+            conn->Close();
+        }
+
+        return trobada;
+    }
 };

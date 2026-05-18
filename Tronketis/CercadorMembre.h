@@ -77,4 +77,35 @@ public:
 		}
 		return teColla;
 	}
+
+	static Collections::Generic::List<String^>^ obtenirDnisMembresPerColla(String^ collaName)
+	{
+		Collections::Generic::List<String^>^ dnis =
+			gcnew Collections::Generic::List<String^>();
+
+		MySqlConnection^ conn = DB::GetConnection();
+
+		try {
+			conn->Open();
+
+			String^ query =
+				"SELECT dni FROM membre WHERE colla_name = @collaName ORDER BY dni";
+
+			MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+			cmd->Parameters->AddWithValue("@collaName", collaName);
+
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+
+			while (reader->Read()) {
+				dnis->Add(reader["dni"]->ToString());
+			}
+		}
+		catch (Exception^) {
+		}
+		finally {
+			conn->Close();
+		}
+
+		return dnis;
+	}
 };

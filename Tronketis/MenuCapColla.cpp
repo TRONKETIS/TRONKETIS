@@ -5,9 +5,10 @@
 
 using namespace Tronketis;
 
-MenuCapColla::MenuCapColla(void)
+MenuCapColla::MenuCapColla(String^ collaName)
 {
 	InitializeComponent();
+	this->collaName = collaName;
 }
 
 MenuCapColla::~MenuCapColla()
@@ -20,7 +21,7 @@ MenuCapColla::~MenuCapColla()
 
 System::Void MenuCapColla::btnGestioMembres_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	GestioMembresForm^ f = gcnew GestioMembresForm();
+	GestioMembresForm^ f = gcnew GestioMembresForm(this->collaName);
 	f->ShowDialog();
 }
 
