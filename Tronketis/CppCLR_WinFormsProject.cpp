@@ -7,8 +7,11 @@ using namespace System;
 //    return 0;
 // }
 
-#include "IniciarSesionForm.h"
+//#include "IniciarSesionForm.h"
 //#include "RegistrarAssistenciaForm.h"
+//#include "ConsultarCastellForm.h"
+//#include "CrearCastellForm.h"
+#include "RegistrarAssistenciaForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -17,6 +20,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::IniciarSesionForm());
+  Application::Run(gcnew Tronketis::RegistrarAssistenciaForm());
   return 0;
 }
