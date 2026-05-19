@@ -131,7 +131,29 @@
     <ClInclude Include="RegistrarAssistenciaForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DB.h">
+
+    <ClInclude Include="CercadorMembre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlGestioMembreColla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaMembre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCapColla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AfegirMembresForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GestioMembresForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EliminarMembreForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorColla.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -215,6 +237,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RegistrarAssistenciaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlGestioMembreColla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaMembre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCapColla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AfegirMembresForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GestioMembresForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EliminarMembreForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
