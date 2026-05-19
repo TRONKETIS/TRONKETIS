@@ -1,5 +1,15 @@
 ﻿  CppCLR_WinFormsProject.cpp
-  Form1.cpp
+  CtrlGestioMembreColla.cpp
+  CtrlIniciarSesion.cpp
+  CtrlRegistrarUsuari.cpp
+  AfegirMembresForm.cpp
+  EliminarMembreForm.cpp
+  GestioMembresForm.cpp
+  IniciarSesionForm.cpp
+  MenuAdminForm.cpp
+  MenuCapColla.cpp
+  RegistrarForm.cpp
   Generando código...
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
   AssemblyInfo.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  Tronketis.vcxproj -> C:\Users\HP\Desktop\TRONKETIS\Tronketis\x64\Debug\Tronketis.exe
+  Tronketis.vcxproj -> C:\Users\jieke\Documents\AMEP\TRONKETIS\Tronketis\x64\Debug\Tronketis.exe

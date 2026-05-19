@@ -11,7 +11,7 @@ public:
     {
         String^ dbPass;
 
-        bool exists = CercadorUsuari::CercaPerEmail(email, dni, dbPass, rol);
+        bool exists = CercadorUsuari::CercaPerEmailAmbDni(email, dni, dbPass, rol);
 
         if (!exists)
             return false;
