@@ -191,6 +191,7 @@
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="CercadorCasteller.cpp" />
     <ClCompile Include="CercadorDiada.cpp" />
+    <ClCompile Include="CercadorUsuari.cpp" />
     <ClCompile Include="ConsultarCastellForm.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />
@@ -202,6 +203,7 @@
     <ClCompile Include="CtrlRegisterCasteller.cpp" />
     <ClCompile Include="CtrlRegistrarAssistencia.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
+    <ClCompile Include="InhabilitarCollaForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />

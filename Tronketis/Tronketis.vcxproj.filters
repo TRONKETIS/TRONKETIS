@@ -131,9 +131,6 @@
     <ClInclude Include="RegistrarAssistenciaForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -215,6 +212,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RegistrarAssistenciaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InhabilitarCollaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorUsuari.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
