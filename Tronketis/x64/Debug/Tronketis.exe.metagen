@@ -13,7 +13,7 @@ Assembly Tronketis, Version=1.0.*, Culture=Todos los idiomas (todos los países)
 	hash=SHA1, flags=PublicKey
 Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Assembly MySql.Data, Version=9.6.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
+Assembly MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
 	hash=None, flags=None
 Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
@@ -98,6 +98,7 @@ Class Tronketis.PasarelaUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFiel
   Methods:
     insertar(UsuariDTO): PrivateScope, Public, Static, HideBySig
     Inhabilitar(String): PrivateScope, Public, Static, HideBySig
+    modificarUsuari(UsuariDTO): PrivateScope, Public, Static, HideBySig
 Class CtrlAdminMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -110,6 +111,8 @@ Class CercadorUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     CercaPerEmail(String, String&, String&): PrivateScope, Public, Static, HideBySig
     existeEmail(String): PrivateScope, Public, Static, HideBySig
     existeDni(String): PrivateScope, Public, Static, HideBySig
+    buscaPorDNI(String): PrivateScope, Public, Static, HideBySig
+    obtenerTodosLosDnis(): PrivateScope, Public, Static, HideBySig
     CercaPerEmailAmbDni(String, String&, String&, String&): PrivateScope, Public, Static, HideBySig
     obtenirDnisCastellersActius(): PrivateScope, Public, Static, HideBySig
 Class Tronketis.CtrlRegistrarUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -124,6 +127,13 @@ Class Tronketis.RegistrarForm: AutoLayout, AnsiClass, Class, Public, BeforeField
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Tronketis.InhabilitarUsuarioForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.CtrlModificarUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    modificar(UsuariDTO, String&): PrivateScope, Public, HideBySig
+Class Tronketis.ModificarUsuariForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Tronketis.MenuAdminForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

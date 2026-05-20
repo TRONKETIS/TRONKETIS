@@ -158,6 +158,7 @@
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegisterCasteller.h" />
     <ClInclude Include="CtrlRegistrarAssistencia.h" />
+    <ClInclude Include="CtrlModificarUsuari.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="DiadaDTO.h" />
@@ -174,6 +175,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="IniciarSesionForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ModificarUsuariForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ParticipacioDiadaDTO.h" />
@@ -218,12 +222,14 @@
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegisterCasteller.cpp" />
     <ClCompile Include="CtrlRegistrarAssistencia.cpp" />
+    <ClCompile Include="CtrlModificarUsuari.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="AfegirMembresForm.cpp" />
     <ClCompile Include="EliminarMembreForm.cpp" />
     <ClCompile Include="GestioMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
+    <ClCompile Include="ModificarUsuariForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
     <ClCompile Include="PasarelaCasteller.cpp" />
@@ -247,7 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.6\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 8.0.33.1\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -270,6 +276,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesionForm.resx">
       <DependentUpon>IniciarSesionForm.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdminForm.resx">
       <DependentUpon>MenuAdminForm.h</DependentUpon>
