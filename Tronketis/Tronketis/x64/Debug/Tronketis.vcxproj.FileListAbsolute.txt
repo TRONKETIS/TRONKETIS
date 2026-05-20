@@ -51,3 +51,4 @@ C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.Men
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.RegistrarForm.resources
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.GenerateResource.cache
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.Up2Date
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.AsignarCapForm.resources
