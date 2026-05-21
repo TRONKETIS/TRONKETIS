@@ -158,6 +158,7 @@
     <ClInclude Include="CtrlGestioMembreColla.h" />
     <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlAdminMenu.h" />
+    <ClInclude Include="CtrlInhabilitarColla.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
     <ClInclude Include="CtrlRegisterCasteller.h" />
     <ClInclude Include="CtrlRegistrarAssistencia.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="GestioMembresForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="InhabilitarCollaForm.h" />
     <ClInclude Include="InhabilitarUsuarioForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -214,6 +216,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="CercadorCasteller.cpp" />
+    <ClCompile Include="CercadorColla.cpp" />
     <ClCompile Include="CercadorDiada.cpp" />
     <ClCompile Include="ConsultarCastellForm.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
@@ -223,6 +226,7 @@
     <ClCompile Include="CtrlCrearCastell.cpp" />
     <ClCompile Include="CtrlGestioMembreColla.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
+    <ClCompile Include="CtrlInhabilitarColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
     <ClCompile Include="CtrlRegisterCasteller.cpp" />
     <ClCompile Include="CtrlRegistrarAssistencia.cpp" />
