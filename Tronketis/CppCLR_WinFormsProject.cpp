@@ -11,7 +11,11 @@ using namespace System;
 //#include "RegistrarAssistenciaForm.h"
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
+#include "MenuCapColla.h"
+ 
+#include "MenuCapColla.h"
 
+using namespace System;
 using namespace System::Windows::Forms;
 
 [STAThread]
@@ -19,6 +23,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::MenuAdminForm());
+  Application::Run(gcnew Tronketis::IniciarSesionForm());
   return 0;
 }
