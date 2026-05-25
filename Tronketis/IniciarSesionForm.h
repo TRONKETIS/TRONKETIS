@@ -169,6 +169,7 @@ namespace Tronketis {
 
 			if (CercadorColla::obtenirCollaPerCap(dni, collaName)) {
 				MenuCapColla^ capCollaForm = gcnew MenuCapColla(collaName);
+				this->Hide();
 				capCollaForm->ShowDialog();
 			}
 			else {

@@ -19,6 +19,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::MenuAdminForm());
+  Application::Run(gcnew Tronketis::IniciarSesionForm());
   return 0;
 }
