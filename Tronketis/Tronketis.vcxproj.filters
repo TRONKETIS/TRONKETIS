@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -51,6 +51,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UsuariDTO.h">
+    <ClInclude Include="CercadorEvento.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventoDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorAssaig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AssaigDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlConsultarCalendari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultarCalendariForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CtrlCrearColla.h">
@@ -210,6 +228,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RegistrarForm.cpp">
+    <ClCompile Include="CercadorEvento.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorAssaig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlConsultarCalendari.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultarCalendariForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CtrlRegistrarUsuari.cpp">

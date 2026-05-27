@@ -2,6 +2,7 @@
 #include "MenuCapColla.h"
 #include "GestioMembresForm.h"
 #include "IniciarSesionForm.h"
+#include "ConsultarCalendariForm.h"
 
 using namespace Tronketis;
 
@@ -22,6 +23,12 @@ MenuCapColla::~MenuCapColla()
 System::Void MenuCapColla::btnGestioMembres_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	GestioMembresForm^ f = gcnew GestioMembresForm(this->collaName);
+	f->ShowDialog();
+}
+
+System::Void MenuCapColla::btnCalendari_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	ConsultarCalendariForm^ f = gcnew ConsultarCalendariForm("CapColla", this->collaName);
 	f->ShowDialog();
 }
 

@@ -3,6 +3,7 @@
 #include "MenuAdminForm.h"
 #include "MenuCapColla.h"
 #include "CercadorColla.h"
+#include "ConsultarCalendariForm.h"
 
 namespace Tronketis {
 
@@ -178,7 +179,13 @@ namespace Tronketis {
 		}
 		else
 		{
-			MessageBox::Show("Login correcto. Rol: " + rol);
+			String^ collaName = ""; 
+			// Si es Casteller le abrimos el calendario con su rol 
+			// por ahora como no hay Menu para casteller o usuari lo abrimos directo
+			ConsultarCalendariForm^ calForm = gcnew ConsultarCalendariForm(rol, collaName);
+			this->Hide();
+			calForm->ShowDialog();
+			this->Close();
 		}
 		
 	}
