@@ -12,6 +12,8 @@ using namespace System;
 //#include "ConsultarCastellForm.h"
 //#include "CrearCastellForm.h"
 #include "RegistrarAssistenciaForm.h"
+#include "RegistrarForm.h"
+#include "ModificarUsuariForm.h"
 
 using namespace System::Windows::Forms;
 

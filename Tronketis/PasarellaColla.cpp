@@ -123,5 +123,56 @@ namespace Tronketis {
             }
         }
     }
+    
+    bool PasarelaColla::asignarCapDeColla(String^ nombreColla, String^ dniCap) {
+        MySqlConnection^ conn = nullptr;
+        try {
+            conn = DB::GetConnection();
+            conn->Open();
+
+            // AQUÍ LA MAGIA: Le decimos que busque por 'name' y no por 'id'
+            String^ query = "UPDATE colla SET cap_de_colla_dni = @dni WHERE name = @name";
+
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@dni", dniCap);
+            cmd->Parameters->AddWithValue("@name", nombreColla); // Pasamos el nombre
+
+            int filasAfectadas = cmd->ExecuteNonQuery();
+            return filasAfectadas > 0;
+        }
+        catch (Exception^) {
+            return false;
+        }
+        finally {
+            if (conn != nullptr && conn->State == ConnectionState::Open) conn->Close();
+        }
+    }
+
+    System::Collections::Generic::List<CollaDTO^>^ PasarelaColla::obtenerTodas() {
+        System::Collections::Generic::List<CollaDTO^>^ lista = gcnew System::Collections::Generic::List<CollaDTO^>();
+        MySqlConnection^ conn = nullptr;
+        try {
+            conn = DB::GetConnection();
+            conn->Open();
+
+            String^ query = "SELECT * FROM colla";
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            MySqlDataReader^ reader = cmd->ExecuteReader();
+
+            while (reader->Read()) {
+                CollaDTO^ colla = gcnew CollaDTO();
+                colla->nom = reader->GetString("name");
+                lista->Add(colla);
+            }
+            return lista;
+        }
+        catch (Exception^ ex) {
+            System::Windows::Forms::MessageBox::Show("Error oculto en Collas: " + ex->Message);
+            return lista;
+        }
+        finally {
+            if (conn != nullptr && conn->State == ConnectionState::Open) conn->Close();
+        }
+    }
 
 }
