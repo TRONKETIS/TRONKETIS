@@ -137,6 +137,7 @@
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CastellDTO.h" />
     <ClInclude Include="CastellerDTO.h" />
+    <ClInclude Include="CercadorAssistenciaDiada.h" />
     <ClInclude Include="CercadorCastell.h" />
     <ClInclude Include="CercadorCasteller.h" />
     <ClInclude Include="CercadorDiada.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="CtrlRegistrarAssistencia.h" />
     <ClInclude Include="CtrlModificarUsuari.h" />
     <ClInclude Include="CtrlRegistrarUsuari.h" />
+    <ClInclude Include="CtrlResumAssistenciaDiada.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="DiadaDTO.h" />
     <ClInclude Include="AfegirMembresForm.h">
@@ -183,7 +185,11 @@
     <ClInclude Include="ModificarUsuariForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ResumAssistenciaDiadaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ParticipacioDiadaDTO.h" />
+    <ClInclude Include="ParticipantDiadaDTO.h" />
     <ClInclude Include="PasarelaCastell.h" />
     <ClInclude Include="PasarelaCasteller.h" />
     <ClInclude Include="PasarelaParticipacioDiada.h" />
@@ -212,6 +218,7 @@
   <ItemGroup>
     <ClCompile Include="AsignarCapForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="CercadorAssistenciaDiada.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="CercadorCasteller.cpp" />
     <ClCompile Include="CercadorDiada.cpp" />
@@ -229,6 +236,7 @@
     <ClCompile Include="CtrlModificarUsuari.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="AfegirMembresForm.cpp" />
+    <ClCompile Include="CtrlResumAssistenciaDiada.cpp" />
     <ClCompile Include="EliminarMembreForm.cpp" />
     <ClCompile Include="GestioMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
@@ -287,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdminForm.resx">
       <DependentUpon>MenuAdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumAssistenciaDiadaForm.resx">
+      <DependentUpon>ResumAssistenciaDiadaForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterCastellerForm.resx">
       <DependentUpon>RegisterCastellerForm.h</DependentUpon>

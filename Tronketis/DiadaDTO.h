@@ -11,7 +11,6 @@ namespace Tronketis {
         String^ nom;
         DateTime data;
         String^ ubicacio;
-        String^ tipus;
     };
 
 }

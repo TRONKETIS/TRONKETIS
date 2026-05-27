@@ -46,9 +46,6 @@ namespace Tronketis {
                 dto->ubicacio =
                     reader["location"]->ToString();
 
-                dto->tipus =
-                    reader["tipus"]->ToString();
-
                 llista->Add(dto);
             }
         }

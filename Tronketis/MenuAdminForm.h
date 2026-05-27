@@ -6,6 +6,7 @@
 #include "InhabilitarUsuarioForm.h"
 #include "AsignarCapForm.h"
 #include "ModificarUsuariForm.h"
+#include "ResumAssistenciaDiadaForm.h"
 
 namespace Tronketis {
 
@@ -43,7 +44,7 @@ namespace Tronketis {
 		// Aplica el estilo base a los botones compartidos
 		void ConfigurarEstiloBotones()
 		{
-			cli::array<Button^>^ botones = { btnGoToRegUser, btnGoToDelUser, button1, btnGoToAsignarCap };
+			cli::array<Button^>^ botones = { btnGoToRegUser, btnGoToDelUser, button1, btnGoToAsignarCap, btnResumAssistencia };
 
 			for each (Button ^ btn in botones) {
 				if (btn != nullptr) {
@@ -81,11 +82,18 @@ namespace Tronketis {
 			this->btnGoToAsignarCap->ForeColor = AppColors::Black;
 			this->btnGoToAsignarCap->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToAsignarCap->FlatAppearance->MouseDownBackColor = AppColors::Black;
+
 			// Modificar Usuario
 			this->button1->BackColor = AppColors::Yellow;
 			this->button1->ForeColor = AppColors::Black;
 			this->button1->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->button1->FlatAppearance->MouseDownBackColor = AppColors::Black;
+
+			// Consultar assistencia de una diada
+			this->btnResumAssistencia->BackColor = AppColors::Yellow;
+			this->btnResumAssistencia->ForeColor = AppColors::Black;
+			this->btnResumAssistencia->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
+			this->btnResumAssistencia->FlatAppearance->MouseDownBackColor = AppColors::Black;
 		}
 
 	protected:
@@ -101,6 +109,7 @@ namespace Tronketis {
 		System::Windows::Forms::Button^ btnGoToDelUser;
 		System::Windows::Forms::Button^ btnGoToAsignarCap;
 		System::Windows::Forms::Button^ button1; // Botón de Modificar Usuario
+		System::Windows::Forms::Button^ btnResumAssistencia;
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
@@ -112,6 +121,7 @@ namespace Tronketis {
 			this->btnGoToDelUser = (gcnew System::Windows::Forms::Button());
 			this->btnGoToAsignarCap = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnResumAssistencia = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// lblWelcom
@@ -163,6 +173,14 @@ namespace Tronketis {
 			this->button1->Text = L"Modificar Usuario";
 			this->button1->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToModUser_Click);
 			// 
+			// btnResumAssistencia
+			// 
+			this->btnResumAssistencia->Location = System::Drawing::Point(140, 280);
+			this->btnResumAssistencia->Name = L"btnResumAssistencia";
+			this->btnResumAssistencia->Size = System::Drawing::Size(154, 29);
+			this->btnResumAssistencia->Text = L"Resum Assistencia";
+			this->btnResumAssistencia->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnResumAssistencia_Click);
+			// 
 			// MenuAdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -174,6 +192,7 @@ namespace Tronketis {
 			this->Controls->Add(this->btnGoToRegUser);
 			this->Controls->Add(this->lblAdminName);
 			this->Controls->Add(this->lblWelcom);
+			this->Controls->Add(this->btnResumAssistencia);
 			this->Name = L"MenuAdminForm";
 			this->Text = L"Menu Admin";
 			this->ResumeLayout(false);
@@ -211,6 +230,11 @@ namespace Tronketis {
 
 		System::Void btnGoToAsignarCap_Click(System::Object^ sender, System::EventArgs^ e) {
 			AsignarCapForm^ form = gcnew AsignarCapForm();
+			form->ShowDialog();
+		}
+
+		System::Void btnResumAssistencia_Click(System::Object^ sender, System::EventArgs^ e) {
+			ResumAssistenciaDiadaForm^ form = gcnew ResumAssistenciaDiadaForm();
 			form->ShowDialog();
 		}
 

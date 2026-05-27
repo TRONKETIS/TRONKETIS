@@ -131,7 +131,6 @@
     <ClInclude Include="RegistrarAssistenciaForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-
     <ClInclude Include="CercadorMembre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -190,6 +189,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AsignarCapForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticipantDiadaDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorAssistenciaDiada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlResumAssistenciaDiada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResumAssistenciaDiadaForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -260,7 +271,6 @@
     <ClCompile Include="CercadorCastell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-
     <ClCompile Include="ConsultarCastellForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -322,6 +332,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CtrlModificarUsuari.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorAssistenciaDiada.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlResumAssistenciaDiada.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
