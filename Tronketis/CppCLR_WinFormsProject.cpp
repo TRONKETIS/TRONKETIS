@@ -11,6 +11,7 @@ using namespace System;
 //#include "RegistrarAssistenciaForm.h"
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
+#include "AssignarCastellsDiadaForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -19,6 +20,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::IniciarSesionForm());
+  Application::Run(gcnew Tronketis::AssignarCastellsDiadaForm("colla2"));
   return 0;
 }

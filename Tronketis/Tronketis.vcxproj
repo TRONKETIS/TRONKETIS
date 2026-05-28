@@ -134,9 +134,13 @@
     <ClInclude Include="AsignarCapForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="AssignarCastellsDiadaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CastellDTO.h" />
     <ClInclude Include="CastellerDTO.h" />
+    <ClInclude Include="CercadorAssignacioCastellDiada.h" />
     <ClInclude Include="CercadorCastell.h" />
     <ClInclude Include="CercadorCasteller.h" />
     <ClInclude Include="CercadorDiada.h" />
@@ -153,6 +157,7 @@
     <ClInclude Include="CrearCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CtrlAssignarCastellDiada.h" />
     <ClInclude Include="CtrlConsultarCastell.h" />
     <ClInclude Include="CtrlCrearCastell.h" />
     <ClInclude Include="CtrlGestioMembreColla.h" />
@@ -184,6 +189,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ParticipacioDiadaDTO.h" />
+    <ClInclude Include="PasarelaAssignacioCastellDiada.h" />
     <ClInclude Include="PasarelaCastell.h" />
     <ClInclude Include="PasarelaCasteller.h" />
     <ClInclude Include="PasarelaParticipacioDiada.h" />
@@ -212,6 +218,8 @@
   <ItemGroup>
     <ClCompile Include="AsignarCapForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="AssignarCastellsDiadaForm.cpp" />
+    <ClCompile Include="CercadorAssignacioCastellDiada.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="CercadorCasteller.cpp" />
     <ClCompile Include="CercadorDiada.cpp" />
@@ -219,6 +227,7 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
+    <ClCompile Include="CtrlAssignarCastellDiada.cpp" />
     <ClCompile Include="CtrlConsultarCastell.cpp" />
     <ClCompile Include="CtrlCrearCastell.cpp" />
     <ClCompile Include="CtrlGestioMembreColla.cpp" />
@@ -235,6 +244,7 @@
     <ClCompile Include="IniciarSesionForm.cpp" />
     <ClCompile Include="ModificarUsuariForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
+    <ClCompile Include="PasarelaAssignacioCastellDiada.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
     <ClCompile Include="PasarelaCasteller.cpp" />
     <ClCompile Include="PasarelaParticipacioDiada.cpp" />

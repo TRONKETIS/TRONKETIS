@@ -61,3 +61,60 @@ CercadorCastell::cercaPerNom(String^ nom)
 
     return llista;
 }
+
+List<PasarelaCastell^>^
+CercadorCastell::obtenirTots()
+{
+    List<PasarelaCastell^>^ llista =
+        gcnew List<PasarelaCastell^>();
+
+    MySqlConnection^ conn = DB::GetConnection();
+
+    try {
+
+        conn->Open();
+
+        String^ query =
+            "SELECT id, nom, num_pisos, tipus "
+            "FROM castell "
+            "ORDER BY nom";
+
+        MySqlCommand^ cmd =
+            gcnew MySqlCommand(query, conn);
+
+        MySqlDataReader^ reader =
+            cmd->ExecuteReader();
+
+        while (reader->Read())
+        {
+            CastellDTO^ dto =
+                gcnew CastellDTO();
+
+            dto->idCastell =
+                Convert::ToInt32(reader["id"]);
+
+            dto->nom =
+                reader["nom"]->ToString();
+
+            dto->pisos =
+                Convert::ToInt32(reader["num_pisos"]);
+
+            dto->tipus =
+                reader["tipus"]->ToString();
+
+            PasarelaCastell^ p =
+                gcnew PasarelaCastell(dto);
+
+            llista->Add(p);
+        }
+    }
+    finally {
+
+        if (conn->State == ConnectionState::Open)
+        {
+            conn->Close();
+        }
+    }
+
+    return llista;
+}
