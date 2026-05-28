@@ -20,6 +20,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::AssignarCastellsDiadaForm("colla2"));
+  Application::Run(gcnew Tronketis::IniciarSesionForm());
   return 0;
 }

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "MenuCapColla.h"
 #include "GestioMembresForm.h"
+#include "AssignarCastellsDiadaForm.h"
 #include "IniciarSesionForm.h"
 
 using namespace Tronketis;
@@ -22,6 +23,12 @@ MenuCapColla::~MenuCapColla()
 System::Void MenuCapColla::btnGestioMembres_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	GestioMembresForm^ f = gcnew GestioMembresForm(this->collaName);
+	f->ShowDialog();
+}
+
+System::Void MenuCapColla::btnAssignarCastellDiada_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	AssignarCastellsDiadaForm^ f = gcnew AssignarCastellsDiadaForm(this->collaName);
 	f->ShowDialog();
 }
 

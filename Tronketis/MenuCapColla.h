@@ -21,6 +21,7 @@ namespace Tronketis {
 		String^ collaName;
 		System::Windows::Forms::Label^ lblTitol;
 		System::Windows::Forms::Button^ btnGestioMembres;
+		System::Windows::Forms::Button^ btnAssignarCastellDiada;
 		System::Windows::Forms::Button^ btnTancarSessio;
 		System::ComponentModel::Container^ components;
 
@@ -29,6 +30,7 @@ namespace Tronketis {
 		{
 			this->lblTitol = (gcnew System::Windows::Forms::Label());
 			this->btnGestioMembres = (gcnew System::Windows::Forms::Button());
+			this->btnAssignarCastellDiada = (gcnew System::Windows::Forms::Button());
 			this->btnTancarSessio = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -44,7 +46,7 @@ namespace Tronketis {
 			// 
 			// btnGestioMembres
 			// 
-			this->btnGestioMembres->Location = System::Drawing::Point(170, 150);
+			this->btnGestioMembres->Location = System::Drawing::Point(170, 140);
 			this->btnGestioMembres->Name = L"btnGestioMembres";
 			this->btnGestioMembres->Size = System::Drawing::Size(180, 35);
 			this->btnGestioMembres->TabIndex = 1;
@@ -52,12 +54,22 @@ namespace Tronketis {
 			this->btnGestioMembres->UseVisualStyleBackColor = true;
 			this->btnGestioMembres->Click += gcnew System::EventHandler(this, &MenuCapColla::btnGestioMembres_Click);
 			// 
+			// btnAssignarCastellDiada
+			// 
+			this->btnAssignarCastellDiada->Location = System::Drawing::Point(170, 200);
+			this->btnAssignarCastellDiada->Name = L"btnAssignarCastellDiada";
+			this->btnAssignarCastellDiada->Size = System::Drawing::Size(180, 35);
+			this->btnAssignarCastellDiada->TabIndex = 2;
+			this->btnAssignarCastellDiada->Text = L"Assignar castell a diada";
+			this->btnAssignarCastellDiada->UseVisualStyleBackColor = true;
+			this->btnAssignarCastellDiada->Click += gcnew System::EventHandler(this, &MenuCapColla::btnAssignarCastellDiada_Click);
+			// 
 			// btnTancarSessio
 			// 
-			this->btnTancarSessio->Location = System::Drawing::Point(170, 220);
+			this->btnTancarSessio->Location = System::Drawing::Point(170, 260);
 			this->btnTancarSessio->Name = L"btnTancarSessio";
 			this->btnTancarSessio->Size = System::Drawing::Size(180, 35);
-			this->btnTancarSessio->TabIndex = 2;
+			this->btnTancarSessio->TabIndex = 3;
 			this->btnTancarSessio->Text = L"Tancar sessió";
 			this->btnTancarSessio->UseVisualStyleBackColor = true;
 			this->btnTancarSessio->Click += gcnew System::EventHandler(this, &MenuCapColla::btnTancarSessio_Click);
@@ -68,6 +80,7 @@ namespace Tronketis {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(547, 470);
 			this->Controls->Add(this->btnTancarSessio);
+			this->Controls->Add(this->btnAssignarCastellDiada);
 			this->Controls->Add(this->btnGestioMembres);
 			this->Controls->Add(this->lblTitol);
 			this->Name = L"MenuCapColla";
@@ -79,6 +92,7 @@ namespace Tronketis {
 
 	private:
 		System::Void btnGestioMembres_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void btnAssignarCastellDiada_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnTancarSessio_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }
