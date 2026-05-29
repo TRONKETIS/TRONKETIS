@@ -7,12 +7,14 @@ using namespace Tronketis;
 
 namespace Tronketis {
 
-    bool CtrlCrearCastell::Crear(CastellDTO^ castell, String^% error) {
+    bool CtrlCrearCastell::Crear(int collaId, CastellDTO^ castell, String^% error) {
 
         if (!validarDades(castell, error)) return false;
         if (!nomDisponible(castell->nom, error)) return false;
 
         castell->nom = castell->nom->Trim();
+
+        castell->colla = collaId;
 
         try {
             return PasarelaCastell::insertar(castell, error);

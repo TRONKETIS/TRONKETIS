@@ -15,13 +15,14 @@ namespace Tronketis {
             conn = DB::GetConnection();
             conn->Open();
 
-            String^ query = "INSERT INTO castell (nom, tipus, num_pisos) "
-                "VALUES (@nom, @tipus, @num_pisos)";
+            String^ query = "INSERT INTO castell (nom, tipus, num_pisos, colla) "
+                "VALUES (@nom, @tipus, @num_pisos, @colla)";
 
             MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-            cmd->Parameters->AddWithValue("@nom", castell->nom);
-            cmd->Parameters->AddWithValue("@tipus", castell->tipus);
+            cmd->Parameters->AddWithValue("@nom",      castell->nom);
+            cmd->Parameters->AddWithValue("@tipus",    castell->tipus);
             cmd->Parameters->AddWithValue("@num_pisos", castell->pisos);
+            cmd->Parameters->AddWithValue("@colla",    castell->colla);
 
             cmd->ExecuteNonQuery();
 

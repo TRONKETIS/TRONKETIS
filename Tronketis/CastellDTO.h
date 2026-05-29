@@ -12,6 +12,7 @@ namespace Tronketis {
         String^ nom;
         int pisos;
         String^ tipus;
+        int colla;
     };
 
 }
