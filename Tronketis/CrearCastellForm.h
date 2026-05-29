@@ -16,8 +16,16 @@ namespace Tronketis {
 	public ref class CrearCastellForm : public System::Windows::Forms::Form
 	{
 	public:
+		CrearCastellForm(int collaId)
+		{
+			collaIdActual = collaId;
+			InitializeComponent();
+			ConfigurarValidacions();
+		}
+
 		CrearCastellForm(void)
 		{
+			collaIdActual = 0;
 			InitializeComponent();
 			ConfigurarValidacions();
 		}
@@ -46,6 +54,7 @@ namespace Tronketis {
 		System::Windows::Forms::Button^       BtnNetejar;
 		System::Windows::Forms::Label^        LabelMissatge;
 
+		int collaIdActual;
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
@@ -401,17 +410,17 @@ namespace Tronketis {
 		CastellDTO^ nouCastell = gcnew CastellDTO();
 		nouCastell->nom      = nom;
 		nouCastell->tipus    = tipus;
-		nouCastell->numPisos = pisos;
+		nouCastell->pisos = pisos;
 
 		String^ error;
-		bool resultat = CtrlCrearCastell::Crear(nouCastell, error);
+		bool resultat = CtrlCrearCastell::Crear(collaIdActual, nouCastell, error);
 
 		if (resultat) {
 			LabelMissatge->Text      = L"Castell creat correctament!";
 			LabelMissatge->ForeColor = System::Drawing::Color::Green;
 
 			MessageBox::Show(
-				"El castell \"" + nom + "\" s'ha creat amb exit!\n\nID: " + nouCastell->id,
+				"El castell \"" + nom + "\" s'ha creat amb exit!\n\nID: " + nouCastell->idCastell,
 				L"Exit",
 				MessageBoxButtons::OK,
 				MessageBoxIcon::Information

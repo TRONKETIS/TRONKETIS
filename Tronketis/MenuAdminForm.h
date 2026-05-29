@@ -1,8 +1,12 @@
 #pragma once
+
 #include "AppColors.h"
 #include "CtrlAdminMenu.h"
 #include "RegistrarForm.h"
 #include "InhabilitarUsuarioForm.h"
+#include "AsignarCapForm.h"
+#include "ModificarUsuariForm.h"
+
 namespace Tronketis {
 
 	using namespace System;
@@ -18,166 +22,198 @@ namespace Tronketis {
 	public ref class MenuAdminForm : public System::Windows::Forms::Form
 	{
 	public:
+		// Constructor por defecto
 		MenuAdminForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			ConfigurarEstiloBotones();
+			ConfigurarBotones();
+		}
 
-			/*go to reg button begg*/
-			this->btnGoToRegUser->BackColor = AppColors::DarkRed;
-			//this->btnGoToRegUser->ForeColor = AppColors::White;
+		// Constructor con nombre de admin
+		MenuAdminForm(String^ adminName)
+		{
+			InitializeComponent();
+			lblAdminName->Text = adminName;
+			ConfigurarEstiloBotones();
+			ConfigurarBotones();
+		}
 
+	private:
+		// Aplica el estilo base a los botones compartidos
+		void ConfigurarEstiloBotones()
+		{
+			cli::array<Button^>^ botones = { btnGoToRegUser, btnGoToDelUser, button1, btnGoToAsignarCap };
+
+			for each (Button ^ btn in botones) {
+				if (btn != nullptr) {
+					btn->BackColor = AppColors::DarkRed;
+					btn->ForeColor = AppColors::White;
+					btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+					btn->FlatAppearance->BorderSize = 0;
+					btn->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
+					btn->FlatAppearance->MouseDownBackColor = AppColors::Black;
+					btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold));
+
+					// Suscribir a los eventos Hover
+					btn->MouseEnter += gcnew EventHandler(this, &MenuAdminForm::OnHoverEnter);
+					btn->MouseLeave += gcnew EventHandler(this, &MenuAdminForm::OnHoverLeave);
+				}
+			}
+		}
+
+		// Configuración específica de colores que venía de la otra feature
+		void ConfigurarBotones() {
+			// Registrar Usuario
+			this->btnGoToRegUser->BackColor = AppColors::Yellow;
+			this->btnGoToRegUser->ForeColor = AppColors::Black;
 			this->btnGoToRegUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToRegUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
 
-			this->btnGoToRegUser->MouseEnter += gcnew EventHandler(this, &MenuAdminForm::OnHoverEnter);
-			this->btnGoToRegUser->MouseLeave += gcnew EventHandler(this, &MenuAdminForm::OnHoverLeave);
-			/*go to reg button end*/
-
-			/*delete user button begg*/
-			this->btnGoToDelUser->BackColor = AppColors::DarkRed;
-			//this->btnGoToRegUser->ForeColor = AppColors::White;
-
+			// Borrar Usuario
+			this->btnGoToDelUser->BackColor = AppColors::Yellow;
+			this->btnGoToDelUser->ForeColor = AppColors::Black;
 			this->btnGoToDelUser->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
 			this->btnGoToDelUser->FlatAppearance->MouseDownBackColor = AppColors::Black;
 
-			this->btnGoToDelUser->MouseEnter += gcnew EventHandler(this, &MenuAdminForm::OnHoverEnter);
-			this->btnGoToDelUser->MouseLeave += gcnew EventHandler(this, &MenuAdminForm::OnHoverLeave);
-			/*delete user button end*/
+			// Asignar Cap
+			this->btnGoToAsignarCap->BackColor = AppColors::Yellow;
+			this->btnGoToAsignarCap->ForeColor = AppColors::Black;
+			this->btnGoToAsignarCap->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
+			this->btnGoToAsignarCap->FlatAppearance->MouseDownBackColor = AppColors::Black;
+			// Modificar Usuario
+			this->button1->BackColor = AppColors::Yellow;
+			this->button1->ForeColor = AppColors::Black;
+			this->button1->FlatAppearance->MouseOverBackColor = AppColors::Yellow;
+			this->button1->FlatAppearance->MouseDownBackColor = AppColors::Black;
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~MenuAdminForm()
 		{
-			if (components)
-			{
-				delete components;
-			}
+			if (components) delete components;
 		}
-	private: System::Windows::Forms::Label^ lblWelcom;
-	protected:
-	private: System::Windows::Forms::Label^ lblAdminName;
-	private: System::Windows::Forms::Button^ btnGoToRegUser;
-	private: System::Windows::Forms::Button^ btnGoToDelUser;
-
-
-
-	protected:
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::Windows::Forms::Label^ lblWelcom;
+		System::Windows::Forms::Label^ lblAdminName;
+		System::Windows::Forms::Button^ btnGoToRegUser;
+		System::Windows::Forms::Button^ btnGoToDelUser;
+		System::Windows::Forms::Button^ btnGoToAsignarCap;
+		System::Windows::Forms::Button^ button1; // Botón de Modificar Usuario
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuAdminForm::typeid));
 			this->lblWelcom = (gcnew System::Windows::Forms::Label());
 			this->lblAdminName = (gcnew System::Windows::Forms::Label());
 			this->btnGoToRegUser = (gcnew System::Windows::Forms::Button());
 			this->btnGoToDelUser = (gcnew System::Windows::Forms::Button());
+			this->btnGoToAsignarCap = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// lblWelcom
 			// 
 			this->lblWelcom->AutoSize = true;
-			this->lblWelcom->Location = System::Drawing::Point(184, 69);
+			this->lblWelcom->Location = System::Drawing::Point(138, 56);
 			this->lblWelcom->Name = L"lblWelcom";
-			this->lblWelcom->Size = System::Drawing::Size(124, 16);
-			this->lblWelcom->TabIndex = 0;
+			this->lblWelcom->Size = System::Drawing::Size(99, 13);
 			this->lblWelcom->Text = L"Bienvenid@ admin ";
 			// 
 			// lblAdminName
 			// 
 			this->lblAdminName->AutoSize = true;
-			this->lblAdminName->Location = System::Drawing::Point(308, 69);
+			this->lblAdminName->Location = System::Drawing::Point(231, 56);
 			this->lblAdminName->Name = L"lblAdminName";
-			this->lblAdminName->Size = System::Drawing::Size(85, 16);
-			this->lblAdminName->TabIndex = 1;
+			this->lblAdminName->Size = System::Drawing::Size(67, 13);
 			this->lblAdminName->Text = L"admin_name";
 			// 
 			// btnGoToRegUser
 			// 
-			this->btnGoToRegUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnGoToRegUser->Location = System::Drawing::Point(187, 123);
+			this->btnGoToRegUser->Location = System::Drawing::Point(140, 100);
 			this->btnGoToRegUser->Name = L"btnGoToRegUser";
-			this->btnGoToRegUser->Size = System::Drawing::Size(206, 36);
-			this->btnGoToRegUser->TabIndex = 2;
+			this->btnGoToRegUser->Size = System::Drawing::Size(154, 29);
 			this->btnGoToRegUser->Text = L"Registrar Usuario";
-			this->btnGoToRegUser->UseVisualStyleBackColor = false;
 			this->btnGoToRegUser->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToRegUser_Click);
 			// 
 			// btnGoToDelUser
 			// 
-			this->btnGoToDelUser->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->btnGoToDelUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnGoToDelUser->Location = System::Drawing::Point(187, 178);
+			this->btnGoToDelUser->Location = System::Drawing::Point(140, 145);
 			this->btnGoToDelUser->Name = L"btnGoToDelUser";
-			this->btnGoToDelUser->Size = System::Drawing::Size(206, 36);
-			this->btnGoToDelUser->TabIndex = 3;
+			this->btnGoToDelUser->Size = System::Drawing::Size(154, 29);
 			this->btnGoToDelUser->Text = L"Borrar Usuario";
-			this->btnGoToDelUser->UseVisualStyleBackColor = false;
 			this->btnGoToDelUser->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToDelUser_Click);
+			// 
+			// btnGoToAsignarCap
+			// 
+			this->btnGoToAsignarCap->Location = System::Drawing::Point(140, 235);
+			this->btnGoToAsignarCap->Name = L"btnGoToAsignarCap";
+			this->btnGoToAsignarCap->Size = System::Drawing::Size(154, 29);
+			this->btnGoToAsignarCap->Text = L"Asignar Cap de Colla";
+			this->btnGoToAsignarCap->UseVisualStyleBackColor = false;
+			this->btnGoToAsignarCap->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToAsignarCap_Click);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(140, 190);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(154, 29);
+			this->button1->Text = L"Modificar Usuario";
+			this->button1->Click += gcnew System::EventHandler(this, &MenuAdminForm::btnGoToModUser_Click);
 			// 
 			// MenuAdminForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(581, 443);
+			this->ClientSize = System::Drawing::Size(436, 360);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->btnGoToAsignarCap);
 			this->Controls->Add(this->btnGoToDelUser);
 			this->Controls->Add(this->btnGoToRegUser);
 			this->Controls->Add(this->lblAdminName);
 			this->Controls->Add(this->lblWelcom);
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MenuAdminForm";
-			this->Text = L"MenuAdminForm";
+			this->Text = L"Menu Admin";
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
-	private: System::Void OnHoverEnter(System::Object^ sender, System::EventArgs^ e)
-	{
-		btnGoToRegUser->ForeColor = AppColors::Black;
-		btnGoToDelUser->ForeColor = AppColors::Black;
 
-	}
-	private: System::Void OnHoverLeave(System::Object^ sender, System::EventArgs^ e)
-	{
-		btnGoToRegUser->ForeColor = AppColors::White;
-		btnGoToDelUser->ForeColor = AppColors::Black;
-	}
-	
-	
-		   // button click event handlers
-	private: System::Void btnGoToRegUser_Click(System::Object^ sender, System::EventArgs^ e) {
-		CtrlAdminMenu::IrARegistrarUsuario();
+	private:
+		System::Void OnHoverEnter(System::Object^ sender, System::EventArgs^ e)
+		{
+			Button^ btn = dynamic_cast<Button^>(sender);
+			if (btn != nullptr) btn->ForeColor = AppColors::Black;
+		}
 
-		RegistrarForm^ form = gcnew RegistrarForm();
-		form->ShowDialog();
-	}
+		System::Void OnHoverLeave(System::Object^ sender, System::EventArgs^ e)
+		{
+			Button^ btn = dynamic_cast<Button^>(sender);
+			if (btn != nullptr) btn->ForeColor = AppColors::White;
+		}
 
+		System::Void btnGoToRegUser_Click(System::Object^ sender, System::EventArgs^ e) {
+			RegistrarForm^ form = gcnew RegistrarForm();
+			form->ShowDialog();
+		}
 
+		System::Void btnGoToDelUser_Click(System::Object^ sender, System::EventArgs^ e) {
+			InhabilitarUsuarioForm^ form = gcnew InhabilitarUsuarioForm();
+			form->ShowDialog();
+		}
 
+		System::Void btnGoToModUser_Click(System::Object^ sender, System::EventArgs^ e) {
+			ModificarUsuariForm^ form = gcnew ModificarUsuariForm();
+			form->ShowDialog();
+		}
 
-	private: System::Void btnGoToDelUser_Click(System::Object^ sender, System::EventArgs^ e) {
-		InhabilitarUsuarioForm^ form = gcnew InhabilitarUsuarioForm();
-		form->ShowDialog(); 
-	}
+		System::Void btnGoToAsignarCap_Click(System::Object^ sender, System::EventArgs^ e) {
+			AsignarCapForm^ form = gcnew AsignarCapForm();
+			form->ShowDialog();
+		}
 
-};
+		System::Void MenuAdminForm_Load(System::Object^ sender, System::EventArgs^ e) {}
+	};
 }

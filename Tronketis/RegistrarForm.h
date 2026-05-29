@@ -1,6 +1,7 @@
 #pragma once
 #include "UsuariDTO.h"
 #include "CtrlRegistrarUsuari.h"
+#include "RegisterCastellerForm.h"
 namespace Tronketis {
 
 	using namespace System;
@@ -181,7 +182,7 @@ namespace Tronketis {
 			// 
 			this->comboBoxRol->FormattingEnabled = true;
 			this->comboBoxRol->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L"Casteller", L"Cap de colla", L"Administrador"
+				L"Casteller", L"CapColla", L"Administrador"
 			});
 			this->comboBoxRol->Location = System::Drawing::Point(254, 274);
 			this->comboBoxRol->Name = L"comboBoxRol";
@@ -246,6 +247,10 @@ namespace Tronketis {
 		}
 		else {
 			MessageBox::Show("Usuario registrado correctamente");
+			if (u->rol == "Casteller") {
+				RegisterCastellerForm^ form = gcnew RegisterCastellerForm(u->dni);
+				form->ShowDialog();
+			}
 		}
 	}
 };

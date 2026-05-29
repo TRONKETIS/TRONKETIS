@@ -1,17 +1,19 @@
 #include "pch.h"
 #include "CtrlCrearCastell.h"
 #include "PasarelaCastell.h"
+#include "CercadorCastell.h"
 using namespace System;
 using namespace Tronketis;
 
 namespace Tronketis {
 
-    bool CtrlCrearCastell::Crear(CastellDTO^ castell, String^% error) {
+    bool CtrlCrearCastell::Crear(int collaId, CastellDTO^ castell, String^% error) {
 
         if (!validarDades(castell, error)) return false;
         if (!nomDisponible(castell->nom, error)) return false;
 
-        castell->nom = castell->nom->Trim();
+        castell->nom   = castell->nom->Trim();
+        castell->colla = collaId;
 
         try {
             return PasarelaCastell::insertar(castell, error);
@@ -38,7 +40,7 @@ namespace Tronketis {
         }
 
         int min = minPisos(castell->tipus);
-        if (castell->numPisos < min || castell->numPisos > 10) {
+        if (castell->pisos < min || castell->pisos > 10) {
             error = String::Format("El nombre de pisos ha de ser entre {0} i 10", min);
             return false;
         }
@@ -48,7 +50,10 @@ namespace Tronketis {
 
     bool CtrlCrearCastell::nomDisponible(String^ nom, String^% error) {
         try {
-            if (PasarelaCastell::existeixNom(nom->Trim())) {
+            List<PasarelaCastell^>^ resultats =
+                CercadorCastell::cercaPerNom(nom->Trim());
+
+            if (resultats->Count > 0) {
                 error = "Ja existeix un castell amb aquest nom";
                 return false;
             }

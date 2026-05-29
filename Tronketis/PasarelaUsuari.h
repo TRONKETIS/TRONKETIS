@@ -14,6 +14,8 @@ namespace Tronketis {
     public:
         static void insertar(UsuariDTO^ u);
         static bool Inhabilitar(String^ dni);
+        static System::Collections::Generic::List<UsuariDTO^>^ obtenirTots();
+        static bool modificarUsuari(UsuariDTO^ u);
     };
 
 }

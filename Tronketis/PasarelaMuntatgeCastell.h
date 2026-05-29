@@ -1,5 +1,5 @@
 #pragma once
-#include "MembreDTO.h"
+#include "CastellerDTO.h"
 #include "PosicioCastellDTO.h"
 using namespace System;
 using namespace System::Collections::Generic;
@@ -9,13 +9,13 @@ namespace Tronketis {
 
     public ref class PasarelaMuntatgeCastell {
     public:
-        // Retorna els membres de la colla (taula membre_colla)
-        static List<MembreDTO^>^ obtenirMembresPerColla(int collaId);
+        // Castellers de la colla (JOIN casteller + usuari + membre + colla)
+        static List<CastellerDTO^>^ obtenirCastellersPerColla(int collaId);
 
-        // Retorna les assignacions ja guardades per a aquest castell+colla
-        static List<PosicioCastellDTO^>^ obtenirAssignacionsExistents(int castellId, int collaId);
+        // Assignacions ja guardades per a aquest castell+colla
+        static List<PosicioCastellDTO^>^ obtenirAssignacions(int castellId, int collaId);
 
-        // Desa les assignacions (DELETE + INSERT en transaccio)
+        // Desa assignacions (DELETE + INSERT en transaccio)
         static bool guardarAssignacions(int castellId, int collaId,
             List<PosicioCastellDTO^>^ posicions, String^% error);
     };

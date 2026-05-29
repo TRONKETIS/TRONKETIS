@@ -7,8 +7,8 @@ using namespace Tronketis;
 
 namespace Tronketis {
 
-    List<MembreDTO^>^ CtrlAssignarCastellers::CarregarMembres(int collaId) {
-        return PasarelaMuntatgeCastell::obtenirMembresPerColla(collaId);
+    List<CastellerDTO^>^ CtrlAssignarCastellers::CarregarCastellers(int collaId) {
+        return PasarelaMuntatgeCastell::obtenirCastellersPerColla(collaId);
     }
 
     bool CtrlAssignarCastellers::Assignar(int castellId, int collaId,
@@ -25,16 +25,15 @@ namespace Tronketis {
         }
     }
 
-    // Cap membre (dni) pot aparèixer dues vegades en el mateix castell
     bool CtrlAssignarCastellers::validarSenseDuplicats(List<PosicioCastellDTO^>^ posicions, String^% error) {
         List<String^>^ vistos = gcnew List<String^>();
         for each (PosicioCastellDTO^ p in posicions) {
-            if (String::IsNullOrEmpty(p->membreDni)) continue;
-            if (vistos->Contains(p->membreDni)) {
+            if (String::IsNullOrEmpty(p->castellerDni)) continue;
+            if (vistos->Contains(p->castellerDni)) {
                 error = "Un mateix casteller no pot ocupar dues posicions a la vegada";
                 return false;
             }
-            vistos->Add(p->membreDni);
+            vistos->Add(p->castellerDni);
         }
         return true;
     }
