@@ -6,8 +6,8 @@ namespace Tronketis {
 
     public ref class UsuariDTO {
     public:
-        String^ dni;
-        String^ username;
+       property String^ dni;
+       property String^ username;
         String^ email;
         String^ password;
         String^ rol;
