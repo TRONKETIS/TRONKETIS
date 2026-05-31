@@ -1,6 +1,7 @@
 .vs/
 x64/
 Debug/
+.env
 *.obj
 *.log
 *.tlog
