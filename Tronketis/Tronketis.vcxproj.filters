@@ -179,6 +179,12 @@
     <ClInclude Include="AsignarCapForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+	<ClInclude Include="CtrlModificarEsdeveniment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModificarEsdevenimentForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="AssaigDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -201,6 +207,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AssignarCastellsDiadaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -280,6 +288,12 @@
     <ClCompile Include="AsignarCapForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+	<ClCompile Include="CercadorCastell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultarCastellForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="CrearCastellForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -325,6 +339,12 @@
     <ClCompile Include="CtrlModificarUsuari.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+	<ClCompile Include="CtrlModificarEsdeveniment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificarEsdevenimentForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="CercadorAssignacioCastellDiada.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -344,6 +364,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CrearAssaigForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

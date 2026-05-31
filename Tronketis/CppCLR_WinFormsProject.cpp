@@ -15,13 +15,13 @@ using namespace System;
 #include "RegistrarAssistenciaForm.h"
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
+#include "ModificarEsdevenimentForm.h"
 #include "MenuCapColla.h"
+#include "AssignarCastellsDiadaForm.h"
 #include "EditarCollaForm.h"
- 
 #include "MenuCapColla.h"
 
 using namespace System;
-#include "AssignarCastellsDiadaForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -30,6 +30,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::EditarCollaForm(1));
-  return 0;
+  Application::Run(gcnew Tronketis::ModificarEsdevenimentForm());
+return 0;
 }
