@@ -195,6 +195,14 @@ Class CercadorColla: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     obtenirNomsColles(): PrivateScope, Public, Static, HideBySig
     obtenirUniPerNomColla(String, String&): PrivateScope, Public, Static, HideBySig
     obtenirCollaPerCap(String, String&): PrivateScope, Public, Static, HideBySig
+Class CercadorMembre: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    existeixMembre(String): PrivateScope, Public, Static, HideBySig
+    existeixMembre(String, String, String): PrivateScope, Public, Static, HideBySig
+    teAlgunaColla(String): PrivateScope, Public, Static, HideBySig
+    obtenirCollaDeMembre(String, String&): PrivateScope, Public, Static, HideBySig
+    obtenirDnisMembresPerColla(String): PrivateScope, Public, Static, HideBySig
 Class Tronketis.EventoDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
@@ -252,13 +260,6 @@ Class Tronketis.CrearCollaForm: AutoLayout, AnsiClass, Class, Public, BeforeFiel
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class CercadorMembre: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    existeixMembre(String): PrivateScope, Public, Static, HideBySig
-    existeixMembre(String, String, String): PrivateScope, Public, Static, HideBySig
-    teAlgunaColla(String): PrivateScope, Public, Static, HideBySig
-    obtenirDnisMembresPerColla(String): PrivateScope, Public, Static, HideBySig
 Class PasarelaMembre: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
