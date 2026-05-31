@@ -5,11 +5,8 @@
 #include "IniciarSesionForm.h"
 #include "CrearAssaigForm.h"
 #include "CercadorColla.h"
-<<<<<<< HEAD
 #include "ConsultarAssaigForm.h"
-=======
 #include "ConsultarCalendariForm.h"
->>>>>>> origin/develop
 
 using namespace Tronketis;
 

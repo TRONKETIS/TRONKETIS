@@ -166,11 +166,8 @@
     <ClInclude Include="CrearCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="CtrlConsultarAssaig.h" />
-=======
     <ClInclude Include="CtrlAssignarCastellDiada.h" />
->>>>>>> origin/develop
     <ClInclude Include="CtrlConsultarCastell.h" />
     <ClInclude Include="CtrlCrearAssaig.h" />
     <ClInclude Include="CtrlCrearCastell.h" />
@@ -255,11 +252,8 @@
     <ClCompile Include="CrearAssaigForm.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="CtrlConsultarAssaig.cpp" />
-=======
     <ClCompile Include="CtrlAssignarCastellDiada.cpp" />
->>>>>>> origin/develop
     <ClCompile Include="CtrlConsultarCastell.cpp" />
     <ClCompile Include="CtrlCrearAssaig.cpp" />
     <ClCompile Include="CtrlCrearCastell.cpp" />

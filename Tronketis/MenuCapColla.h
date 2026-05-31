@@ -134,10 +134,7 @@ namespace Tronketis {
 		System::Void btnAssignarCastellDiada_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnCrearAssaig_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnTancarSessio_Click(System::Object^ sender, System::EventArgs^ e);
-<<<<<<< HEAD
 		System::Void btnConsultarAssaig_Click(System::Object^ sender, System::EventArgs^ e);
-=======
 		System::Void btnCalendari_Click(System::Object^ sender, System::EventArgs^ e);
->>>>>>> origin/develop
 	};
 }

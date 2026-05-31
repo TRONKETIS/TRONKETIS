@@ -30,6 +30,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::ModificarEsdevenimentForm());
+  Application::Run(gcnew Tronketis::IniciarSesionForm());
 return 0;
 }
