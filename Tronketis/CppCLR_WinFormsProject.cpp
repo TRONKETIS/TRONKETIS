@@ -7,7 +7,7 @@ using namespace System;
 //    return 0;
 // }
 
-//#include "IniciarSesionForm.h"
+#include "IniciarSesionForm.h"
 //#include "RegistrarAssistenciaForm.h"
 //#include "ConsultarCastellForm.h"
 //#include "CrearCastellForm.h"
