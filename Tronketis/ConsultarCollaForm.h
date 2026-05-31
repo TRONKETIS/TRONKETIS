@@ -148,10 +148,10 @@ namespace Tronketis {
 			conn->Close();
 		}
 	}
-	private: System::Void dgvColles_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	}
 	private: System::Void txtCercador_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		CercarDB();
+	}
+	private: System::Void dgvColles_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
