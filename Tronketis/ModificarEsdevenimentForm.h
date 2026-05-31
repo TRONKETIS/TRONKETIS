@@ -149,17 +149,16 @@ namespace Tronketis {
             this->PerformLayout();
         }
 
-#include "DB.h"
-
         void buttonGuardar_Click(Object^ sender, EventArgs^ e) {
-            MySqlConnection^ conn = DB::GetConnection();
-
+            MySql::Data::MySqlClient::MySqlConnection^ conn = nullptr;
             try {
+                String^ connectionString = "server=ubiwan.epsevg.upc.edu;database=amep01;uid=amep01;pwd=Ahsheix4Aewua8;";
+                conn = gcnew MySql::Data::MySqlClient::MySqlConnection(connectionString);
                 conn->Open();
 
                 String^ query = "UPDATE evento SET ev_date = @ev_date, location = @location, aprox_mem = @aprox_mem WHERE ev_name = @ev_name";
 
-                MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+                MySql::Data::MySqlClient::MySqlCommand^ cmd = gcnew MySql::Data::MySqlClient::MySqlCommand(query, conn);
                 cmd->Parameters->AddWithValue("@ev_name", this->textBoxNom->Text);
                 cmd->Parameters->AddWithValue("@ev_date", this->textBoxData->Text);
                 cmd->Parameters->AddWithValue("@location", this->textBoxLocation->Text);
@@ -171,17 +170,21 @@ namespace Tronketis {
                     MessageBox::Show("Esdeveniment modificat amb èxit!", "Informació");
                 }
                 else {
-                    MessageBox::Show("No s'ha pogut modificar l'esdeveniment.", "Error");
+                    MessageBox::Show("No s'ha trobat l'esdeveniment amb aquest nom.", "Error");
                 }
+            }
+            // CORREGIT: S'ha afegit la ruta completa al namespace de MySQL
+            catch (MySql::Data::MySqlClient::MySqlException^ ex) {
+                MessageBox::Show("Error de base de dades: " + ex->Message, "Error");
             }
             catch (Exception^ ex) {
                 MessageBox::Show("Error: " + ex->Message, "Error");
             }
             finally {
-                if (conn->State == ConnectionState::Open) {
+                if (conn != nullptr && conn->State == ConnectionState::Open) {
                     conn->Close();
                 }
             }
         }
-    };
+};
 }
