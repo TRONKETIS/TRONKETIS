@@ -7,7 +7,7 @@ using namespace System;
 //    return 0;
 // }
 
-//#include "IniciarSesionForm.h"
+#include "IniciarSesionForm.h"
 //#include "RegistrarAssistenciaForm.h"
 //#include "ConsultarCastellForm.h"
 //#include "CrearCastellForm.h"
@@ -15,6 +15,10 @@ using namespace System;
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
 #include "ModificarEsdevenimentForm.h"
+#include "MenuCapColla.h"
+#include "AssignarCastellsDiadaForm.h"
+
+using namespace System;
 
 using namespace System::Windows::Forms;
 

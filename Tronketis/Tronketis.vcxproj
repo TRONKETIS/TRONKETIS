@@ -30,28 +30,28 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -134,9 +134,14 @@
     <ClInclude Include="AsignarCapForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+   
+    <ClInclude Include="AssignarCastellsDiadaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CastellDTO.h" />
     <ClInclude Include="CastellerDTO.h" />
+    <ClInclude Include="CercadorAssignacioCastellDiada.h" />
     <ClInclude Include="CercadorCastell.h" />
     <ClInclude Include="CercadorCasteller.h" />
     <ClInclude Include="CercadorDiada.h" />
@@ -147,13 +152,16 @@
     <ClInclude Include="ConsultarCastellForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CrearAssaigForm.h" />
     <ClInclude Include="CrearCastellForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CrearCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CtrlAssignarCastellDiada.h" />
     <ClInclude Include="CtrlConsultarCastell.h" />
+    <ClInclude Include="CtrlCrearAssaig.h" />
     <ClInclude Include="CtrlCrearCastell.h" />
     <ClInclude Include="CtrlGestioMembreColla.h" />
     <ClInclude Include="CtrlCrearColla.h" />
@@ -186,6 +194,8 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ParticipacioDiadaDTO.h" />
+    <ClInclude Include="PasarelaAssignacioCastellDiada.h" />
+    <ClInclude Include="PasarelaAssaig.h" />
     <ClInclude Include="PasarelaCastell.h" />
     <ClInclude Include="PasarelaCasteller.h" />
     <ClInclude Include="PasarelaParticipacioDiada.h" />
@@ -210,18 +220,32 @@
     </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="UsuariDTO.h" />
+    <ClInclude Include="CercadorEvento.h" />
+    <ClInclude Include="EventoDTO.h" />
+    <ClInclude Include="CercadorAssaig.h" />
+    <ClInclude Include="AssaigDTO.h" />
+    <ClInclude Include="CtrlConsultarCalendari.h" />
+    <ClInclude Include="ConsultarCalendariForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+        
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsignarCapForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="AssignarCastellsDiadaForm.cpp" />
+    <ClCompile Include="CercadorAssignacioCastellDiada.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="CercadorCasteller.cpp" />
     <ClCompile Include="CercadorDiada.cpp" />
     <ClCompile Include="ConsultarCastellForm.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
+    <ClCompile Include="CrearAssaigForm.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
+    <ClCompile Include="CtrlAssignarCastellDiada.cpp" />
     <ClCompile Include="CtrlConsultarCastell.cpp" />
+    <ClCompile Include="CtrlCrearAssaig.cpp" />
     <ClCompile Include="CtrlCrearCastell.cpp" />
     <ClCompile Include="CtrlGestioMembreColla.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
@@ -239,6 +263,8 @@
     <ClCompile Include="ModificarEsdevenimentForm.cpp" />
     <ClCompile Include="ModificarUsuariForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
+    <ClCompile Include="PasarelaAssaig.cpp" />
+    <ClCompile Include="PasarelaAssignacioCastellDiada.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
     <ClCompile Include="PasarelaCasteller.cpp" />
     <ClCompile Include="PasarelaParticipacioDiada.cpp" />
@@ -255,6 +281,11 @@
     </ClCompile>
     <ClCompile Include="RegistrarAssistenciaForm.cpp" />
     <ClCompile Include="RegistrarForm.cpp" />
+    <ClCompile Include="CercadorEvento.cpp" />
+    <ClCompile Include="CercadorAssaig.cpp" />
+    <ClCompile Include="CtrlConsultarCalendari.cpp" />
+    <ClCompile Include="ConsultarCalendariForm.cpp" />
+        
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -309,3 +340,4 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
+

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -51,6 +51,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UsuariDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorEvento.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventoDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorAssaig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlConsultarCalendari.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultarCalendariForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CtrlCrearColla.h">
@@ -161,40 +176,39 @@
     <ClInclude Include="CtrlModificarUsuari.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CastellDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CastellerDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CercadorCastell.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsultarCastellForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CtrlConsultarCastell.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CtrlRegisterCasteller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PasarelaCastell.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PasarelaCasteller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RegisterCastellerForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AsignarCapForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CtrlModificarEsdeveniment.h">
+	<ClInclude Include="CtrlModificarEsdeveniment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ModificarEsdevenimentForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AssaigDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaAssaig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlCrearAssaig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrearAssaigForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorAssignacioCastellDiada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaAssignacioCastellDiada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlAssignarCastellDiada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AssignarCastellsDiadaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -215,6 +229,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RegistrarForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorEvento.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorAssaig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlConsultarCalendari.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultarCalendariForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CtrlRegistrarUsuari.cpp">
@@ -262,7 +288,7 @@
     <ClCompile Include="AsignarCapForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CercadorCastell.cpp">
+	<ClCompile Include="CercadorCastell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ConsultarCastellForm.cpp">
@@ -271,22 +297,7 @@
     <ClCompile Include="CrearCastellForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CtrlConsultarCastell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CtrlCrearCastell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CtrlRegisterCasteller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PasarelaCastell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PasarelaCasteller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RegisterCastellerForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CtrlRegistrarAssistencia.cpp">
@@ -328,10 +339,33 @@
     <ClCompile Include="CtrlModificarUsuari.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CtrlModificarEsdeveniment.cpp">
+	<ClCompile Include="CtrlModificarEsdeveniment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ModificarEsdevenimentForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorAssignacioCastellDiada.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaAssignacioCastellDiada.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlAssignarCastellDiada.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AssignarCastellsDiadaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaAssaig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlCrearAssaig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrearAssaigForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

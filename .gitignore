@@ -8,3 +8,10 @@ Debug/
 *.pch
 *.exe
 *.pdb
+
+[Dd]ebug/
+[Rr]elease/
+x86/
+*.recipe
+*.metagen
+*.FileListAbsolute.txt

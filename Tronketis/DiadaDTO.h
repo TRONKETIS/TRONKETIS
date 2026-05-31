@@ -7,10 +7,10 @@ namespace Tronketis {
     public ref class DiadaDTO
     {
     public:
-
         String^ nom;
         DateTime data;
         String^ ubicacio;
+        String^ descripcio;
         String^ tipus;
     };
 
