@@ -175,4 +175,41 @@ namespace Tronketis {
         }
     }
 
+    bool PasarelaColla::actualitzar(CollaDTO^ colla, String^% error) {
+        MySqlConnection^ conn = nullptr;
+
+        try {
+            conn = DB::GetConnection();
+            conn->Open();
+
+            String^ query = "UPDATE colla SET name = @name, location = @location, uni_name = @uni_name WHERE id = @id";
+
+            MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+            cmd->Parameters->AddWithValue("@name", colla->nom);
+            cmd->Parameters->AddWithValue("@location", colla->localitzacio);
+
+            if (String::IsNullOrWhiteSpace(colla->univ)) {
+                cmd->Parameters->AddWithValue("@uni_name", DBNull::Value);
+            }
+            else {
+                cmd->Parameters->AddWithValue("@uni_name", colla->univ);
+            }
+
+            cmd->Parameters->AddWithValue("@id", colla->id);
+
+            cmd->ExecuteNonQuery();
+
+            return true;
+        }
+        catch (Exception^ ex) {
+            error = "Error: " + ex->Message;
+            return false;
+        }
+        finally {
+            if (conn != nullptr && conn->State == ConnectionState::Open) {
+                conn->Close();
+            }
+        }
+    }
+
 }

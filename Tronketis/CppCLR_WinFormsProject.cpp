@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "ConsultarCollaForm.h"
 
 using namespace System;
 
@@ -17,6 +18,8 @@ using namespace System;
 #include "ModificarEsdevenimentForm.h"
 #include "MenuCapColla.h"
 #include "AssignarCastellsDiadaForm.h"
+#include "EditarCollaForm.h"
+#include "MenuCapColla.h"
 
 using namespace System;
 
@@ -28,5 +31,5 @@ int main()
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   Application::Run(gcnew Tronketis::ModificarEsdevenimentForm());
-  return 0;
+return 0;
 }
