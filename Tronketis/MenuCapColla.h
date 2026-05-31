@@ -21,6 +21,7 @@ namespace Tronketis {
 		String^ collaName;
 		System::Windows::Forms::Label^ lblTitol;
 		System::Windows::Forms::Button^ btnGestioMembres;
+		System::Windows::Forms::Button^ btnCrearAssaig;
 		System::Windows::Forms::Button^ btnCalendari;
 		System::Windows::Forms::Button^ btnAssignarCastellDiada;
 		System::Windows::Forms::Button^ btnTancarSessio;
@@ -33,6 +34,7 @@ namespace Tronketis {
 			this->btnGestioMembres = (gcnew System::Windows::Forms::Button());
 			this->btnAssignarCastellDiada = (gcnew System::Windows::Forms::Button());
 			this->btnCalendari = (gcnew System::Windows::Forms::Button());
+			this->btnCrearAssaig = (gcnew System::Windows::Forms::Button());
 			this->btnTancarSessio = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -52,7 +54,7 @@ namespace Tronketis {
 			this->btnGestioMembres->Name = L"btnGestioMembres";
 			this->btnGestioMembres->Size = System::Drawing::Size(180, 35);
 			this->btnGestioMembres->TabIndex = 1;
-			this->btnGestioMembres->Text = L"Gestio membres";
+			this->btnGestioMembres->Text = L"Gestio de membres";
 			this->btnGestioMembres->UseVisualStyleBackColor = true;
 			this->btnGestioMembres->Click += gcnew System::EventHandler(this, &MenuCapColla::btnGestioMembres_Click);
 			// 
@@ -76,6 +78,16 @@ namespace Tronketis {
 			this->btnCalendari->UseVisualStyleBackColor = true;
 			this->btnCalendari->Click += gcnew System::EventHandler(this, &MenuCapColla::btnCalendari_Click);
 			// 
+			// btnCrearAssaig
+			// 
+			this->btnCrearAssaig->Location = System::Drawing::Point(170, 220);
+			this->btnCrearAssaig->Name = L"btnCrearAssaig";
+			this->btnCrearAssaig->Size = System::Drawing::Size(180, 35);
+			this->btnCrearAssaig->TabIndex = 2;
+			this->btnCrearAssaig->Text = L"Crear Assaig";
+			this->btnCrearAssaig->UseVisualStyleBackColor = true;
+			this->btnCrearAssaig->Click += gcnew System::EventHandler(this, &MenuCapColla::btnCrearAssaig_Click);
+			// 
 			// btnTancarSessio
 			// 
 			this->btnTancarSessio->Location = System::Drawing::Point(170, 260);
@@ -94,6 +106,7 @@ namespace Tronketis {
 			this->Controls->Add(this->btnTancarSessio);
 			this->Controls->Add(this->btnCalendari);
 			this->Controls->Add(this->btnAssignarCastellDiada);
+			this->Controls->Add(this->btnCrearAssaig);
 			this->Controls->Add(this->btnGestioMembres);
 			this->Controls->Add(this->lblTitol);
 			this->Name = L"MenuCapColla";
@@ -106,6 +119,7 @@ namespace Tronketis {
 	private:
 		System::Void btnGestioMembres_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnAssignarCastellDiada_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void btnCrearAssaig_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnTancarSessio_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnCalendari_Click(System::Object^ sender, System::EventArgs^ e);
 	};

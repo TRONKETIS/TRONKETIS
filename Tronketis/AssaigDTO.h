@@ -4,27 +4,31 @@
 using namespace System;
 
 namespace Tronketis {
-    public ref class AssaigDTO {
-    public:
-        int Id;
-        DateTime DataHora;
-        String^ CollaName;
-        String^ CollaUniName;
 
-        AssaigDTO() {
-            Id = 0;
-            DataHora = DateTime::Now;
-            CollaName = "";
-            CollaUniName = "";
-        }
+	public ref class AssaigDTO
+	{
+	public:
+		property int Id;
+		property DateTime DataHora;
+		property String^ CollaName;
+		property String^ CollaUniName;
 
-        AssaigDTO(int _id, DateTime _dataHora, String^ _collaName, String^ _collaUniName) {
-            Id = _id;
-            DataHora = _dataHora;
-            CollaName = _collaName;
-            CollaUniName = _collaUniName;
-        }
+		AssaigDTO()
+		{
+			Id = 0;
+			DataHora = DateTime::Now;
+			CollaName = "";
+			CollaUniName = "";
+		}
 
-    };
+		AssaigDTO(int id, DateTime data_hora, String^ colla_name, String^ colla_uni_name)
+		{
+			Id = id;
+			DataHora = data_hora;
+			CollaName = colla_name;
+			CollaUniName = colla_uni_name;
+		}
+
+	};
 }
 

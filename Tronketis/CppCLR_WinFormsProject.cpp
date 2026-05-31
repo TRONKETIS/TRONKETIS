@@ -14,6 +14,11 @@ using namespace System;
 #include "RegistrarAssistenciaForm.h"
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
+#include "MenuCapColla.h"
+ 
+#include "MenuCapColla.h"
+
+using namespace System;
 #include "AssignarCastellsDiadaForm.h"
 
 using namespace System::Windows::Forms;
