@@ -4,6 +4,7 @@
 #include "IniciarSesionForm.h"
 #include "CrearAssaigForm.h"
 #include "CercadorColla.h"
+#include "ConsultarAssaigForm.h"
 
 using namespace Tronketis;
 
@@ -44,4 +45,11 @@ System::Void MenuCapColla::btnTancarSessio_Click(System::Object^ sender, System:
 	f->ShowDialog();
 
 	this->Close();
+}
+
+System::Void MenuCapColla::btnConsultarAssaig_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ collaUniName = "";
+	CercadorColla::obtenirUniPerNomColla(this->collaName, collaUniName);
+	ConsultarAssaigForm^ form = gcnew ConsultarAssaigForm(this->collaName, collaUniName);
+	form->ShowDialog();
 }

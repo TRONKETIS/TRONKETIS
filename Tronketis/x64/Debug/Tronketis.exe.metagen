@@ -14,7 +14,7 @@ Assembly Tronketis, Version=1.0.*, Culture=Todos los idiomas (todos los países)
 	hash=SHA1, flags=PublicKey
 Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Assembly MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
+Assembly MySql.Data, Version=9.6.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
 	hash=None, flags=None
 Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
@@ -132,6 +132,30 @@ Class Tronketis.CercadorDiada: AutoLayout, AnsiClass, Class, Public, BeforeField
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     obtenirTotes(): PrivateScope, Public, Static, HideBySig
+Class Tronketis.AssaigDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, System.DateTime, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String CollaUniName 'get set' : 
+    System.String CollaName 'get set' : 
+    System.DateTime DataHora 'get set' : 
+    Int32 Id   'get set' : 
+  Methods:
+    get_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DataHora(): PrivateScope, Public, HideBySig, SpecialName
+    set_DataHora(DateTime): PrivateScope, Public, HideBySig, SpecialName
+    get_CollaName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CollaName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CollaUniName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CollaUniName(String): PrivateScope, Public, HideBySig, SpecialName
+Class Tronketis.CtrlConsultarAssaig: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ConsultarAssaigs(String, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.ConsultarAssaigForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Tronketis.ConsultarCastellForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -197,6 +221,13 @@ Class CercadorColla: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class Tronketis.IniciarSesionForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.CtrlCrearAssaig: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    CrearAssaig(DateTime, String, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CrearAssaigForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Tronketis.CtrlCrearCastell: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -212,6 +243,11 @@ Class Tronketis.CrearCollaForm: AutoLayout, AnsiClass, Class, Public, BeforeFiel
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.PasarelaAssaig: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    InsertarAssaig(AssaigDTO): PrivateScope, Public, Static, HideBySig
+    GetAssaigsDeColla(String, String): PrivateScope, Public, Static, HideBySig
 Class CercadorMembre: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:

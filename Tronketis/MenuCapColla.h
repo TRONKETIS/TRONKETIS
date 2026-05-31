@@ -24,6 +24,7 @@ namespace Tronketis {
 		System::Windows::Forms::Button^ btnCrearAssaig;
 		System::Windows::Forms::Button^ btnTancarSessio;
 		System::ComponentModel::Container^ components;
+		System::Windows::Forms::Button^ btnConsultarAssaig;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
@@ -31,6 +32,7 @@ namespace Tronketis {
 			this->lblTitol = (gcnew System::Windows::Forms::Label());
 			this->btnGestioMembres = (gcnew System::Windows::Forms::Button());
 			this->btnCrearAssaig = (gcnew System::Windows::Forms::Button());
+			this->btnConsultarAssaig = (gcnew System::Windows::Forms::Button());
 			this->btnTancarSessio = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -63,6 +65,16 @@ namespace Tronketis {
 			this->btnCrearAssaig->Text = L"Crear Assaig";
 			this->btnCrearAssaig->UseVisualStyleBackColor = true;
 			this->btnCrearAssaig->Click += gcnew System::EventHandler(this, &MenuCapColla::btnCrearAssaig_Click);
+			//
+			//btnConsultarAssaig
+			//
+			this->btnConsultarAssaig->Location = System::Drawing::Point(170, 255);
+			this->btnConsultarAssaig->Name = L"btnConsultarAssaig";
+			this->btnConsultarAssaig->Size = System::Drawing::Size(180, 35);
+			this->btnConsultarAssaig->TabIndex = 4;
+			this->btnConsultarAssaig->Text = L"Consultar Assaigs";
+			this->btnConsultarAssaig->UseVisualStyleBackColor = true;
+			this->btnConsultarAssaig->Click += gcnew System::EventHandler(this, &MenuCapColla::btnConsultarAssaig_Click);
 			// 
 			// btnTancarSessio
 			// 
@@ -85,6 +97,7 @@ namespace Tronketis {
 			this->Controls->Add(this->lblTitol);
 			this->Name = L"MenuCapColla";
 			this->Text = L"Menu Cap de Colla";
+			this->Controls->Add(this->btnConsultarAssaig);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 		}
@@ -94,5 +107,6 @@ namespace Tronketis {
 		System::Void btnGestioMembres_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnCrearAssaig_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btnTancarSessio_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void btnConsultarAssaig_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

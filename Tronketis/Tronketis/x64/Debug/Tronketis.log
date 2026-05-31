@@ -1,7 +1,74 @@
-﻿  CppCLR_WinFormsProject.cpp
-  IniciarSesionForm.cpp
-  MenuAdminForm.cpp
-  MenuCapColla.cpp
+﻿  pch.cpp
+  AsignarCapForm.cpp
+  AssemblyInfo.cpp
+  CercadorCastell.cpp
+  CercadorCasteller.cpp
+  CercadorDiada.cpp
+  ConsultarAssaigForm.cpp
+  ConsultarCastellForm.cpp
+  CppCLR_WinFormsProject.cpp
+  CrearAssaigForm.cpp
+  CrearCastellForm.cpp
+  CrearCollaForm.cpp
+  CtrlConsultarAssaig.cpp
+  CtrlConsultarCastell.cpp
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\CrearCollaForm.h(283,25): warning C4566: el carácter representado por el nombre de carácter universal '\U0001F4A1' no se puede representar en la página de códigos actual (1252)
+  (compilando archivo de origen "/CrearCollaForm.cpp")
+  
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\CrearCollaForm.h(350,6): warning C4566: el carácter representado por el nombre de carácter universal '\u2705' no se puede representar en la página de códigos actual (1252)
+  (compilando archivo de origen "/CrearCollaForm.cpp")
+  
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\CrearCollaForm.h(411,26): warning C4566: el carácter representado por el nombre de carácter universal '\u2705' no se puede representar en la página de códigos actual (1252)
+  (compilando archivo de origen "/CrearCollaForm.cpp")
+  
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\CrearCollaForm.h(426,26): warning C4566: el carácter representado por el nombre de carácter universal '\u274C' no se puede representar en la página de códigos actual (1252)
+  (compilando archivo de origen "/CrearCollaForm.cpp")
+  
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\CrearCollaForm.h(449,25): warning C4566: el carácter representado por el nombre de carácter universal '\U0001F4A1' no se puede representar en la página de códigos actual (1252)
+  (compilando archivo de origen "/CrearCollaForm.cpp")
+  
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\CrearCollaForm.h(326,21): warning C4244: 'inicializando': conversión de '__int64' a 'long'; posible pérdida de datos
+  (compilando archivo de origen "/CrearCollaForm.cpp")
+  
+  CtrlCrearAssaig.cpp
+  CtrlCrearCastell.cpp
+  CtrlGestioMembreColla.cpp
+  CtrlCrearColla.cpp
+  CtrlIniciarSesion.cpp
+  CtrlRegisterCasteller.cpp
+  CtrlRegistrarAssistencia.cpp
   Generando código...
+  Compilando...
+  CtrlModificarUsuari.cpp
+  CtrlRegistrarUsuari.cpp
+  AfegirMembresForm.cpp
+  EliminarMembreForm.cpp
+  GestioMembresForm.cpp
+  InhabilitarUsuarioForm.cpp
+  IniciarSesionForm.cpp
+  ModificarUsuariForm.cpp
+  MenuAdminForm.cpp
+  PasarelaAssaig.cpp
+  PasarelaCastell.cpp
+  PasarelaCasteller.cpp
+  PasarelaParticipacioDiada.cpp
+  RegisterCastellerForm.cpp
+  MenuCapColla.cpp
+  PasarelaMembre.cpp
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\PasarelaMembre.cpp(30,23): warning C4101: 'ex': variable local sin referencia
+  (compilando archivo de origen "/PasarelaMembre.cpp")
+  
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\PasarelaMembre.cpp(53,23): warning C4101: 'ex': variable local sin referencia
+  (compilando archivo de origen "/PasarelaMembre.cpp")
+  
+  PasarelaUsuari.cpp
+  PasarellaColla.cpp
+C:\Users\HP\Desktop\PROBARAMEP\Tronketis\PasarellaColla.cpp(97,32): warning C4244: 'inicializando': conversión de '__int64' a 'long'; posible pérdida de datos
+  (compilando archivo de origen "/PasarellaColla.cpp")
+  
+  RegistrarAssistenciaForm.cpp
+  RegistrarForm.cpp
+  Generando código...
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
   AsignarCapForm.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  Tronketis.vcxproj -> C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\x64\Debug\Tronketis.exe
+  Tronketis.vcxproj -> C:\Users\HP\Desktop\PROBARAMEP\Tronketis\x64\Debug\Tronketis.exe
