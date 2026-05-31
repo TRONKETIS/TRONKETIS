@@ -214,6 +214,15 @@
     </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="UsuariDTO.h" />
+    <ClInclude Include="CercadorEvento.h" />
+    <ClInclude Include="EventoDTO.h" />
+    <ClInclude Include="CercadorAssaig.h" />
+    <ClInclude Include="AssaigDTO.h" />
+    <ClInclude Include="CtrlConsultarCalendari.h" />
+    <ClInclude Include="ConsultarCalendariForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+        
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsignarCapForm.cpp" />
@@ -261,6 +270,11 @@
     </ClCompile>
     <ClCompile Include="RegistrarAssistenciaForm.cpp" />
     <ClCompile Include="RegistrarForm.cpp" />
+    <ClCompile Include="CercadorEvento.cpp" />
+    <ClCompile Include="CercadorAssaig.cpp" />
+    <ClCompile Include="CtrlConsultarCalendari.cpp" />
+    <ClCompile Include="ConsultarCalendariForm.cpp" />
+        
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -315,3 +329,4 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
+

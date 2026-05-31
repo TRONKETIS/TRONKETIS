@@ -39,6 +39,7 @@ C:\Users\jieke\Documents\AMEP\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\x64\Debug\MySql.Data.dll
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\x64\Debug\MySql.Data.xml
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.AssemblyReference.cache
+C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.AsignarCapForm.resources
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.ConsultarCastellForm.resources
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.CrearCollaForm.resources
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.GestioMembresForm.resources
@@ -51,4 +52,3 @@ C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.Men
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.RegistrarForm.resources
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.GenerateResource.cache
 C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.vcxproj.Up2Date
-C:\Users\Hugo\source\repos\TRONKETIS\Tronketis\Tronketis\x64\Debug\Tronketis.AsignarCapForm.resources
