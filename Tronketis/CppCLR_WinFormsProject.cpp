@@ -16,6 +16,7 @@ using namespace System;
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
 #include "MenuCapColla.h"
+#include "EditarCollaForm.h"
  
 #include "MenuCapColla.h"
 
@@ -29,6 +30,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::ConsultarCollaForm());
+  Application::Run(gcnew Tronketis::EditarCollaForm(1));
   return 0;
 }

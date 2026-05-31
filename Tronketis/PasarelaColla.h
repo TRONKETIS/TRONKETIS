@@ -14,6 +14,8 @@ namespace Tronketis {
 
         static CollaDTO^ obtenirPerId(int id);
 
+        static bool actualitzar(CollaDTO^ colla, String^% error);
+
         static bool asignarCapDeColla(String^ nombreColla, String^ dniCap);
 
         static System::Collections::Generic::List<CollaDTO^>^ obtenerTodas();
