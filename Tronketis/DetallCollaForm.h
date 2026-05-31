@@ -1,134 +1,158 @@
 #pragma once
 
+#include "PasarelaColla.h"
+#include "CollaDTO.h"
+
 namespace Tronketis {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-	using namespace MySql::Data::MySqlClient;
+    using namespace System;
+    using namespace System::ComponentModel;
+    using namespace System::Collections;
+    using namespace System::Windows::Forms;
+    using namespace System::Data;
+    using namespace System::Drawing;
+    using namespace System::IO;
 
-	public ref class ConsultarCollaForm : public System::Windows::Forms::Form
-	{
-	public:
-		ConsultarCollaForm(void)
-		{
-			InitializeComponent();
-			CercarDB();
-		}
+    public ref class DetallCollaForm : public System::Windows::Forms::Form
+    {
+    private:
+        int collaId;
+        System::Windows::Forms::Label^ LabelNom;
+        System::Windows::Forms::Label^ LabelLocalitzacio;
+        System::Windows::Forms::Label^ LabelUniversitat;
+        System::Windows::Forms::Label^ LabelNomValue;
+        System::Windows::Forms::Label^ LabelLocalitzacioValue;
+        System::Windows::Forms::Label^ LabelUniversitatValue;
+        System::Windows::Forms::PictureBox^ LogoPictureBox;
+        System::ComponentModel::Container^ components;
 
-	protected:
-		~ConsultarCollaForm()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
-	private: System::Windows::Forms::DataGridView^ dgvColles;
-	private: System::Windows::Forms::TextBox^ txtCercador;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::ComponentModel::Container ^components;
+    public:
+        DetallCollaForm(int id)
+        {
+            collaId = id;
+            this->InitializeComponent();
+            this->LoadCollaData();
+        }
 
-#pragma region Windows Form Designer generated code
-		void InitializeComponent(void)
-		{
-			this->dgvColles = (gcnew System::Windows::Forms::DataGridView());
-			this->txtCercador = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvColles))->BeginInit();
-			this->SuspendLayout();
-			// 
-			// dgvColles
-			// 
-			this->dgvColles->AccessibleName = L"";
-			this->dgvColles->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvColles->Location = System::Drawing::Point(9, 35);
-			this->dgvColles->Margin = System::Windows::Forms::Padding(2);
-			this->dgvColles->Name = L"dgvColles";
-			this->dgvColles->RowHeadersWidth = 51;
-			this->dgvColles->RowTemplate->Height = 24;
-			this->dgvColles->Size = System::Drawing::Size(652, 194);
-			this->dgvColles->TabIndex = 0;
-			this->dgvColles->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ConsultarCollaForm::dgvColles_CellContentClick);
-			// 
-			// txtCercador
-			// 
-			this->txtCercador->AccessibleName = L"";
-			this->txtCercador->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
-				static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->txtCercador->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->txtCercador->Location = System::Drawing::Point(164, 11);
-			this->txtCercador->Margin = System::Windows::Forms::Padding(2);
-			this->txtCercador->Name = L"txtCercador";
-			this->txtCercador->Size = System::Drawing::Size(497, 20);
-			this->txtCercador->TabIndex = 1;
-			this->txtCercador->TextChanged += gcnew System::EventHandler(this, &ConsultarCollaForm::txtCercador_TextChanged);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(9, 13);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(151, 13);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"Cercar colla pel nom o localitat";
-			this->label1->Click += gcnew System::EventHandler(this, &ConsultarCollaForm::label1_Click);
-			// 
-			// ConsultarCollaForm
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(670, 240);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->txtCercador);
-			this->Controls->Add(this->dgvColles);
-			this->Margin = System::Windows::Forms::Padding(2);
-			this->Name = L"ConsultarCollaForm";
-			this->Text = L"ConsultarCollaForm";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvColles))->EndInit();
-			this->ResumeLayout(false);
-			this->PerformLayout();
+    protected:
+        ~DetallCollaForm()
+        {
+            if (components)
+            {
+                delete components;
+            }
+        }
 
-		}
-#pragma endregion
-	void CercarDB() {
-		String^ connString = "server=ubiwan.epsevg.upc.edu;database=amep01;uid=amep01;pwd=Ahsheix4Aewua8;";
-		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+    private:
+        void InitializeComponent(void)
+        {
+            this->LabelNom = gcnew System::Windows::Forms::Label();
+            this->LabelLocalitzacio = gcnew System::Windows::Forms::Label();
+            this->LabelUniversitat = gcnew System::Windows::Forms::Label();
+            this->LabelNomValue = gcnew System::Windows::Forms::Label();
+            this->LabelLocalitzacioValue = gcnew System::Windows::Forms::Label();
+            this->LabelUniversitatValue = gcnew System::Windows::Forms::Label();
+            this->LogoPictureBox = gcnew System::Windows::Forms::PictureBox();
 
-		String^ query = "SELECT name, location, uni_name FROM colla WHERE state = 1 AND (name LIKE @filtre OR location LIKE @filtre)";
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LogoPictureBox))->BeginInit();
+            this->SuspendLayout();
 
-		MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
-		cmd->Parameters->AddWithValue("@filtre", "%" + this->txtCercador->Text + "%");
+            // LabelNom
+            this->LabelNom->AutoSize = true;
+            this->LabelNom->Font = gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold);
+            this->LabelNom->Location = System::Drawing::Point(30, 40);
+            this->LabelNom->Name = L"LabelNom";
+            this->LabelNom->Size = System::Drawing::Size(45, 18);
+            this->LabelNom->Text = L"Nom:";
 
-		try {
-			conn->Open();
-			MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(cmd);
-			DataTable^ dt = gcnew DataTable();
+            // LabelLocalitzacio
+            this->LabelLocalitzacio->AutoSize = true;
+            this->LabelLocalitzacio->Font = gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold);
+            this->LabelLocalitzacio->Location = System::Drawing::Point(30, 90);
+            this->LabelLocalitzacio->Name = L"LabelLocalitzacio";
+            this->LabelLocalitzacio->Size = System::Drawing::Size(100, 18);
+            this->LabelLocalitzacio->Text = L"Localització:";
 
-			adapter->Fill(dt);
-			this->dgvColles->DataSource = dt;
-			dgvColles->Columns["name"]->HeaderText = "Nom de la Colla";
-			dgvColles->Columns["location"]->HeaderText = "Població";
-			dgvColles->Columns["uni_name"]->HeaderText = "Universitat";
+            // LabelUniversitat
+            this->LabelUniversitat->AutoSize = true;
+            this->LabelUniversitat->Font = gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold);
+            this->LabelUniversitat->Location = System::Drawing::Point(30, 140);
+            this->LabelUniversitat->Name = L"LabelUniversitat";
+            this->LabelUniversitat->Size = System::Drawing::Size(95, 18);
+            this->LabelUniversitat->Text = L"Universitat:";
 
-		}
-		catch (Exception^ ex) {
-			System::Windows::Forms::MessageBox::Show("Error de connexió: " + ex->Message);
-		}
-		finally {
-			conn->Close();
-		}
-	}
-	private: System::Void txtCercador_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-		CercarDB();
-	}
-	private: System::Void dgvColles_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	}
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-};
+            // LabelNomValue
+            this->LabelNomValue->AutoSize = true;
+            this->LabelNomValue->Location = System::Drawing::Point(150, 40);
+            this->LabelNomValue->Name = L"LabelNomValue";
+            this->LabelNomValue->Size = System::Drawing::Size(150, 16);
+            this->LabelNomValue->Text = L"Carregant...";
+
+            // LabelLocalitzacioValue
+            this->LabelLocalitzacioValue->AutoSize = true;
+            this->LabelLocalitzacioValue->Location = System::Drawing::Point(150, 90);
+            this->LabelLocalitzacioValue->Name = L"LabelLocalitzacioValue";
+            this->LabelLocalitzacioValue->Size = System::Drawing::Size(150, 16);
+            this->LabelLocalitzacioValue->Text = L"Carregant...";
+
+            // LabelUniversitatValue
+            this->LabelUniversitatValue->AutoSize = true;
+            this->LabelUniversitatValue->Location = System::Drawing::Point(150, 140);
+            this->LabelUniversitatValue->Name = L"LabelUniversitatValue";
+            this->LabelUniversitatValue->Size = System::Drawing::Size(150, 16);
+            this->LabelUniversitatValue->Text = L"Carregant...";
+
+            // LogoPictureBox
+            this->LogoPictureBox->BackColor = System::Drawing::Color::Gainsboro;
+            this->LogoPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+            this->LogoPictureBox->Location = System::Drawing::Point(350, 30);
+            this->LogoPictureBox->Name = L"LogoPictureBox";
+            this->LogoPictureBox->Size = System::Drawing::Size(120, 120);
+            this->LogoPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+
+            // DetallCollaForm
+            this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+            this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+            this->ClientSize = System::Drawing::Size(500, 220);
+            this->Controls->Add(this->LogoPictureBox);
+            this->Controls->Add(this->LabelUniversitatValue);
+            this->Controls->Add(this->LabelLocalitzacioValue);
+            this->Controls->Add(this->LabelNomValue);
+            this->Controls->Add(this->LabelUniversitat);
+            this->Controls->Add(this->LabelLocalitzacio);
+            this->Controls->Add(this->LabelNom);
+            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+            this->MaximizeBox = false;
+            this->Name = L"DetallCollaForm";
+            this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+            this->Text = L"Detall de la Colla";
+
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LogoPictureBox))->EndInit();
+            this->ResumeLayout(false);
+            this->PerformLayout();
+        }
+
+        void LoadCollaData()
+        {
+            try {
+                CollaDTO^ colla = PasarelaColla::obtenirPerId(collaId);
+                if (colla != nullptr) {
+                    this->LabelNomValue->Text = colla->nom;
+                    this->LabelLocalitzacioValue->Text = colla->localitzacio;
+                    this->LabelUniversitatValue->Text = colla->univ;
+
+                    if (colla->logo != nullptr && colla->logo->Length > 0) {
+                        MemoryStream^ ms = gcnew MemoryStream(colla->logo);
+                        this->LogoPictureBox->Image = Image::FromStream(ms);
+                    }
+                }
+                else {
+                    this->LabelNomValue->Text = L"No s'ha trobat la colla";
+                }
+            }
+            catch (Exception^ ex) {
+                System::Windows::Forms::MessageBox::Show("Error al carregar detalls: " + ex->Message);
+            }
+        }
+    };
 }
