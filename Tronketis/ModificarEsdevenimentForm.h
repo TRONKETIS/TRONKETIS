@@ -173,7 +173,7 @@ namespace Tronketis {
                     MessageBox::Show("No s'ha trobat l'esdeveniment amb aquest nom.", "Error");
                 }
             }
-            // CORREGIT: S'ha afegit la ruta completa al namespace de MySQL
+
             catch (MySql::Data::MySqlClient::MySqlException^ ex) {
                 MessageBox::Show("Error de base de dades: " + ex->Message, "Error");
             }
