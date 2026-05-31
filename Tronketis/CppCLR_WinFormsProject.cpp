@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "ConsultarCollaForm.h"
 
 using namespace System;
 
@@ -9,13 +10,19 @@ using namespace System;
 
 #include "IniciarSesionForm.h"
 //#include "RegistrarAssistenciaForm.h"
+//#include "ConsultarCastellForm.h"
+//#include "CrearCastellForm.h"
+#include "RegistrarAssistenciaForm.h"
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
+#include "ModificarEsdevenimentForm.h"
 #include "MenuCapColla.h"
- 
+#include "AssignarCastellsDiadaForm.h"
+#include "EditarCollaForm.h"
 #include "MenuCapColla.h"
 
 using namespace System;
+
 using namespace System::Windows::Forms;
 
 [STAThread]
@@ -23,6 +30,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::IniciarSesionForm());
-  return 0;
+  Application::Run(gcnew Tronketis::ModificarEsdevenimentForm());
+return 0;
 }

@@ -78,6 +78,35 @@ public:
 		return teColla;
 	}
 
+	static bool obtenirCollaDeMembre(String^ dni, String^% collaName)
+	{
+		bool trobada = false;
+		MySqlConnection^ conn = DB::GetConnection();
+		collaName = "";
+
+		try {
+			conn->Open();
+			String^ query = "SELECT colla_name FROM membre WHERE dni = @dni LIMIT 1";
+			MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+			cmd->Parameters->AddWithValue("@dni", dni);
+
+			Object^ resultat = cmd->ExecuteScalar();
+
+			if (resultat != nullptr && resultat != DBNull::Value) {
+				collaName = resultat->ToString();
+				trobada = true;
+			}
+		}
+		catch (Exception^) {
+			trobada = false;
+		}
+		finally {
+			conn->Close();
+		}
+
+		return trobada;
+	}
+
 	static Collections::Generic::List<String^>^ obtenirDnisMembresPerColla(String^ collaName)
 	{
 		Collections::Generic::List<String^>^ dnis =

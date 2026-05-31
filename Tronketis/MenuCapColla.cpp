@@ -1,10 +1,15 @@
 #include "pch.h"
 #include "MenuCapColla.h"
 #include "GestioMembresForm.h"
+#include "AssignarCastellsDiadaForm.h"
 #include "IniciarSesionForm.h"
 #include "CrearAssaigForm.h"
 #include "CercadorColla.h"
+<<<<<<< HEAD
 #include "ConsultarAssaigForm.h"
+=======
+#include "ConsultarCalendariForm.h"
+>>>>>>> origin/develop
 
 using namespace Tronketis;
 
@@ -34,6 +39,18 @@ System::Void MenuCapColla::btnCrearAssaig_Click(System::Object^ sender, System::
 	CercadorColla::obtenirUniPerNomColla(this->collaName, collaUniName);
 
 	CrearAssaigForm^ f = gcnew CrearAssaigForm(this->collaName, collaUniName); 
+	f->ShowDialog();
+}
+
+System::Void MenuCapColla::btnCalendari_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	ConsultarCalendariForm^ f = gcnew ConsultarCalendariForm("CapColla", this->collaName);
+	f->ShowDialog();
+}
+
+System::Void MenuCapColla::btnAssignarCastellDiada_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	AssignarCastellsDiadaForm^ f = gcnew AssignarCastellsDiadaForm(this->collaName);
 	f->ShowDialog();
 }
 

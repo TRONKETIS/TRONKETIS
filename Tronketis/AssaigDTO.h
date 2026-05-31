@@ -1,4 +1,5 @@
 #pragma once
+#include "pch.h"
 
 using namespace System;
 
@@ -27,5 +28,7 @@ namespace Tronketis {
 			CollaName = colla_name;
 			CollaUniName = colla_uni_name;
 		}
+
 	};
 }
+

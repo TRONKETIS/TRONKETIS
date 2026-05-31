@@ -80,6 +80,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.0.33.1\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -119,6 +120,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.0.33.1\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -130,14 +132,22 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppColors.h" />
-    <ClInclude Include="AsignarCapForm.h">
+    <ClInclude Include="ConsultarCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="AssaigDTO.h" />
+    <ClInclude Include="DetallCollaForm.h" />
+    <ClInclude Include="EditarCollaForm.h" />
+    <ClInclude Include="Form1.h">
+    </ClInclude>
+    <ClInclude Include="AppColors.h" />
+    <ClInclude Include="AsignarCapForm.h" />
+    <ClInclude Include="AssignarCastellsDiadaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AuthService.h" />
     <ClInclude Include="CastellDTO.h" />
     <ClInclude Include="CastellerDTO.h" />
+    <ClInclude Include="CercadorAssignacioCastellDiada.h" />
     <ClInclude Include="CercadorCastell.h" />
     <ClInclude Include="CercadorCasteller.h" />
     <ClInclude Include="CercadorDiada.h" />
@@ -156,7 +166,11 @@
     <ClInclude Include="CrearCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="CtrlConsultarAssaig.h" />
+=======
+    <ClInclude Include="CtrlAssignarCastellDiada.h" />
+>>>>>>> origin/develop
     <ClInclude Include="CtrlConsultarCastell.h" />
     <ClInclude Include="CtrlCrearAssaig.h" />
     <ClInclude Include="CtrlCrearCastell.h" />
@@ -164,6 +178,7 @@
     <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
+    <ClInclude Include="CtrlModificarEsdeveniment.h" />
     <ClInclude Include="CtrlRegisterCasteller.h" />
     <ClInclude Include="CtrlRegistrarAssistencia.h" />
     <ClInclude Include="CtrlModificarUsuari.h" />
@@ -185,10 +200,12 @@
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ModificarEsdevenimentForm.h" />
     <ClInclude Include="ModificarUsuariForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ParticipacioDiadaDTO.h" />
+    <ClInclude Include="PasarelaAssignacioCastellDiada.h" />
     <ClInclude Include="PasarelaAssaig.h" />
     <ClInclude Include="PasarelaCastell.h" />
     <ClInclude Include="PasarelaCasteller.h" />
@@ -214,10 +231,21 @@
     </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="UsuariDTO.h" />
+    <ClInclude Include="CercadorEvento.h" />
+    <ClInclude Include="EventoDTO.h" />
+    <ClInclude Include="CercadorAssaig.h" />
+    <ClInclude Include="AssaigDTO.h" />
+    <ClInclude Include="CtrlConsultarCalendari.h" />
+    <ClInclude Include="ConsultarCalendariForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsignarCapForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="ConsultarCollaForm.cpp" />
+    <ClCompile Include="AssignarCastellsDiadaForm.cpp" />
+    <ClCompile Include="CercadorAssignacioCastellDiada.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
     <ClCompile Include="CercadorCasteller.cpp" />
     <ClCompile Include="CercadorDiada.cpp" />
@@ -227,25 +255,34 @@
     <ClCompile Include="CrearAssaigForm.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="CtrlConsultarAssaig.cpp" />
+=======
+    <ClCompile Include="CtrlAssignarCastellDiada.cpp" />
+>>>>>>> origin/develop
     <ClCompile Include="CtrlConsultarCastell.cpp" />
     <ClCompile Include="CtrlCrearAssaig.cpp" />
     <ClCompile Include="CtrlCrearCastell.cpp" />
     <ClCompile Include="CtrlGestioMembreColla.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
+    <ClCompile Include="CtrlModificarEsdeveniment.cpp" />
     <ClCompile Include="CtrlRegisterCasteller.cpp" />
     <ClCompile Include="CtrlRegistrarAssistencia.cpp" />
     <ClCompile Include="CtrlModificarUsuari.cpp" />
     <ClCompile Include="CtrlRegistrarUsuari.cpp" />
     <ClCompile Include="AfegirMembresForm.cpp" />
+    <ClCompile Include="DetallCollaForm.cpp" />
+    <ClCompile Include="EditarCollaForm.cpp" />
     <ClCompile Include="EliminarMembreForm.cpp" />
     <ClCompile Include="GestioMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
+    <ClCompile Include="ModificarEsdevenimentForm.cpp" />
     <ClCompile Include="ModificarUsuariForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
     <ClCompile Include="PasarelaAssaig.cpp" />
+    <ClCompile Include="PasarelaAssignacioCastellDiada.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
     <ClCompile Include="PasarelaCasteller.cpp" />
     <ClCompile Include="PasarelaParticipacioDiada.cpp" />
@@ -262,6 +299,10 @@
     </ClCompile>
     <ClCompile Include="RegistrarAssistenciaForm.cpp" />
     <ClCompile Include="RegistrarForm.cpp" />
+    <ClCompile Include="CercadorEvento.cpp" />
+    <ClCompile Include="CercadorAssaig.cpp" />
+    <ClCompile Include="CtrlConsultarCalendari.cpp" />
+    <ClCompile Include="ConsultarCalendariForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -277,6 +318,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ConsultarCollaForm.resx">
+      <DependentUpon>ConsultarCollaForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AsignarCapForm.resx">
       <DependentUpon>AsignarCapForm.h</DependentUpon>
     </EmbeddedResource>
