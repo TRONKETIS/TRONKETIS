@@ -80,6 +80,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.0.33.1\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -119,6 +120,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.0.33.1\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -130,11 +132,14 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppColors.h" />
-    <ClInclude Include="AsignarCapForm.h">
+    <ClInclude Include="ConsultarCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-   
+    <ClInclude Include="Form1.h">
+    </ClInclude>
+    <ClInclude Include="AppColors.h" />
+    <ClInclude Include="AsignarCapForm.h" />
+    
     <ClInclude Include="AssignarCastellsDiadaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -231,6 +236,7 @@
   <ItemGroup>
     <ClCompile Include="AsignarCapForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+	<ClCompile Include="ConsultarCollaForm.cpp" />
     <ClCompile Include="AssignarCastellsDiadaForm.cpp" />
     <ClCompile Include="CercadorAssignacioCastellDiada.cpp" />
     <ClCompile Include="CercadorCastell.cpp" />
@@ -297,6 +303,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+	<EmbeddedResource Include="ConsultarCollaForm.resx">
+      <DependentUpon>ConsultarCollaForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AsignarCapForm.resx">
       <DependentUpon>AsignarCapForm.h</DependentUpon>
     </EmbeddedResource>
@@ -336,4 +345,3 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
-
