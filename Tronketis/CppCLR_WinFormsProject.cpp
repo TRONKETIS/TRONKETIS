@@ -14,6 +14,7 @@ using namespace System;
 #include "RegistrarAssistenciaForm.h"
 #include "RegistrarForm.h"
 #include "ModificarUsuariForm.h"
+#include "ModificarEsdevenimentForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -22,6 +23,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew Tronketis::RegistrarAssistenciaForm());
+  Application::Run(gcnew Tronketis::ModificarEsdevenimentForm());
   return 0;
 }
