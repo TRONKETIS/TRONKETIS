@@ -21,12 +21,12 @@ namespace Tronketis {
 		String^ collaName;
 		System::Windows::Forms::Label^ lblTitol;
 		System::Windows::Forms::Button^ btnGestioMembres;
-		System::Windows::Forms::Button^ btnCrearAssaig;
-		System::Windows::Forms::Button^ btnCalendari;
 		System::Windows::Forms::Button^ btnAssignarCastellDiada;
+		System::Windows::Forms::Button^ btnCrearAssaig;
+		System::Windows::Forms::Button^ btnConsultarAssaig;
+		System::Windows::Forms::Button^ btnCalendari;
 		System::Windows::Forms::Button^ btnTancarSessio;
 		System::ComponentModel::Container^ components;
-		System::Windows::Forms::Button^ btnConsultarAssaig;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
@@ -34,9 +34,9 @@ namespace Tronketis {
 			this->lblTitol = (gcnew System::Windows::Forms::Label());
 			this->btnGestioMembres = (gcnew System::Windows::Forms::Button());
 			this->btnAssignarCastellDiada = (gcnew System::Windows::Forms::Button());
-			this->btnCalendari = (gcnew System::Windows::Forms::Button());
 			this->btnCrearAssaig = (gcnew System::Windows::Forms::Button());
 			this->btnConsultarAssaig = (gcnew System::Windows::Forms::Button());
+			this->btnCalendari = (gcnew System::Windows::Forms::Button());
 			this->btnTancarSessio = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -44,7 +44,7 @@ namespace Tronketis {
 			// 
 			this->lblTitol->AutoSize = true;
 			this->lblTitol->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->lblTitol->Location = System::Drawing::Point(135, 55);
+			this->lblTitol->Location = System::Drawing::Point(135, 40);
 			this->lblTitol->Name = L"lblTitol";
 			this->lblTitol->Size = System::Drawing::Size(251, 31);
 			this->lblTitol->TabIndex = 0;
@@ -52,7 +52,7 @@ namespace Tronketis {
 			// 
 			// btnGestioMembres
 			// 
-			this->btnGestioMembres->Location = System::Drawing::Point(170, 140);
+			this->btnGestioMembres->Location = System::Drawing::Point(170, 110);
 			this->btnGestioMembres->Name = L"btnGestioMembres";
 			this->btnGestioMembres->Size = System::Drawing::Size(180, 35);
 			this->btnGestioMembres->TabIndex = 1;
@@ -62,7 +62,7 @@ namespace Tronketis {
 			// 
 			// btnAssignarCastellDiada
 			// 
-			this->btnAssignarCastellDiada->Location = System::Drawing::Point(170, 200);
+			this->btnAssignarCastellDiada->Location = System::Drawing::Point(170, 160);
 			this->btnAssignarCastellDiada->Name = L"btnAssignarCastellDiada";
 			this->btnAssignarCastellDiada->Size = System::Drawing::Size(180, 35);
 			this->btnAssignarCastellDiada->TabIndex = 2;
@@ -70,29 +70,19 @@ namespace Tronketis {
 			this->btnAssignarCastellDiada->UseVisualStyleBackColor = true;
 			this->btnAssignarCastellDiada->Click += gcnew System::EventHandler(this, &MenuCapColla::btnAssignarCastellDiada_Click);
 			// 
-			// btnCalendari
-			// 
-			this->btnCalendari->Location = System::Drawing::Point(170, 220);
-			this->btnCalendari->Name = L"btnCalendari";
-			this->btnCalendari->Size = System::Drawing::Size(180, 35);
-			this->btnCalendari->TabIndex = 2;
-			this->btnCalendari->Text = L"Consultar Calendari";
-			this->btnCalendari->UseVisualStyleBackColor = true;
-			this->btnCalendari->Click += gcnew System::EventHandler(this, &MenuCapColla::btnCalendari_Click);
-			// 
 			// btnCrearAssaig
 			// 
-			this->btnCrearAssaig->Location = System::Drawing::Point(170, 220);
+			this->btnCrearAssaig->Location = System::Drawing::Point(170, 210);
 			this->btnCrearAssaig->Name = L"btnCrearAssaig";
 			this->btnCrearAssaig->Size = System::Drawing::Size(180, 35);
-			this->btnCrearAssaig->TabIndex = 2;
+			this->btnCrearAssaig->TabIndex = 3;
 			this->btnCrearAssaig->Text = L"Crear Assaig";
 			this->btnCrearAssaig->UseVisualStyleBackColor = true;
 			this->btnCrearAssaig->Click += gcnew System::EventHandler(this, &MenuCapColla::btnCrearAssaig_Click);
-			//
-			//btnConsultarAssaig
-			//
-			this->btnConsultarAssaig->Location = System::Drawing::Point(170, 255);
+			// 
+			// btnConsultarAssaig
+			// 
+			this->btnConsultarAssaig->Location = System::Drawing::Point(170, 260);
 			this->btnConsultarAssaig->Name = L"btnConsultarAssaig";
 			this->btnConsultarAssaig->Size = System::Drawing::Size(180, 35);
 			this->btnConsultarAssaig->TabIndex = 4;
@@ -100,12 +90,22 @@ namespace Tronketis {
 			this->btnConsultarAssaig->UseVisualStyleBackColor = true;
 			this->btnConsultarAssaig->Click += gcnew System::EventHandler(this, &MenuCapColla::btnConsultarAssaig_Click);
 			// 
+			// btnCalendari
+			// 
+			this->btnCalendari->Location = System::Drawing::Point(170, 310);
+			this->btnCalendari->Name = L"btnCalendari";
+			this->btnCalendari->Size = System::Drawing::Size(180, 35);
+			this->btnCalendari->TabIndex = 5;
+			this->btnCalendari->Text = L"Consultar Calendari";
+			this->btnCalendari->UseVisualStyleBackColor = true;
+			this->btnCalendari->Click += gcnew System::EventHandler(this, &MenuCapColla::btnCalendari_Click);
+			// 
 			// btnTancarSessio
 			// 
-			this->btnTancarSessio->Location = System::Drawing::Point(170, 260);
+			this->btnTancarSessio->Location = System::Drawing::Point(170, 360);
 			this->btnTancarSessio->Name = L"btnTancarSessio";
 			this->btnTancarSessio->Size = System::Drawing::Size(180, 35);
-			this->btnTancarSessio->TabIndex = 3;
+			this->btnTancarSessio->TabIndex = 6;
 			this->btnTancarSessio->Text = L"Tancar sessio";
 			this->btnTancarSessio->UseVisualStyleBackColor = true;
 			this->btnTancarSessio->Click += gcnew System::EventHandler(this, &MenuCapColla::btnTancarSessio_Click);
@@ -117,13 +117,13 @@ namespace Tronketis {
 			this->ClientSize = System::Drawing::Size(547, 470);
 			this->Controls->Add(this->btnTancarSessio);
 			this->Controls->Add(this->btnCalendari);
-			this->Controls->Add(this->btnAssignarCastellDiada);
+			this->Controls->Add(this->btnConsultarAssaig);
 			this->Controls->Add(this->btnCrearAssaig);
+			this->Controls->Add(this->btnAssignarCastellDiada);
 			this->Controls->Add(this->btnGestioMembres);
 			this->Controls->Add(this->lblTitol);
 			this->Name = L"MenuCapColla";
 			this->Text = L"Menu Cap de Colla";
-			this->Controls->Add(this->btnConsultarAssaig);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 		}

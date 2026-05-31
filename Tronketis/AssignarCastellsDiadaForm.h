@@ -219,6 +219,15 @@ namespace Tronketis {
 
 				cmbDiades->Items->Add(text);
 			}
+
+			if (cmbDiades->Items->Count == 0) {
+				lblMissatge->ForeColor = Color::Red;
+				lblMissatge->Text = L"No hi ha diades disponibles.";
+			}
+			else {
+				lblMissatge->Text = L"";
+				cmbDiades->SelectedIndex = 0;
+			}
 		}
 
 		void CarregarCastells()
@@ -262,6 +271,7 @@ namespace Tronketis {
 		}
 
 	private: System::Void cmbDiades_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		lblMissatge->Text = L"";
 		CarregarCastellsAssignats();
 	}
 

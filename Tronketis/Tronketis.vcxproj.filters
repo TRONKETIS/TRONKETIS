@@ -209,8 +209,6 @@
     <ClInclude Include="AssignarCastellsDiadaForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -364,8 +362,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CrearAssaigForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
