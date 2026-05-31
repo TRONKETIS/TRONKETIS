@@ -159,6 +159,7 @@
     <ClInclude Include="CtrlCrearColla.h" />
     <ClInclude Include="CtrlAdminMenu.h" />
     <ClInclude Include="CtrlIniciarSesion.h" />
+    <ClInclude Include="CtrlModificarEsdeveniment.h" />
     <ClInclude Include="CtrlRegisterCasteller.h" />
     <ClInclude Include="CtrlRegistrarAssistencia.h" />
     <ClInclude Include="CtrlModificarUsuari.h" />
@@ -180,6 +181,7 @@
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ModificarEsdevenimentForm.h" />
     <ClInclude Include="ModificarUsuariForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -224,6 +226,7 @@
     <ClCompile Include="CtrlGestioMembreColla.cpp" />
     <ClCompile Include="CtrlCrearColla.cpp" />
     <ClCompile Include="CtrlIniciarSesion.cpp" />
+    <ClCompile Include="CtrlModificarEsdeveniment.cpp" />
     <ClCompile Include="CtrlRegisterCasteller.cpp" />
     <ClCompile Include="CtrlRegistrarAssistencia.cpp" />
     <ClCompile Include="CtrlModificarUsuari.cpp" />
@@ -233,6 +236,7 @@
     <ClCompile Include="GestioMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
+    <ClCompile Include="ModificarEsdevenimentForm.cpp" />
     <ClCompile Include="ModificarUsuariForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
