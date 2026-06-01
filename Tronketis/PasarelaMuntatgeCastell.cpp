@@ -20,7 +20,7 @@ namespace Tronketis {
             conn->Open();
 
             String^ query =
-                "SELECT id, nom, num_pisos, tipus "
+                "SELECT id, nom, tipus, num_pisos, colla "
                 "FROM castell "
                 "WHERE colla = @colla "
                 "ORDER BY nom";
@@ -32,15 +32,26 @@ namespace Tronketis {
 
             while (reader->Read()) {
                 CastellDTO^ dto = gcnew CastellDTO();
+
                 dto->idCastell = Convert::ToInt32(reader["id"]);
                 dto->nom = reader["nom"]->ToString();
-                dto->pisos = Convert::ToInt32(reader["num_pisos"]);
                 dto->tipus = reader["tipus"]->ToString();
+                dto->pisos = Convert::ToInt32(reader["num_pisos"]);
+
+                if (Convert::IsDBNull(reader["colla"])) {
+                    dto->colla = "";
+                }
+                else {
+                    dto->colla = reader["colla"]->ToString();
+                }
+
                 llista->Add(dto);
             }
+
+            reader->Close();
         }
-        catch (Exception^) {
-            // Retornem llista buida. El formulari ja mostra el missatge.
+        catch (Exception^ ex) {
+            MessageBox::Show("Error carregant castells:\n\n" + ex->Message);
         }
         finally {
             if (conn != nullptr && conn->State == ConnectionState::Open) {
@@ -173,7 +184,7 @@ namespace Tronketis {
             cmdDelete->Parameters->AddWithValue("@colla", collaName);
             cmdDelete->ExecuteNonQuery();
 
-            for each (PosicioCastellDTO ^ p in posicions) {
+            for each(PosicioCastellDTO ^ p in posicions) {
                 if (String::IsNullOrEmpty(p->castellerDni)) {
                     continue;
                 }

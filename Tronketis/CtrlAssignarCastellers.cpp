@@ -46,7 +46,7 @@ namespace Tronketis {
     {
         List<String^>^ vistos = gcnew List<String^>();
 
-        for each (PosicioCastellDTO ^ p in posicions) {
+        for each(PosicioCastellDTO ^ p in posicions) {
             if (String::IsNullOrEmpty(p->castellerDni)) {
                 continue;
             }

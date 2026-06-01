@@ -177,7 +177,7 @@ namespace Tronketis {
 
             cmbCastell->Items->Clear();
 
-            for each (CastellDTO ^ c in castells) {
+            for each(CastellDTO ^ c in castells) {
                 cmbCastell->Items->Add(c->nom + " (" + c->tipus + c->pisos + ")");
             }
 
@@ -317,13 +317,13 @@ namespace Tronketis {
                     cb->BackColor = Color::FromArgb(235, 240, 245);
                     cb->Items->Add("(buida)");
 
-                    for each (CastellerDTO ^ casteller in castellers) {
+                    for each(CastellerDTO ^ casteller in castellers) {
                         cb->Items->Add(casteller->nomUsuari);
                     }
 
                     cb->SelectedIndex = 0;
 
-                    for each (PosicioCastellDTO ^ ex in assignacionsExistents) {
+                    for each(PosicioCastellDTO ^ ex in assignacionsExistents) {
                         if (ex->numPis == numPis && ex->numPosicio == pos) {
                             for (int c = 0; c < castellers->Count; c++) {
                                 if (castellers[c]->dniCasteller == ex->castellerDni) {
@@ -347,7 +347,7 @@ namespace Tronketis {
             }
 
             int total = 0;
-            for each (int n in floors) {
+            for each(int n in floors) {
                 total += n;
             }
 
@@ -369,7 +369,7 @@ namespace Tronketis {
         {
             int assignats = 0;
 
-            for each (ComboBox ^ cb in comboBoxes) {
+            for each(ComboBox ^ cb in comboBoxes) {
                 if (cb->SelectedIndex > 0) {
                     assignats++;
                 }
