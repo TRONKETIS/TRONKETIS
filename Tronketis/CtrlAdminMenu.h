@@ -34,8 +34,8 @@ public:
 
     // ------------------------------------------------------------------
 
-    static bool AsignarCapDeColla(String^ nombreColla, String^ dniUsuario)
+    static bool AsignarCapDeColla(String^ nombreColla, String^ dniUsuario, String^ telefon, String^% error)
     {
-        return PasarelaColla::asignarCapDeColla(nombreColla, dniUsuario);
+        return PasarelaColla::asignarCapDeColla(nombreColla, dniUsuario, telefon, error);
     }
 };

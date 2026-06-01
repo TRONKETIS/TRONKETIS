@@ -2,6 +2,7 @@
 
 #include "AfegirMembresForm.h"
 #include "EliminarMembreForm.h"
+#include "UiStyle.h"
 
 namespace Tronketis {
 
@@ -34,7 +35,10 @@ namespace Tronketis {
 	private:
 		String^ collaName;
 
+	private: System::Windows::Forms::Panel^ panelHeader;
+	private: System::Windows::Forms::Panel^ panelContenido;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ lblSubtitulo;
 	private: System::Windows::Forms::Label^ lblCollaActual;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
@@ -46,77 +50,66 @@ namespace Tronketis {
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
+			this->panelHeader = (gcnew System::Windows::Forms::Panel());
+			this->panelContenido = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lblSubtitulo = (gcnew System::Windows::Forms::Label());
 			this->lblCollaActual = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->panelHeader->SuspendLayout();
+			this->panelContenido->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->label1->Location = System::Drawing::Point(95, 40);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(250, 31);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Gestió Membres Colla";
-			// 
-			// lblCollaActual
-			// 
-			this->lblCollaActual->AutoSize = true;
-			this->lblCollaActual->Location = System::Drawing::Point(98, 90);
-			this->lblCollaActual->Name = L"lblCollaActual";
-			this->lblCollaActual->Size = System::Drawing::Size(42, 16);
-			this->lblCollaActual->TabIndex = 1;
-			this->lblCollaActual->Text = L"Colla:";
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(140, 145);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(170, 35);
-			this->button1->TabIndex = 2;
-			this->button1->Text = L"Afegir Membre";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &GestioMembresForm::button1_Click);
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(140, 210);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(170, 35);
-			this->button2->TabIndex = 3;
-			this->button2->Text = L"Eliminar Membre";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &GestioMembresForm::button2_Click);
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(140, 275);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(170, 35);
-			this->button3->TabIndex = 4;
-			this->button3->Text = L"Tornar";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &GestioMembresForm::button3_Click);
-			// 
-			// GestioMembresForm
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(466, 380);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->lblCollaActual);
-			this->Controls->Add(this->label1);
-			this->Name = L"GestioMembresForm";
-			this->Text = L"Gestió Membres Colla";
-			this->ResumeLayout(false);
-			this->PerformLayout();
 
+			UiStyle::ApplyBase(this, 560, 430, L"Gestio Membres Colla");
+			UiStyle::ApplyHeader(this->panelHeader, this->label1, this->lblSubtitulo, 560, L"Gestio Membres", L"Afegir o eliminar membres de la colla");
+			UiStyle::ApplyCard(this->panelContenido, 45, 122, 470, 255);
+
+			UiStyle::ApplyValueLabel(this->lblCollaActual);
+			this->lblCollaActual->Location = System::Drawing::Point(32, 28);
+			this->lblCollaActual->Name = L"lblCollaActual";
+			this->lblCollaActual->Text = L"Colla:";
+
+			UiStyle::ApplyButton(this->button1);
+			this->button1->Location = System::Drawing::Point(32, 74);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(406, 44);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"Afegir Membre";
+			this->button1->Click += gcnew System::EventHandler(this, &GestioMembresForm::button1_Click);
+
+			UiStyle::ApplyDangerButton(this->button2);
+			this->button2->Location = System::Drawing::Point(32, 128);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(406, 44);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"Eliminar Membre";
+			this->button2->Click += gcnew System::EventHandler(this, &GestioMembresForm::button2_Click);
+
+			UiStyle::ApplySecondaryButton(this->button3);
+			this->button3->Location = System::Drawing::Point(32, 188);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(406, 38);
+			this->button3->TabIndex = 3;
+			this->button3->Text = L"Tornar";
+			this->button3->Click += gcnew System::EventHandler(this, &GestioMembresForm::button3_Click);
+
+			this->panelHeader->Controls->Add(this->label1);
+			this->panelHeader->Controls->Add(this->lblSubtitulo);
+			this->panelContenido->Controls->Add(this->lblCollaActual);
+			this->panelContenido->Controls->Add(this->button1);
+			this->panelContenido->Controls->Add(this->button2);
+			this->panelContenido->Controls->Add(this->button3);
+			this->Controls->Add(this->panelHeader);
+			this->Controls->Add(this->panelContenido);
+			this->Name = L"GestioMembresForm";
+
+			this->panelHeader->ResumeLayout(false);
+			this->panelHeader->PerformLayout();
+			this->panelContenido->ResumeLayout(false);
+			this->panelContenido->PerformLayout();
+			this->ResumeLayout(false);
 		}
 #pragma endregion
 

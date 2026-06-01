@@ -10,9 +10,11 @@ namespace Tronketis {
     bool CtrlCrearCastell::Crear(CastellDTO^ castell, String^% error) {
 
         if (!validarDades(castell, error)) return false;
-        if (!nomDisponible(castell->nom, error)) return false;
 
         castell->nom = castell->nom->Trim();
+        castell->colla = castell->colla->Trim();
+
+        if (!nomDisponible(castell->nom, castell->colla, error)) return false;
 
         try {
             return PasarelaCastell::insertar(castell, error);
@@ -25,16 +27,29 @@ namespace Tronketis {
 
     bool CtrlCrearCastell::validarDades(CastellDTO^ castell, String^% error) {
 
-        if (String::IsNullOrWhiteSpace(castell->nom)) {
-            error = "El nom del castell és obligatori";
+        if (castell == nullptr) {
+            error = "No s'han rebut les dades del castell";
             return false;
         }
-        if (castell->nom->Length > 100) {
-            error = "El nom no pot superar els 100 caràcters";
+
+        if (String::IsNullOrWhiteSpace(castell->colla)) {
+            error = "No s'ha pogut obtenir la colla del cap de colla";
+            return false;
+        }
+        if (castell->colla->Trim()->Length > 20) {
+            error = "El nom de la colla no pot superar els 20 caracters";
+            return false;
+        }
+        if (String::IsNullOrWhiteSpace(castell->nom)) {
+            error = "El nom del castell es obligatori";
+            return false;
+        }
+        if (castell->nom->Trim()->Length > 100) {
+            error = "El nom no pot superar els 100 caracters";
             return false;
         }
         if (String::IsNullOrWhiteSpace(castell->tipus)) {
-            error = "El tipus del castell és obligatori";
+            error = "El tipus del castell es obligatori";
             return false;
         }
 
@@ -47,13 +62,13 @@ namespace Tronketis {
         return true;
     }
 
-    bool CtrlCrearCastell::nomDisponible(String^ nom, String^% error) {
+    bool CtrlCrearCastell::nomDisponible(String^ nom, String^ colla, String^% error) {
         try {
             List<PasarelaCastell^>^ resultats =
-                CercadorCastell::cercaPerNom(nom->Trim());
+                CercadorCastell::cercaPerNomIColla(nom->Trim(), colla->Trim());
 
             if (resultats->Count > 0) {
-                error = "Ja existeix un castell amb aquest nom";
+                error = "Ja existeix un castell amb aquest nom en aquesta colla";
                 return false;
             }
             return true;

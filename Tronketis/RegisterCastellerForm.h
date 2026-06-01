@@ -1,5 +1,7 @@
 #pragma once
+#include "AppColors.h"
 #include "CtrlRegisterCasteller.h"
+
 namespace Tronketis {
 
 	using namespace System;
@@ -9,41 +11,29 @@ namespace Tronketis {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Summary for RegisterCastellerForm
-	/// </summary>
 	public ref class RegisterCastellerForm : public System::Windows::Forms::Form
 	{
-
 	private:
 		CtrlRegisterCasteller^ ctrl;
 		String^ dniCasteller;
+
 	public:
 		RegisterCastellerForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			ctrl = gcnew CtrlRegisterCasteller();
+			dniCasteller = "";
 		}
 
-	public:
 		RegisterCastellerForm(String^ dni)
 		{
 			InitializeComponent();
-
 			ctrl = gcnew CtrlRegisterCasteller();
-
 			dniCasteller = dni;
-
 			lblDNIcasteller->Text = dni;
-			//lblDNIcasteller->Enabled = false;
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~RegisterCastellerForm()
 		{
 			if (components)
@@ -51,102 +41,166 @@ namespace Tronketis {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ lblDNIcasteller;
-	protected:
-
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ txtTel;
-	private: System::Windows::Forms::Button^ btnRegCasteller;
-
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
-		//CtrlRegisterCasteller^ ctrl;
-		//String^ dniCasteller;
+		System::Windows::Forms::Panel^ panelHeader;
+		System::Windows::Forms::Panel^ panelContenido;
+		System::Windows::Forms::Label^ lblTitulo;
+		System::Windows::Forms::Label^ lblSubtitulo;
+		System::Windows::Forms::Label^ label1;
+		System::Windows::Forms::Label^ lblDNIcasteller;
+		System::Windows::Forms::Label^ label3;
+		System::Windows::Forms::TextBox^ txtTel;
+		System::Windows::Forms::Button^ btnRegCasteller;
+
+		System::ComponentModel::Container^ components;
+
+		void ConfigurarBotonPrincipal(Button^ btn)
+		{
+			btn->BackColor = AppColors::Yellow;
+			btn->ForeColor = AppColors::Black;
+			btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			btn->FlatAppearance->BorderSize = 0;
+			btn->FlatAppearance->MouseOverBackColor = Color::FromArgb(224, 197, 65);
+			btn->FlatAppearance->MouseDownBackColor = AppColors::DarkRed;
+			btn->Font = gcnew System::Drawing::Font(L"Segoe UI", 10.0F, System::Drawing::FontStyle::Bold);
+			btn->Cursor = System::Windows::Forms::Cursors::Hand;
+		}
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->panelHeader = (gcnew System::Windows::Forms::Panel());
+			this->lblTitulo = (gcnew System::Windows::Forms::Label());
+			this->lblSubtitulo = (gcnew System::Windows::Forms::Label());
+			this->panelContenido = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->lblDNIcasteller = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->txtTel = (gcnew System::Windows::Forms::TextBox());
 			this->btnRegCasteller = (gcnew System::Windows::Forms::Button());
+			this->panelHeader->SuspendLayout();
+			this->panelContenido->SuspendLayout();
 			this->SuspendLayout();
+			// 
+			// panelHeader
+			// 
+			this->panelHeader->BackColor = AppColors::DarkRed;
+			this->panelHeader->Controls->Add(this->lblTitulo);
+			this->panelHeader->Controls->Add(this->lblSubtitulo);
+			this->panelHeader->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panelHeader->Location = System::Drawing::Point(0, 0);
+			this->panelHeader->Name = L"panelHeader";
+			this->panelHeader->Size = System::Drawing::Size(580, 105);
+			this->panelHeader->TabIndex = 0;
+			// 
+			// lblTitulo
+			// 
+			this->lblTitulo->AutoSize = true;
+			this->lblTitulo->Font = (gcnew System::Drawing::Font(L"Segoe UI", 22.0F, System::Drawing::FontStyle::Bold));
+			this->lblTitulo->ForeColor = AppColors::White;
+			this->lblTitulo->Location = System::Drawing::Point(34, 22);
+			this->lblTitulo->Name = L"lblTitulo";
+			this->lblTitulo->Size = System::Drawing::Size(255, 41);
+			this->lblTitulo->TabIndex = 0;
+			this->lblTitulo->Text = L"Datos casteller";
+			// 
+			// lblSubtitulo
+			// 
+			this->lblSubtitulo->AutoSize = true;
+			this->lblSubtitulo->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.5F));
+			this->lblSubtitulo->ForeColor = AppColors::White;
+			this->lblSubtitulo->Location = System::Drawing::Point(39, 66);
+			this->lblSubtitulo->Name = L"lblSubtitulo";
+			this->lblSubtitulo->Size = System::Drawing::Size(300, 17);
+			this->lblSubtitulo->TabIndex = 1;
+			this->lblSubtitulo->Text = L"Completa los datos de casteller";
+			// 
+			// panelContenido
+			// 
+			this->panelContenido->BackColor = AppColors::White;
+			this->panelContenido->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panelContenido->Controls->Add(this->label1);
+			this->panelContenido->Controls->Add(this->lblDNIcasteller);
+			this->panelContenido->Controls->Add(this->label3);
+			this->panelContenido->Controls->Add(this->txtTel);
+			this->panelContenido->Controls->Add(this->btnRegCasteller);
+			this->panelContenido->Location = System::Drawing::Point(42, 130);
+			this->panelContenido->Name = L"panelContenido";
+			this->panelContenido->Size = System::Drawing::Size(496, 230);
+			this->panelContenido->TabIndex = 1;
 			// 
 			// label1
 			// 
-			this->label1->Location = System::Drawing::Point(84, 73);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.5F, System::Drawing::FontStyle::Bold));
+			this->label1->ForeColor = AppColors::Black;
+			this->label1->Location = System::Drawing::Point(42, 40);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(100, 23);
+			this->label1->Size = System::Drawing::Size(150, 25);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"DNI";
-			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblDNIcasteller
 			// 
-			this->lblDNIcasteller->Location = System::Drawing::Point(308, 73);
+			this->lblDNIcasteller->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.0F));
+			this->lblDNIcasteller->ForeColor = AppColors::Black;
+			this->lblDNIcasteller->Location = System::Drawing::Point(220, 40);
 			this->lblDNIcasteller->Name = L"lblDNIcasteller";
-			this->lblDNIcasteller->Size = System::Drawing::Size(100, 23);
+			this->lblDNIcasteller->Size = System::Drawing::Size(230, 25);
 			this->lblDNIcasteller->TabIndex = 1;
-			this->lblDNIcasteller->Text = L"label2";
-			this->lblDNIcasteller->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->lblDNIcasteller->Text = L"";
 			// 
 			// label3
 			// 
-			this->label3->Location = System::Drawing::Point(84, 129);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.5F, System::Drawing::FontStyle::Bold));
+			this->label3->ForeColor = AppColors::Black;
+			this->label3->Location = System::Drawing::Point(42, 88);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(100, 23);
+			this->label3->Size = System::Drawing::Size(150, 25);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Telefono";
-			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// txtTel
 			// 
-			this->txtTel->Location = System::Drawing::Point(274, 129);
+			this->txtTel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->txtTel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.0F));
+			this->txtTel->Location = System::Drawing::Point(220, 88);
 			this->txtTel->Name = L"txtTel";
-			this->txtTel->Size = System::Drawing::Size(171, 22);
-			this->txtTel->TabIndex = 3;
+			this->txtTel->Size = System::Drawing::Size(230, 25);
+			this->txtTel->TabIndex = 0;
 			// 
 			// btnRegCasteller
 			// 
-			this->btnRegCasteller->BackColor = System::Drawing::Color::OrangeRed;
-			this->btnRegCasteller->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnRegCasteller->Location = System::Drawing::Point(287, 247);
+			this->btnRegCasteller->Location = System::Drawing::Point(220, 148);
 			this->btnRegCasteller->Name = L"btnRegCasteller";
-			this->btnRegCasteller->Size = System::Drawing::Size(158, 41);
-			this->btnRegCasteller->TabIndex = 4;
-			this->btnRegCasteller->Text = L"Registrar casteller";
+			this->btnRegCasteller->Size = System::Drawing::Size(230, 42);
+			this->btnRegCasteller->TabIndex = 1;
+			this->btnRegCasteller->Text = L"Guardar casteller";
 			this->btnRegCasteller->UseVisualStyleBackColor = false;
 			this->btnRegCasteller->Click += gcnew System::EventHandler(this, &RegisterCastellerForm::btnRegCasteller_Click);
+			ConfigurarBotonPrincipal(this->btnRegCasteller);
 			// 
 			// RegisterCastellerForm
 			// 
+			this->AcceptButton = this->btnRegCasteller;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(566, 362);
-			this->Controls->Add(this->btnRegCasteller);
-			this->Controls->Add(this->txtTel);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->lblDNIcasteller);
-			this->Controls->Add(this->label1);
+			this->BackColor = AppColors::Background;
+			this->ClientSize = System::Drawing::Size(580, 395);
+			this->Controls->Add(this->panelContenido);
+			this->Controls->Add(this->panelHeader);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->MaximizeBox = false;
 			this->Name = L"RegisterCastellerForm";
-			this->Text = L"RegisterCastellerForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Datos casteller";
+			this->panelHeader->ResumeLayout(false);
+			this->panelHeader->PerformLayout();
+			this->panelContenido->ResumeLayout(false);
+			this->panelContenido->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
-
 		}
 #pragma endregion
-
 
 	private: System::Void btnRegCasteller_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ telefon = txtTel->Text;
@@ -158,9 +212,9 @@ namespace Tronketis {
 
 		ctrl->registrarCasteller(dniCasteller, telefon);
 
-		MessageBox::Show("Casteller registrat correctament");
+		MessageBox::Show("Casteller registrado correctamente", "Registro completado", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		this->Close();
 	}
-};
+	};
 }

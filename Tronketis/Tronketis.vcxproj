@@ -132,9 +132,16 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssignarCastellersForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ConsultarCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CrearDiadaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CtrlAssignarCastellers.h" />
     <ClInclude Include="DetallCollaForm.h" />
     <ClInclude Include="EditarCollaForm.h" />
     <ClInclude Include="Form1.h">
@@ -197,6 +204,9 @@
     <ClInclude Include="IniciarSesionForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MenuCastellerForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ModificarEsdevenimentForm.h" />
     <ClInclude Include="ModificarUsuariForm.h">
       <FileType>CppForm</FileType>
@@ -206,7 +216,9 @@
     <ClInclude Include="PasarelaAssaig.h" />
     <ClInclude Include="PasarelaCastell.h" />
     <ClInclude Include="PasarelaCasteller.h" />
+    <ClInclude Include="PasarelaMuntatgeCastell.h" />
     <ClInclude Include="PasarelaParticipacioDiada.h" />
+    <ClInclude Include="PosicioCastellDTO.h" />
     <ClInclude Include="RegisterCastellerForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -227,6 +239,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="UiStyle.h" />
     <ClInclude Include="UsuariDTO.h" />
     <ClInclude Include="CercadorEvento.h" />
     <ClInclude Include="EventoDTO.h" />
@@ -240,6 +253,7 @@
   <ItemGroup>
     <ClCompile Include="AsignarCapForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="AssignarCastellersForm.cpp" />
     <ClCompile Include="ConsultarCollaForm.cpp" />
     <ClCompile Include="AssignarCastellsDiadaForm.cpp" />
     <ClCompile Include="CercadorAssignacioCastellDiada.cpp" />
@@ -252,6 +266,8 @@
     <ClCompile Include="CrearAssaigForm.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />
     <ClCompile Include="CrearCollaForm.cpp" />
+    <ClCompile Include="CrearDiadaForm.cpp" />
+    <ClCompile Include="CtrlAssignarCastellers.cpp" />
     <ClCompile Include="CtrlConsultarAssaig.cpp" />
     <ClCompile Include="CtrlAssignarCastellDiada.cpp" />
     <ClCompile Include="CtrlConsultarCastell.cpp" />
@@ -272,6 +288,7 @@
     <ClCompile Include="GestioMembresForm.cpp" />
     <ClCompile Include="InhabilitarUsuarioForm.cpp" />
     <ClCompile Include="IniciarSesionForm.cpp" />
+    <ClCompile Include="MenuCastellerForm.cpp" />
     <ClCompile Include="ModificarEsdevenimentForm.cpp" />
     <ClCompile Include="ModificarUsuariForm.cpp" />
     <ClCompile Include="MenuAdminForm.cpp" />
@@ -279,6 +296,7 @@
     <ClCompile Include="PasarelaAssignacioCastellDiada.cpp" />
     <ClCompile Include="PasarelaCastell.cpp" />
     <ClCompile Include="PasarelaCasteller.cpp" />
+    <ClCompile Include="PasarelaMuntatgeCastell.cpp" />
     <ClCompile Include="PasarelaParticipacioDiada.cpp" />
     <ClCompile Include="RegisterCastellerForm.cpp" />
     <ClCompile Include="MenuCapColla.cpp" />

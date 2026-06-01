@@ -10,7 +10,7 @@ namespace Tronketis {
 
     private:
         static bool validarDades(CastellDTO^ castell, String^% error);
-        static bool nomDisponible(String^ nom, String^% error);
+        static bool nomDisponible(String^ nom, String^ colla, String^% error);
         static int minPisos(String^ tipus);
     };
 

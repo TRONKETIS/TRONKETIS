@@ -1,7 +1,9 @@
 ﻿#include "pch.h"
 #include "CtrlCrearColla.h"
 #include "PasarelaColla.h"
+#include "PasarelaUsuari.h"
 using namespace System;
+using namespace System::Collections::Generic;
 using namespace Tronketis;
 
 namespace Tronketis {
@@ -30,6 +32,39 @@ namespace Tronketis {
             error = "Error de base de dades: " + ex->Message;
             return false;
         }
+    }
+
+    bool CtrlCrearColla::CrearAmbCap(int usuariId, CollaDTO^ colla, String^ dniCap, String^ telefon, String^% error) {
+
+        if (!validarDadesColla(colla, error)) {
+            return false;
+        }
+
+        if (String::IsNullOrWhiteSpace(dniCap)) {
+            error = "Has de seleccionar un cap de colla";
+            return false;
+        }
+
+        colla->nom = colla->nom->Trim();
+        colla->localitzacio = colla->localitzacio->Trim();
+        if (colla->univ != nullptr) {
+            colla->univ = colla->univ->Trim();
+        }
+        if (telefon != nullptr) {
+            telefon = telefon->Trim();
+        }
+
+        try {
+            return PasarelaColla::insertarConCap(colla, dniCap, telefon, error);
+        }
+        catch (Exception^ ex) {
+            error = "Error de base de dades: " + ex->Message;
+            return false;
+        }
+    }
+
+    List<UsuariDTO^>^ CtrlCrearColla::ObtenirCapsDisponibles() {
+        return PasarelaUsuari::obtenirTots();
     }
 
     bool CtrlCrearColla::validarDadesColla(CollaDTO^ colla, String^% error) {

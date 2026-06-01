@@ -179,7 +179,7 @@
     <ClInclude Include="AsignarCapForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-	<ClInclude Include="CtrlModificarEsdeveniment.h">
+    <ClInclude Include="CtrlModificarEsdeveniment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ModificarEsdevenimentForm.h">
@@ -207,6 +207,45 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AssignarCastellsDiadaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultarCollaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DetallCollaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditarCollaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Form1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultarAssaigForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlConsultarAssaig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UiStyle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCastellerForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrearDiadaForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaMuntatgeCastell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlAssignarCastellers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PosicioCastellDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AssignarCastellersForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -286,7 +325,7 @@
     <ClCompile Include="AsignarCapForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-	<ClCompile Include="CercadorCastell.cpp">
+    <ClCompile Include="CercadorCastell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ConsultarCastellForm.cpp">
@@ -337,7 +376,7 @@
     <ClCompile Include="CtrlModificarUsuari.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-	<ClCompile Include="CtrlModificarEsdeveniment.cpp">
+    <ClCompile Include="CtrlModificarEsdeveniment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ModificarEsdevenimentForm.cpp">
@@ -362,6 +401,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CrearAssaigForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultarCollaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultarAssaigForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlConsultarAssaig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DetallCollaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditarCollaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCastellerForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrearDiadaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaMuntatgeCastell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlAssignarCastellers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AssignarCastellersForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

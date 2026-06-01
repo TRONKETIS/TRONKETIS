@@ -1,7 +1,9 @@
 ﻿#pragma once
 
+#include "AppColors.h"
 #include "CtrlCrearColla.h"
 #include "CollaDTO.h"
+#include "UsuariDTO.h"
 
 namespace Tronketis {
 
@@ -12,15 +14,13 @@ namespace Tronketis {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
+	using namespace System::Collections::Generic;
 
-	/// <summary>
-	/// Formulari per crear una nova colla castellera amb logo
-	/// </summary>
 	public ref class CrearCollaForm : public System::Windows::Forms::Form
 	{
 	private:
 		int usuariIdActual;
-		array<Byte>^ logoData;  // Emmagatzema les dades del logo
+		array<Byte>^ logoData;
 		String^ rutaLogoTemporal;
 
 	public:
@@ -30,6 +30,7 @@ namespace Tronketis {
 			logoData = nullptr;
 			rutaLogoTemporal = nullptr;
 			InitializeComponent();
+			CarregarCapsDisponibles();
 			ConfigurarValidacions();
 		}
 
@@ -39,13 +40,13 @@ namespace Tronketis {
 			logoData = nullptr;
 			rutaLogoTemporal = nullptr;
 			InitializeComponent();
+			CarregarCapsDisponibles();
 			ConfigurarValidacions();
 		}
 
 	protected:
 		~CrearCollaForm()
 		{
-			// Netejar fitxer temporal si existeix
 			if (rutaLogoTemporal != nullptr && File::Exists(rutaLogoTemporal)) {
 				try {
 					File::Delete(rutaLogoTemporal);
@@ -60,10 +61,17 @@ namespace Tronketis {
 		}
 
 	private:
-		// 🔹 Controls del formulari
+		System::Windows::Forms::Panel^ panelHeader;
+		System::Windows::Forms::Panel^ panelContenido;
+		System::Windows::Forms::Label^ lblTitulo;
+		System::Windows::Forms::Label^ lblSubtitulo;
 		System::Windows::Forms::TextBox^ NameCollatxt;
 		System::Windows::Forms::TextBox^ LocationCollatxt;
 		System::Windows::Forms::TextBox^ UniNameCollatxt;
+		System::Windows::Forms::ComboBox^ ComboCapColla;
+		System::Windows::Forms::TextBox^ TelefonCaptxt;
+		System::Windows::Forms::Label^ LabelCapColla;
+		System::Windows::Forms::Label^ LabelTelefonCap;
 		System::Windows::Forms::Label^ LabelNomColla;
 		System::Windows::Forms::Label^ LabelLogoColla;
 		System::Windows::Forms::Label^ LabelLocalitzacioColla;
@@ -71,8 +79,6 @@ namespace Tronketis {
 		System::Windows::Forms::Button^ BtnCrearColla;
 		System::Windows::Forms::Button^ BtnNetejar;
 		System::Windows::Forms::Label^ LabelMissatge;
-
-		// 🖼️ Controls del Logo
 		System::Windows::Forms::PictureBox^ LogoPictureBox;
 		System::Windows::Forms::Button^ BtnPujarLogo;
 		System::Windows::Forms::Button^ BtnEliminarLogo;
@@ -80,12 +86,62 @@ namespace Tronketis {
 
 		System::ComponentModel::Container^ components;
 
+		void ConfigurarLabel(Label^ lbl)
+		{
+			lbl->Font = gcnew System::Drawing::Font(L"Segoe UI", 9.5F, System::Drawing::FontStyle::Bold);
+			lbl->ForeColor = AppColors::Black;
+			lbl->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		}
+
+		void ConfigurarTextBox(TextBox^ txt)
+		{
+			txt->Font = gcnew System::Drawing::Font(L"Segoe UI", 10.0F);
+			txt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+		}
+
+		void ConfigurarCombo(ComboBox^ combo)
+		{
+			combo->Font = gcnew System::Drawing::Font(L"Segoe UI", 10.0F);
+			combo->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+		}
+
+		void ConfigurarBotonPrincipal(Button^ btn)
+		{
+			btn->BackColor = AppColors::Yellow;
+			btn->ForeColor = AppColors::Black;
+			btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			btn->FlatAppearance->BorderSize = 0;
+			btn->FlatAppearance->MouseOverBackColor = Color::FromArgb(224, 197, 65);
+			btn->FlatAppearance->MouseDownBackColor = AppColors::DarkRed;
+			btn->Font = gcnew System::Drawing::Font(L"Segoe UI", 10.0F, System::Drawing::FontStyle::Bold);
+			btn->Cursor = System::Windows::Forms::Cursors::Hand;
+		}
+
+		void ConfigurarBotonSecundario(Button^ btn)
+		{
+			btn->BackColor = AppColors::White;
+			btn->ForeColor = AppColors::DarkRed;
+			btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			btn->FlatAppearance->BorderColor = AppColors::DarkRed;
+			btn->FlatAppearance->BorderSize = 1;
+			btn->Font = gcnew System::Drawing::Font(L"Segoe UI", 9.0F, System::Drawing::FontStyle::Bold);
+			btn->Cursor = System::Windows::Forms::Cursors::Hand;
+		}
+
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
+			this->panelHeader = (gcnew System::Windows::Forms::Panel());
+			this->lblTitulo = (gcnew System::Windows::Forms::Label());
+			this->lblSubtitulo = (gcnew System::Windows::Forms::Label());
+			this->panelContenido = (gcnew System::Windows::Forms::Panel());
 			this->NameCollatxt = (gcnew System::Windows::Forms::TextBox());
 			this->LocationCollatxt = (gcnew System::Windows::Forms::TextBox());
 			this->UniNameCollatxt = (gcnew System::Windows::Forms::TextBox());
+			this->ComboCapColla = (gcnew System::Windows::Forms::ComboBox());
+			this->TelefonCaptxt = (gcnew System::Windows::Forms::TextBox());
+			this->LabelCapColla = (gcnew System::Windows::Forms::Label());
+			this->LabelTelefonCap = (gcnew System::Windows::Forms::Label());
 			this->LabelNomColla = (gcnew System::Windows::Forms::Label());
 			this->LabelLogoColla = (gcnew System::Windows::Forms::Label());
 			this->LabelLocalitzacioColla = (gcnew System::Windows::Forms::Label());
@@ -97,210 +153,280 @@ namespace Tronketis {
 			this->BtnPujarLogo = (gcnew System::Windows::Forms::Button());
 			this->BtnEliminarLogo = (gcnew System::Windows::Forms::Button());
 			this->LabelInfoLogo = (gcnew System::Windows::Forms::Label());
+			this->panelHeader->SuspendLayout();
+			this->panelContenido->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LogoPictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// NameCollatxt
+			// panelHeader
 			// 
-			this->NameCollatxt->Location = System::Drawing::Point(280, 70);
+			this->panelHeader->BackColor = AppColors::DarkRed;
+			this->panelHeader->Controls->Add(this->lblTitulo);
+			this->panelHeader->Controls->Add(this->lblSubtitulo);
+			this->panelHeader->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panelHeader->Location = System::Drawing::Point(0, 0);
+			this->panelHeader->Name = L"panelHeader";
+			this->panelHeader->Size = System::Drawing::Size(720, 105);
+			this->panelHeader->TabIndex = 0;
+			// 
+			// lblTitulo
+			// 
+			this->lblTitulo->AutoSize = true;
+			this->lblTitulo->Font = (gcnew System::Drawing::Font(L"Segoe UI", 22.0F, System::Drawing::FontStyle::Bold));
+			this->lblTitulo->ForeColor = AppColors::White;
+			this->lblTitulo->Location = System::Drawing::Point(34, 22);
+			this->lblTitulo->Name = L"lblTitulo";
+			this->lblTitulo->Size = System::Drawing::Size(220, 41);
+			this->lblTitulo->TabIndex = 0;
+			this->lblTitulo->Text = L"Crear Colla";
+			// 
+			// lblSubtitulo
+			// 
+			this->lblSubtitulo->AutoSize = true;
+			this->lblSubtitulo->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.5F));
+			this->lblSubtitulo->ForeColor = AppColors::White;
+			this->lblSubtitulo->Location = System::Drawing::Point(39, 66);
+			this->lblSubtitulo->Name = L"lblSubtitulo";
+			this->lblSubtitulo->Size = System::Drawing::Size(360, 17);
+			this->lblSubtitulo->TabIndex = 1;
+			this->lblSubtitulo->Text = L"Crea una colla y asigna su cap de colla";
+			// 
+			// panelContenido
+			// 
+			this->panelContenido->BackColor = AppColors::White;
+			this->panelContenido->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panelContenido->Controls->Add(this->NameCollatxt);
+			this->panelContenido->Controls->Add(this->LocationCollatxt);
+			this->panelContenido->Controls->Add(this->UniNameCollatxt);
+			this->panelContenido->Controls->Add(this->ComboCapColla);
+			this->panelContenido->Controls->Add(this->TelefonCaptxt);
+			this->panelContenido->Controls->Add(this->LabelCapColla);
+			this->panelContenido->Controls->Add(this->LabelTelefonCap);
+			this->panelContenido->Controls->Add(this->LabelNomColla);
+			this->panelContenido->Controls->Add(this->LabelLogoColla);
+			this->panelContenido->Controls->Add(this->LabelLocalitzacioColla);
+			this->panelContenido->Controls->Add(this->LabelUniversitatColla);
+			this->panelContenido->Controls->Add(this->BtnCrearColla);
+			this->panelContenido->Controls->Add(this->BtnNetejar);
+			this->panelContenido->Controls->Add(this->LabelMissatge);
+			this->panelContenido->Controls->Add(this->LogoPictureBox);
+			this->panelContenido->Controls->Add(this->BtnPujarLogo);
+			this->panelContenido->Controls->Add(this->BtnEliminarLogo);
+			this->panelContenido->Controls->Add(this->LabelInfoLogo);
+			this->panelContenido->Location = System::Drawing::Point(42, 130);
+			this->panelContenido->Name = L"panelContenido";
+			this->panelContenido->Size = System::Drawing::Size(636, 500);
+			this->panelContenido->TabIndex = 1;
+			// 
+			// labels
+			// 
+			this->LabelNomColla->Location = System::Drawing::Point(42, 35);
+			this->LabelNomColla->Name = L"LabelNomColla";
+			this->LabelNomColla->Size = System::Drawing::Size(175, 26);
+			this->LabelNomColla->Text = L"Nombre colla *";
+			this->LabelLogoColla->Location = System::Drawing::Point(42, 86);
+			this->LabelLogoColla->Name = L"LabelLogoColla";
+			this->LabelLogoColla->Size = System::Drawing::Size(175, 26);
+			this->LabelLogoColla->Text = L"Logo";
+			this->LabelLocalitzacioColla->Location = System::Drawing::Point(42, 205);
+			this->LabelLocalitzacioColla->Name = L"LabelLocalitzacioColla";
+			this->LabelLocalitzacioColla->Size = System::Drawing::Size(175, 26);
+			this->LabelLocalitzacioColla->Text = L"Localizacion *";
+			this->LabelUniversitatColla->Location = System::Drawing::Point(42, 255);
+			this->LabelUniversitatColla->Name = L"LabelUniversitatColla";
+			this->LabelUniversitatColla->Size = System::Drawing::Size(175, 26);
+			this->LabelUniversitatColla->Text = L"Universidad";
+			this->LabelCapColla->Location = System::Drawing::Point(42, 305);
+			this->LabelCapColla->Name = L"LabelCapColla";
+			this->LabelCapColla->Size = System::Drawing::Size(175, 26);
+			this->LabelCapColla->Text = L"Cap de colla *";
+			this->LabelTelefonCap->Location = System::Drawing::Point(42, 355);
+			this->LabelTelefonCap->Name = L"LabelTelefonCap";
+			this->LabelTelefonCap->Size = System::Drawing::Size(175, 26);
+			this->LabelTelefonCap->Text = L"Telefono cap *";
+			ConfigurarLabel(this->LabelNomColla);
+			ConfigurarLabel(this->LabelLogoColla);
+			ConfigurarLabel(this->LabelLocalitzacioColla);
+			ConfigurarLabel(this->LabelUniversitatColla);
+			ConfigurarLabel(this->LabelCapColla);
+			ConfigurarLabel(this->LabelTelefonCap);
+			// 
+			// inputs
+			// 
+			this->NameCollatxt->Location = System::Drawing::Point(245, 35);
 			this->NameCollatxt->Name = L"NameCollatxt";
-			this->NameCollatxt->Size = System::Drawing::Size(300, 22);
+			this->NameCollatxt->Size = System::Drawing::Size(330, 25);
 			this->NameCollatxt->TabIndex = 0;
 			this->NameCollatxt->TextChanged += gcnew System::EventHandler(this, &CrearCollaForm::NomColla_TextChanged);
-			// 
-			// LocationCollatxt
-			// 
-			this->LocationCollatxt->Location = System::Drawing::Point(280, 180);
+			this->LocationCollatxt->Location = System::Drawing::Point(245, 205);
 			this->LocationCollatxt->Name = L"LocationCollatxt";
-			this->LocationCollatxt->Size = System::Drawing::Size(300, 22);
-			this->LocationCollatxt->TabIndex = 1;
+			this->LocationCollatxt->Size = System::Drawing::Size(330, 25);
+			this->LocationCollatxt->TabIndex = 3;
 			this->LocationCollatxt->TextChanged += gcnew System::EventHandler(this, &CrearCollaForm::Localitzacio_TextChanged);
-			// 
-			// UniNameCollatxt
-			// 
-			this->UniNameCollatxt->Location = System::Drawing::Point(280, 235);
+			this->UniNameCollatxt->Location = System::Drawing::Point(245, 255);
 			this->UniNameCollatxt->Name = L"UniNameCollatxt";
-			this->UniNameCollatxt->Size = System::Drawing::Size(300, 22);
-			this->UniNameCollatxt->TabIndex = 2;
+			this->UniNameCollatxt->Size = System::Drawing::Size(330, 25);
+			this->UniNameCollatxt->TabIndex = 4;
+			this->ComboCapColla->FormattingEnabled = true;
+			this->ComboCapColla->Location = System::Drawing::Point(245, 305);
+			this->ComboCapColla->Name = L"ComboCapColla";
+			this->ComboCapColla->Size = System::Drawing::Size(330, 25);
+			this->ComboCapColla->TabIndex = 5;
+			this->ComboCapColla->SelectedIndexChanged += gcnew System::EventHandler(this, &CrearCollaForm::CapColla_SelectedIndexChanged);
+			this->TelefonCaptxt->Location = System::Drawing::Point(245, 355);
+			this->TelefonCaptxt->Name = L"TelefonCaptxt";
+			this->TelefonCaptxt->Size = System::Drawing::Size(330, 25);
+			this->TelefonCaptxt->TabIndex = 6;
+			this->TelefonCaptxt->TextChanged += gcnew System::EventHandler(this, &CrearCollaForm::TelefonCap_TextChanged);
+			ConfigurarTextBox(this->NameCollatxt);
+			ConfigurarTextBox(this->LocationCollatxt);
+			ConfigurarTextBox(this->UniNameCollatxt);
+			ConfigurarTextBox(this->TelefonCaptxt);
+			ConfigurarCombo(this->ComboCapColla);
 			// 
-			// LabelNomColla
+			// logo
 			// 
-			this->LabelNomColla->AutoSize = true;
-			this->LabelNomColla->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold));
-			this->LabelNomColla->Location = System::Drawing::Point(80, 73);
-			this->LabelNomColla->Name = L"LabelNomColla";
-			this->LabelNomColla->Size = System::Drawing::Size(56, 18);
-			this->LabelNomColla->TabIndex = 3;
-			this->LabelNomColla->Text = L"Nom:*";
+			this->LogoPictureBox->BackColor = System::Drawing::Color::FromArgb(245, 245, 245);
+			this->LogoPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->LogoPictureBox->Location = System::Drawing::Point(245, 85);
+			this->LogoPictureBox->Name = L"LogoPictureBox";
+			this->LogoPictureBox->Size = System::Drawing::Size(85, 85);
+			this->LogoPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->LogoPictureBox->TabIndex = 7;
+			this->LogoPictureBox->TabStop = false;
+			this->BtnPujarLogo->Location = System::Drawing::Point(350, 85);
+			this->BtnPujarLogo->Name = L"BtnPujarLogo";
+			this->BtnPujarLogo->Size = System::Drawing::Size(225, 34);
+			this->BtnPujarLogo->TabIndex = 1;
+			this->BtnPujarLogo->Text = L"Subir logo";
+			this->BtnPujarLogo->UseVisualStyleBackColor = false;
+			this->BtnPujarLogo->Click += gcnew System::EventHandler(this, &CrearCollaForm::BtnPujarLogo_Click);
+			this->BtnEliminarLogo->Enabled = false;
+			this->BtnEliminarLogo->Location = System::Drawing::Point(350, 128);
+			this->BtnEliminarLogo->Name = L"BtnEliminarLogo";
+			this->BtnEliminarLogo->Size = System::Drawing::Size(225, 34);
+			this->BtnEliminarLogo->TabIndex = 2;
+			this->BtnEliminarLogo->Text = L"Eliminar logo";
+			this->BtnEliminarLogo->UseVisualStyleBackColor = false;
+			this->BtnEliminarLogo->Click += gcnew System::EventHandler(this, &CrearCollaForm::BtnEliminarLogo_Click);
+			ConfigurarBotonSecundario(this->BtnPujarLogo);
+			ConfigurarBotonSecundario(this->BtnEliminarLogo);
+			this->LabelInfoLogo->AutoSize = true;
+			this->LabelInfoLogo->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.0F));
+			this->LabelInfoLogo->ForeColor = System::Drawing::Color::Gray;
+			this->LabelInfoLogo->Location = System::Drawing::Point(245, 176);
+			this->LabelInfoLogo->Name = L"LabelInfoLogo";
+			this->LabelInfoLogo->Size = System::Drawing::Size(250, 13);
+			this->LabelInfoLogo->TabIndex = 8;
+			this->LabelInfoLogo->Text = L"Formatos: JPG, PNG, GIF (Max. 5MB)";
 			// 
-			// LabelLogoColla
+			// buttons
 			// 
-			this->LabelLogoColla->AutoSize = true;
-			this->LabelLogoColla->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold));
-			this->LabelLogoColla->Location = System::Drawing::Point(80, 115);
-			this->LabelLogoColla->Name = L"LabelLogoColla";
-			this->LabelLogoColla->Size = System::Drawing::Size(51, 18);
-			this->LabelLogoColla->TabIndex = 4;
-			this->LabelLogoColla->Text = L"Logo:";
-			// 
-			// LabelLocalitzacioColla
-			// 
-			this->LabelLocalitzacioColla->AutoSize = true;
-			this->LabelLocalitzacioColla->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold));
-			this->LabelLocalitzacioColla->Location = System::Drawing::Point(80, 183);
-			this->LabelLocalitzacioColla->Name = L"LabelLocalitzacioColla";
-			this->LabelLocalitzacioColla->Size = System::Drawing::Size(111, 18);
-			this->LabelLocalitzacioColla->TabIndex = 5;
-			this->LabelLocalitzacioColla->Text = L"Localització:*";
-			// 
-			// LabelUniversitatColla
-			// 
-			this->LabelUniversitatColla->AutoSize = true;
-			this->LabelUniversitatColla->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold));
-			this->LabelUniversitatColla->Location = System::Drawing::Point(80, 238);
-			this->LabelUniversitatColla->Name = L"LabelUniversitatColla";
-			this->LabelUniversitatColla->Size = System::Drawing::Size(100, 18);
-			this->LabelUniversitatColla->TabIndex = 6;
-			this->LabelUniversitatColla->Text = L"Universitat:*";
-			// 
-			// BtnCrearColla
-			// 
-			this->BtnCrearColla->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(123)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->BtnCrearColla->Enabled = false;
-			this->BtnCrearColla->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BtnCrearColla->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
-			this->BtnCrearColla->ForeColor = System::Drawing::Color::White;
-			this->BtnCrearColla->Location = System::Drawing::Point(280, 350);
+			this->BtnCrearColla->Location = System::Drawing::Point(245, 410);
 			this->BtnCrearColla->Name = L"BtnCrearColla";
-			this->BtnCrearColla->Size = System::Drawing::Size(180, 40);
+			this->BtnCrearColla->Size = System::Drawing::Size(205, 42);
 			this->BtnCrearColla->TabIndex = 7;
-			this->BtnCrearColla->Text = L"✅ Crear Colla";
+			this->BtnCrearColla->Text = L"Crear Colla";
 			this->BtnCrearColla->UseVisualStyleBackColor = false;
 			this->BtnCrearColla->Click += gcnew System::EventHandler(this, &CrearCollaForm::BtnCrearColla_Click);
-			// 
-			// BtnNetejar
-			// 
-			this->BtnNetejar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BtnNetejar->Location = System::Drawing::Point(480, 350);
+			this->BtnNetejar->Location = System::Drawing::Point(470, 410);
 			this->BtnNetejar->Name = L"BtnNetejar";
-			this->BtnNetejar->Size = System::Drawing::Size(100, 40);
+			this->BtnNetejar->Size = System::Drawing::Size(105, 42);
 			this->BtnNetejar->TabIndex = 8;
-			this->BtnNetejar->Text = L"🔄 Netejar";
-			this->BtnNetejar->UseVisualStyleBackColor = true;
+			this->BtnNetejar->Text = L"Limpiar";
+			this->BtnNetejar->UseVisualStyleBackColor = false;
 			this->BtnNetejar->Click += gcnew System::EventHandler(this, &CrearCollaForm::BtnNetejar_Click);
+			ConfigurarBotonPrincipal(this->BtnCrearColla);
+			ConfigurarBotonSecundario(this->BtnNetejar);
 			// 
 			// LabelMissatge
 			// 
-			this->LabelMissatge->AutoSize = true;
-			this->LabelMissatge->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
-			this->LabelMissatge->Location = System::Drawing::Point(80, 410);
+			this->LabelMissatge->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.0F));
+			this->LabelMissatge->ForeColor = System::Drawing::Color::DimGray;
+			this->LabelMissatge->Location = System::Drawing::Point(42, 462);
+			this->LabelMissatge->MaximumSize = System::Drawing::Size(545, 0);
 			this->LabelMissatge->Name = L"LabelMissatge";
-			this->LabelMissatge->Size = System::Drawing::Size(0, 18);
+			this->LabelMissatge->Size = System::Drawing::Size(545, 30);
 			this->LabelMissatge->TabIndex = 9;
-			// 
-			// LogoPictureBox
-			// 
-			this->LogoPictureBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(245)), static_cast<System::Int32>(static_cast<System::Byte>(245)),
-				static_cast<System::Int32>(static_cast<System::Byte>(245)));
-			this->LogoPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->LogoPictureBox->Location = System::Drawing::Point(280, 110);
-			this->LogoPictureBox->Name = L"LogoPictureBox";
-			this->LogoPictureBox->Size = System::Drawing::Size(70, 64);
-			this->LogoPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->LogoPictureBox->TabIndex = 10;
-			this->LogoPictureBox->TabStop = false;
-			// 
-			// BtnPujarLogo
-			// 
-			this->BtnPujarLogo->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BtnPujarLogo->Location = System::Drawing::Point(280, 275);
-			this->BtnPujarLogo->Name = L"BtnPujarLogo";
-			this->BtnPujarLogo->Size = System::Drawing::Size(140, 30);
-			this->BtnPujarLogo->TabIndex = 11;
-			this->BtnPujarLogo->Text = L"📁 Pujar Logo";
-			this->BtnPujarLogo->UseVisualStyleBackColor = true;
-			this->BtnPujarLogo->Click += gcnew System::EventHandler(this, &CrearCollaForm::BtnPujarLogo_Click);
-			// 
-			// BtnEliminarLogo
-			// 
-			this->BtnEliminarLogo->Enabled = false;
-			this->BtnEliminarLogo->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BtnEliminarLogo->Location = System::Drawing::Point(440, 275);
-			this->BtnEliminarLogo->Name = L"BtnEliminarLogo";
-			this->BtnEliminarLogo->Size = System::Drawing::Size(140, 30);
-			this->BtnEliminarLogo->TabIndex = 12;
-			this->BtnEliminarLogo->Text = L"🗑️ Eliminar Logo";
-			this->BtnEliminarLogo->UseVisualStyleBackColor = true;
-			this->BtnEliminarLogo->Click += gcnew System::EventHandler(this, &CrearCollaForm::BtnEliminarLogo_Click);
-			// 
-			// LabelInfoLogo
-			// 
-			this->LabelInfoLogo->AutoSize = true;
-			this->LabelInfoLogo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.5F));
-			this->LabelInfoLogo->ForeColor = System::Drawing::Color::Gray;
-			this->LabelInfoLogo->Location = System::Drawing::Point(280, 315);
-			this->LabelInfoLogo->Name = L"LabelInfoLogo";
-			this->LabelInfoLogo->Size = System::Drawing::Size(219, 16);
-			this->LabelInfoLogo->TabIndex = 13;
-			this->LabelInfoLogo->Text = L"Formats: JPG, PNG, GIF (Màx. 5MB)";
 			// 
 			// CrearCollaForm
 			// 
+			this->AcceptButton = this->BtnCrearColla;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(250)), static_cast<System::Int32>(static_cast<System::Byte>(250)),
-				static_cast<System::Int32>(static_cast<System::Byte>(250)));
-			this->ClientSize = System::Drawing::Size(700, 460);
-			this->Controls->Add(this->LabelInfoLogo);
-			this->Controls->Add(this->BtnEliminarLogo);
-			this->Controls->Add(this->BtnPujarLogo);
-			this->Controls->Add(this->LogoPictureBox);
-			this->Controls->Add(this->LabelMissatge);
-			this->Controls->Add(this->BtnNetejar);
-			this->Controls->Add(this->BtnCrearColla);
-			this->Controls->Add(this->LabelUniversitatColla);
-			this->Controls->Add(this->LabelLocalitzacioColla);
-			this->Controls->Add(this->LabelLogoColla);
-			this->Controls->Add(this->LabelNomColla);
-			this->Controls->Add(this->UniNameCollatxt);
-			this->Controls->Add(this->LocationCollatxt);
-			this->Controls->Add(this->NameCollatxt);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->BackColor = AppColors::Background;
+			this->ClientSize = System::Drawing::Size(720, 665);
+			this->Controls->Add(this->panelContenido);
+			this->Controls->Add(this->panelHeader);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"CrearCollaForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"🏗️ Crear Nova Colla";
+			this->Text = L"Crear Colla";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LogoPictureBox))->EndInit();
+			this->panelHeader->ResumeLayout(false);
+			this->panelHeader->PerformLayout();
+			this->panelContenido->ResumeLayout(false);
+			this->panelContenido->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
-
 		}
 #pragma endregion
 
-		// 🔹 Mètode per configurar validacions en temps real
+	private: System::Void CarregarCapsDisponibles() {
+		try {
+			List<UsuariDTO^>^ caps = CtrlCrearColla::ObtenirCapsDisponibles();
+
+			ComboCapColla->DataSource = caps;
+			ComboCapColla->DisplayMember = "username";
+			ComboCapColla->ValueMember = "dni";
+
+			if (caps->Count == 0) {
+				ComboCapColla->Enabled = false;
+				LabelMissatge->Text = "No hay ningun CapColla disponible. Crea o libera un usuario CapColla antes de crear la colla.";
+				LabelMissatge->ForeColor = System::Drawing::Color::OrangeRed;
+			}
+			else {
+				ComboCapColla->SelectedIndex = 0;
+			}
+		}
+		catch (Exception^ ex) {
+			ComboCapColla->Enabled = false;
+			LabelMissatge->Text = "Error cargando caps de colla: " + ex->Message;
+			LabelMissatge->ForeColor = System::Drawing::Color::Red;
+		}
+	}
+
 	private: System::Void ConfigurarValidacions() {
-		LabelMissatge->Text = "💡 Ompli els camps obligatoris (*) per habilitar el botó";
-		LabelMissatge->ForeColor = System::Drawing::Color::FromArgb(0, 123, 255);
+		if (ComboCapColla->Enabled) {
+			LabelMissatge->Text = "Rellena los campos obligatorios (*) y selecciona un cap.";
+			LabelMissatge->ForeColor = System::Drawing::Color::DimGray;
+		}
 		ValidarFormulari();
 	}
 
-		   // 🔹 Validació en temps real del nom
 	private: System::Void NomColla_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		ValidarFormulari();
 	}
 
-		   // 🔹 Validació en temps real de la localització
 	private: System::Void Localitzacio_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		ValidarFormulari();
 	}
 
-		   // 🔹 Validació completa del formulari
+	private: System::Void CapColla_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		ValidarFormulari();
+	}
+
+	private: System::Void TelefonCap_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		ValidarFormulari();
+	}
+
 	private: System::Void ValidarFormulari() {
 		bool nomValid = !String::IsNullOrWhiteSpace(NameCollatxt->Text->Trim());
 		bool localitzacioValid = !String::IsNullOrWhiteSpace(LocationCollatxt->Text->Trim());
+		bool capValid = (ComboCapColla != nullptr && ComboCapColla->SelectedItem != nullptr);
+		bool telefonValid = !String::IsNullOrWhiteSpace(TelefonCaptxt->Text->Trim());
 
-		// Validar longituds
 		if (nomValid && NameCollatxt->Text->Trim()->Length > 100) {
 			nomValid = false;
 		}
@@ -308,57 +434,49 @@ namespace Tronketis {
 			localitzacioValid = false;
 		}
 
-		BtnCrearColla->Enabled = nomValid && localitzacioValid;
+		BtnCrearColla->Enabled = nomValid && localitzacioValid && capValid && telefonValid;
 	}
 
-		   // 🔹 Event: Pujar Logo 📁
 	private: System::Void BtnPujarLogo_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenFileDialog^ ofd = gcnew OpenFileDialog();
-		ofd->Title = "Seleccionar Logo de la Colla";
-		ofd->Filter = "Fitxers d'imatge|*.jpg;*.jpeg;*.png;*.gif|Tots els fitxers|*.*";
+		ofd->Title = "Seleccionar logo de la colla";
+		ofd->Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif|Todos los archivos|*.*";
 		ofd->FilterIndex = 1;
 		ofd->RestoreDirectory = true;
 
 		if (ofd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			try {
-				// 🔹 Validar mida del fitxer (5MB màxim)
 				FileInfo^ fileInfo = gcnew FileInfo(ofd->FileName);
 				long midaFitxer = fileInfo->Length;
 
-				if (midaFitxer > 5 * 1024 * 1024) {  // 5MB
+				if (midaFitxer > 5 * 1024 * 1024) {
 					MessageBox::Show(
-						"El fitxer seleccionat supera els 5MB. Si us plau, seleccioni una imatge més petita.",
-						"Mida de fitxer massa gran",
+						"El archivo seleccionado supera los 5MB. Selecciona una imagen mas pequena.",
+						"Archivo demasiado grande",
 						MessageBoxButtons::OK,
 						MessageBoxIcon::Warning
 					);
 					return;
 				}
 
-				// 🔹 Llegir el fitxer i convertir-lo a bytes
 				logoData = File::ReadAllBytes(ofd->FileName);
 				rutaLogoTemporal = ofd->FileName;
 
-				// 🔹 Mostrar preview al PictureBox
 				LogoPictureBox->Image = Image::FromFile(ofd->FileName);
-
-				// 🔹 Habilitar botó d'eliminar
 				BtnEliminarLogo->Enabled = true;
 
-				// 🔹 Mostrar informació del fitxer
 				LabelInfoLogo->Text = String::Format(
-					"✅ {0} ({1:F2} KB)",
+					"{0} ({1:F2} KB)",
 					Path::GetFileName(ofd->FileName),
 					midaFitxer / 1024.0
 				);
 				LabelInfoLogo->ForeColor = System::Drawing::Color::Green;
 
-				// 🔹 Validar formulari de nou (el logo és opcional però ja està carregat)
 				ValidarFormulari();
 			}
 			catch (Exception^ ex) {
 				MessageBox::Show(
-					"Error en carregar el logo: " + ex->Message,
+					"Error cargando el logo: " + ex->Message,
 					"Error",
 					MessageBoxButtons::OK,
 					MessageBoxIcon::Error
@@ -367,67 +485,63 @@ namespace Tronketis {
 		}
 	}
 
-		   // 🔹 Event: Eliminar Logo 🗑️
 	private: System::Void BtnEliminarLogo_Click(System::Object^ sender, System::EventArgs^ e) {
 		logoData = nullptr;
 		rutaLogoTemporal = nullptr;
 
-		// 🔹 Netejar PictureBox
 		if (LogoPictureBox->Image != nullptr) {
 			delete LogoPictureBox->Image;
 			LogoPictureBox->Image = nullptr;
 		}
 
-		// 🔹 Deshabilitar botó d'eliminar
 		BtnEliminarLogo->Enabled = false;
-
-		// 🔹 Restaurar text informatiu
-		LabelInfoLogo->Text = "Formats: JPG, PNG, GIF (Màx. 5MB)";
+		LabelInfoLogo->Text = "Formatos: JPG, PNG, GIF (Max. 5MB)";
 		LabelInfoLogo->ForeColor = System::Drawing::Color::Gray;
 	}
 
-		   // 🔹 Event: Crear Colla ✅
 	private: System::Void BtnCrearColla_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		// 🔹 1. Recollir dades del formulari
 		String^ nom = NameCollatxt->Text->Trim();
 		String^ localitzacio = LocationCollatxt->Text->Trim();
 		String^ univ = UniNameCollatxt->Text->Trim();
 
-		// 🔹 2. Crear DTO amb les dades
+		UsuariDTO^ capSeleccionat = dynamic_cast<UsuariDTO^>(ComboCapColla->SelectedItem);
+		if (capSeleccionat == nullptr) {
+			MessageBox::Show("Selecciona un cap de colla.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+
+		String^ telefonCap = TelefonCaptxt->Text->Trim();
+
 		CollaDTO^ novaColla = gcnew CollaDTO();
 		novaColla->nom = nom;
 		novaColla->localitzacio = localitzacio;
 		novaColla->univ = String::IsNullOrWhiteSpace(univ) ? nullptr : univ;
 		novaColla->actiu = true;
-		novaColla->logo = logoData;  // 🔹 Assignar logo (pot ser nullptr si no s'ha pujat)
+		novaColla->logo = logoData;
 
-		// 🔹 3. Cridar al controlador per crear la colla
 		String^ error;
-		bool resultat = CtrlCrearColla::Crear(usuariIdActual, novaColla, error);
+		bool resultat = CtrlCrearColla::CrearAmbCap(usuariIdActual, novaColla, capSeleccionat->dni, telefonCap, error);
 
-		// 🔹 4. Mostrar feedback a l'usuari
 		if (resultat) {
-			LabelMissatge->Text = "✅ Colla creada correctament!";
+			LabelMissatge->Text = "Colla creada correctamente!";
 			LabelMissatge->ForeColor = System::Drawing::Color::Green;
 
 			MessageBox::Show(
-				"La colla \"" + nom + "\" s'ha creat amb èxit!\n\nID: " + novaColla->id,
-				"Èxit",
+				"La colla \"" + nom + "\" se ha creado correctamente!\nCap de colla: " + capSeleccionat->username,
+				"Exito",
 				MessageBoxButtons::OK,
 				MessageBoxIcon::Information
 			);
 
-			// 🔹 Tancar el formulari
 			this->DialogResult = System::Windows::Forms::DialogResult::OK;
 			this->Close();
 		}
 		else {
-			LabelMissatge->Text = "❌ Error: " + error;
+			LabelMissatge->Text = "Error: " + error;
 			LabelMissatge->ForeColor = System::Drawing::Color::Red;
 
 			MessageBox::Show(
-				"No s'ha pogut crear la colla:\n\n" + error,
+				"No se ha podido crear la colla:\n\n" + error,
 				"Error",
 				MessageBoxButtons::OK,
 				MessageBoxIcon::Error
@@ -435,24 +549,21 @@ namespace Tronketis {
 		}
 	}
 
-		   // 🔹 Event: Netejar Formulari 🔄
 	private: System::Void BtnNetejar_Click(System::Object^ sender, System::EventArgs^ e) {
-		// 🔹 Netejar textboxes
 		NameCollatxt->Clear();
 		LocationCollatxt->Clear();
 		UniNameCollatxt->Clear();
+		TelefonCaptxt->Clear();
 
-		// 🔹 Netejar logo
+		if (ComboCapColla->Items->Count > 0) {
+			ComboCapColla->SelectedIndex = 0;
+		}
+
 		BtnEliminarLogo_Click(sender, e);
 
-		// 🔹 Netejar missatges
-		LabelMissatge->Text = "💡 Formulari netejat. Ompli els camps per crear una nova colla";
-		LabelMissatge->ForeColor = System::Drawing::Color::FromArgb(0, 123, 255);
-
-		// 🔹 Deshabilitar botó crear
+		LabelMissatge->Text = "Formulario limpiado. Rellena los campos y selecciona el cap para crear una nueva colla.";
+		LabelMissatge->ForeColor = System::Drawing::Color::DimGray;
 		BtnCrearColla->Enabled = false;
-
-		// 🔹 Posar focus al primer camp
 		NameCollatxt->Focus();
 	}
 	};

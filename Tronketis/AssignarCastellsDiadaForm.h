@@ -4,6 +4,7 @@
 #include "CercadorCastell.h"
 #include "CercadorAssignacioCastellDiada.h"
 #include "CtrlAssignarCastellDiada.h"
+#include "UiStyle.h"
 
 namespace Tronketis {
 
@@ -46,7 +47,10 @@ namespace Tronketis {
 		List<DiadaDTO^>^ diades;
 		List<PasarelaCastell^>^ castells;
 
+	private: System::Windows::Forms::Panel^ panelHeader;
+	private: System::Windows::Forms::Panel^ panelContenido;
 	private: System::Windows::Forms::Label^ lblTitol;
+	private: System::Windows::Forms::Label^ lblSubtitulo;
 	private: System::Windows::Forms::Label^ lblColla;
 	private: System::Windows::Forms::Label^ lblDiada;
 	private: System::Windows::Forms::Label^ lblCastell;
@@ -64,7 +68,10 @@ namespace Tronketis {
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
+			this->panelHeader = (gcnew System::Windows::Forms::Panel());
+			this->panelContenido = (gcnew System::Windows::Forms::Panel());
 			this->lblTitol = (gcnew System::Windows::Forms::Label());
+			this->lblSubtitulo = (gcnew System::Windows::Forms::Label());
 			this->lblColla = (gcnew System::Windows::Forms::Label());
 			this->lblDiada = (gcnew System::Windows::Forms::Label());
 			this->lblCastell = (gcnew System::Windows::Forms::Label());
@@ -75,131 +82,95 @@ namespace Tronketis {
 			this->lblMissatge = (gcnew System::Windows::Forms::Label());
 			this->lstCastellsAssignats = (gcnew System::Windows::Forms::ListBox());
 			this->lblAssignats = (gcnew System::Windows::Forms::Label());
+			this->panelHeader->SuspendLayout();
+			this->panelContenido->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// lblTitol
-			// 
-			this->lblTitol->AutoSize = true;
-			this->lblTitol->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->lblTitol->Location = System::Drawing::Point(70, 25);
-			this->lblTitol->Name = L"lblTitol";
-			this->lblTitol->Size = System::Drawing::Size(321, 31);
-			this->lblTitol->TabIndex = 0;
-			this->lblTitol->Text = L"Assignar castells a diada";
-			// 
-			// lblColla
-			// 
-			this->lblColla->AutoSize = true;
-			this->lblColla->Location = System::Drawing::Point(40, 75);
+
+			UiStyle::ApplyBase(this, 640, 620, L"Assignar Castell a Diada");
+			UiStyle::ApplyHeader(this->panelHeader, this->lblTitol, this->lblSubtitulo, 640, L"Assignar Castell", L"Relaciona un castell amb una diada");
+			UiStyle::ApplyCard(this->panelContenido, 45, 122, 550, 440);
+
+			UiStyle::ApplyValueLabel(this->lblColla);
+			this->lblColla->Location = System::Drawing::Point(32, 26);
 			this->lblColla->Name = L"lblColla";
-			this->lblColla->Size = System::Drawing::Size(42, 16);
-			this->lblColla->TabIndex = 1;
 			this->lblColla->Text = L"Colla:";
-			// 
-			// lblDiada
-			// 
-			this->lblDiada->AutoSize = true;
-			this->lblDiada->Location = System::Drawing::Point(40, 120);
+
+			UiStyle::ApplyLabel(this->lblDiada);
+			this->lblDiada->Location = System::Drawing::Point(32, 82);
 			this->lblDiada->Name = L"lblDiada";
-			this->lblDiada->Size = System::Drawing::Size(43, 16);
-			this->lblDiada->TabIndex = 2;
 			this->lblDiada->Text = L"Diada:";
-			// 
-			// lblCastell
-			// 
-			this->lblCastell->AutoSize = true;
-			this->lblCastell->Location = System::Drawing::Point(40, 165);
-			this->lblCastell->Name = L"lblCastell";
-			this->lblCastell->Size = System::Drawing::Size(49, 16);
-			this->lblCastell->TabIndex = 3;
-			this->lblCastell->Text = L"Castell:";
-			// 
-			// cmbDiades
-			// 
-			this->cmbDiades->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->cmbDiades->FormattingEnabled = true;
-			this->cmbDiades->Location = System::Drawing::Point(120, 117);
+
+			UiStyle::ApplyCombo(this->cmbDiades, 360);
+			this->cmbDiades->Location = System::Drawing::Point(142, 79);
 			this->cmbDiades->Name = L"cmbDiades";
-			this->cmbDiades->Size = System::Drawing::Size(270, 24);
-			this->cmbDiades->TabIndex = 4;
+			this->cmbDiades->TabIndex = 1;
 			this->cmbDiades->SelectedIndexChanged += gcnew System::EventHandler(this, &AssignarCastellsDiadaForm::cmbDiades_SelectedIndexChanged);
-			// 
-			// cmbCastells
-			// 
-			this->cmbCastells->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->cmbCastells->FormattingEnabled = true;
-			this->cmbCastells->Location = System::Drawing::Point(120, 162);
+
+			UiStyle::ApplyLabel(this->lblCastell);
+			this->lblCastell->Location = System::Drawing::Point(32, 124);
+			this->lblCastell->Name = L"lblCastell";
+			this->lblCastell->Text = L"Castell:";
+
+			UiStyle::ApplyCombo(this->cmbCastells, 360);
+			this->cmbCastells->Location = System::Drawing::Point(142, 121);
 			this->cmbCastells->Name = L"cmbCastells";
-			this->cmbCastells->Size = System::Drawing::Size(270, 24);
-			this->cmbCastells->TabIndex = 5;
-			// 
-			// btnAssignar
-			// 
-			this->btnAssignar->Location = System::Drawing::Point(120, 215);
+			this->cmbCastells->TabIndex = 2;
+
+			UiStyle::ApplyButton(this->btnAssignar);
+			this->btnAssignar->Location = System::Drawing::Point(32, 176);
 			this->btnAssignar->Name = L"btnAssignar";
-			this->btnAssignar->Size = System::Drawing::Size(110, 32);
-			this->btnAssignar->TabIndex = 6;
+			this->btnAssignar->Size = System::Drawing::Size(230, 42);
+			this->btnAssignar->TabIndex = 3;
 			this->btnAssignar->Text = L"Assignar";
-			this->btnAssignar->UseVisualStyleBackColor = true;
 			this->btnAssignar->Click += gcnew System::EventHandler(this, &AssignarCastellsDiadaForm::btnAssignar_Click);
-			// 
-			// btnTornar
-			// 
-			this->btnTornar->Location = System::Drawing::Point(280, 215);
+
+			UiStyle::ApplySecondaryButton(this->btnTornar);
+			this->btnTornar->Location = System::Drawing::Point(272, 176);
 			this->btnTornar->Name = L"btnTornar";
-			this->btnTornar->Size = System::Drawing::Size(110, 32);
-			this->btnTornar->TabIndex = 7;
+			this->btnTornar->Size = System::Drawing::Size(230, 42);
+			this->btnTornar->TabIndex = 4;
 			this->btnTornar->Text = L"Tornar";
-			this->btnTornar->UseVisualStyleBackColor = true;
 			this->btnTornar->Click += gcnew System::EventHandler(this, &AssignarCastellsDiadaForm::btnTornar_Click);
-			// 
-			// lblMissatge
-			// 
-			this->lblMissatge->AutoSize = true;
-			this->lblMissatge->Location = System::Drawing::Point(40, 270);
-			this->lblMissatge->MaximumSize = System::Drawing::Size(380, 0);
+
+			UiStyle::ApplyMessage(this->lblMissatge, 470);
+			this->lblMissatge->Location = System::Drawing::Point(32, 238);
 			this->lblMissatge->Name = L"lblMissatge";
-			this->lblMissatge->Size = System::Drawing::Size(0, 16);
-			this->lblMissatge->TabIndex = 8;
-			// 
-			// lblAssignats
-			// 
-			this->lblAssignats->AutoSize = true;
-			this->lblAssignats->Location = System::Drawing::Point(40, 310);
+			this->lblMissatge->Text = L"";
+
+			UiStyle::ApplySection(this->lblAssignats);
+			this->lblAssignats->Location = System::Drawing::Point(32, 292);
 			this->lblAssignats->Name = L"lblAssignats";
-			this->lblAssignats->Size = System::Drawing::Size(143, 16);
-			this->lblAssignats->TabIndex = 9;
-			this->lblAssignats->Text = L"Castells ja assignats:";
-			// 
-			// lstCastellsAssignats
-			// 
+			this->lblAssignats->Text = L"Castells ja assignats";
+
+			this->lstCastellsAssignats->Font = gcnew System::Drawing::Font(L"Segoe UI", 9.0F);
 			this->lstCastellsAssignats->FormattingEnabled = true;
-			this->lstCastellsAssignats->ItemHeight = 16;
-			this->lstCastellsAssignats->Location = System::Drawing::Point(43, 340);
+			this->lstCastellsAssignats->ItemHeight = 15;
+			this->lstCastellsAssignats->Location = System::Drawing::Point(32, 324);
 			this->lstCastellsAssignats->Name = L"lstCastellsAssignats";
-			this->lstCastellsAssignats->Size = System::Drawing::Size(347, 132);
-			this->lstCastellsAssignats->TabIndex = 10;
-			// 
-			// AssignarCastellsDiadaForm
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(450, 500);
-			this->Controls->Add(this->lstCastellsAssignats);
-			this->Controls->Add(this->lblAssignats);
-			this->Controls->Add(this->lblMissatge);
-			this->Controls->Add(this->btnTornar);
-			this->Controls->Add(this->btnAssignar);
-			this->Controls->Add(this->cmbCastells);
-			this->Controls->Add(this->cmbDiades);
-			this->Controls->Add(this->lblCastell);
-			this->Controls->Add(this->lblDiada);
-			this->Controls->Add(this->lblColla);
-			this->Controls->Add(this->lblTitol);
+			this->lstCastellsAssignats->Size = System::Drawing::Size(470, 79);
+			this->lstCastellsAssignats->TabIndex = 5;
+
+			this->panelHeader->Controls->Add(this->lblTitol);
+			this->panelHeader->Controls->Add(this->lblSubtitulo);
+			this->panelContenido->Controls->Add(this->lblColla);
+			this->panelContenido->Controls->Add(this->lblDiada);
+			this->panelContenido->Controls->Add(this->cmbDiades);
+			this->panelContenido->Controls->Add(this->lblCastell);
+			this->panelContenido->Controls->Add(this->cmbCastells);
+			this->panelContenido->Controls->Add(this->btnAssignar);
+			this->panelContenido->Controls->Add(this->btnTornar);
+			this->panelContenido->Controls->Add(this->lblMissatge);
+			this->panelContenido->Controls->Add(this->lblAssignats);
+			this->panelContenido->Controls->Add(this->lstCastellsAssignats);
+			this->Controls->Add(this->panelHeader);
+			this->Controls->Add(this->panelContenido);
 			this->Name = L"AssignarCastellsDiadaForm";
-			this->Text = L"Assignar castells a diada";
+
+			this->panelHeader->ResumeLayout(false);
+			this->panelHeader->PerformLayout();
+			this->panelContenido->ResumeLayout(false);
+			this->panelContenido->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 		}
 #pragma endregion
 
@@ -235,13 +206,13 @@ namespace Tronketis {
 			cmbCastells->Items->Clear();
 			castells->Clear();
 
-			List<PasarelaCastell^>^ resultats = CercadorCastell::obtenirTots();
+			List<PasarelaCastell^>^ resultats = CercadorCastell::obtenirPerColla(this->collaName);
 
 			for each (PasarelaCastell ^ p in resultats) {
 				castells->Add(p);
 
 				String^ text =
-					p->getNom() + " (ID " + p->getId().ToString() + ")";
+					p->getNom() + " (" + p->getTipus() + ", ID " + p->getId().ToString() + ")";
 
 				cmbCastells->Items->Add(text);
 			}
@@ -265,7 +236,7 @@ namespace Tronketis {
 
 			for each (PasarelaCastell ^ p in assignats) {
 				String^ text =
-					p->getNom() + " (ID " + p->getId().ToString() + ")";
+					p->getNom() + " (" + p->getTipus() + ", ID " + p->getId().ToString() + ")";
 				lstCastellsAssignats->Items->Add(text);
 			}
 		}

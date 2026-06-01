@@ -13,5 +13,7 @@ public ref class CercadorCastell
 public:
 
     static List<PasarelaCastell^>^ cercaPerNom(String^ nom);
-	static List<PasarelaCastell^>^ obtenirTots();
+    static List<PasarelaCastell^>^ cercaPerNomIColla(String^ nom, String^ colla);
+    static List<PasarelaCastell^>^ obtenirTots();
+    static List<PasarelaCastell^>^ obtenirPerColla(String^ colla);
 };

@@ -84,9 +84,22 @@ System::Collections::Generic::List<UsuariDTO^>^ PasarelaUsuari::obtenirTots() {
         conn = DB::GetConnection();
         conn->Open();
 
-        // 🔹 Solo traemos a los usuarios que NO estén inhabilitados
-        String^ query = "SELECT * FROM usuari WHERE(state != 'Inactive' OR state IS NULL) AND user_role = 'CapColla'";
-       
+        // Solo mostramos candidatos válidos para ser cap de colla:
+        // - usuario activo o sin estado informado
+        // - rol CapColla
+        // - no está asignado ya como cap de otra colla
+        // - no pertenece ya a ninguna colla como miembro
+        String^ query =
+            "SELECT u.dni, u.user_name "
+            "FROM usuari u "
+            "LEFT JOIN colla c ON c.cap_de_colla_dni = u.dni "
+            "LEFT JOIN membre m ON m.dni = u.dni "
+            "WHERE (u.state != 'Inactive' OR u.state IS NULL) "
+            "AND u.user_role = 'CapColla' "
+            "AND c.cap_de_colla_dni IS NULL "
+            "AND m.dni IS NULL "
+            "ORDER BY u.user_name";
+
         MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
         MySqlDataReader^ reader = cmd->ExecuteReader();
 
