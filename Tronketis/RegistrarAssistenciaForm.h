@@ -18,18 +18,21 @@ namespace Tronketis {
 	{
 
 	private:
+		// Llista de diades disponibles carregades des de la capa de dades.
+		// Es guarda aquí per poder recuperar la diada seleccionada al ComboBox.
 		List<DiadaDTO^>^ diades;
+
+		// Llista de castellers disponibles carregats des de la capa de dades.
+		// Es fa servir per obtenir el casteller seleccionat al formulari.
 		List<CastellerDTO^>^ castellers;
 
 	public:
 		RegistrarAssistenciaForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 
-
+			// Carreguem totes les diades disponibles i les mostrem al desplegable.
+			// Cada opció mostra el nom de la diada i la seva data.
 			diades = CercadorDiada::obtenirTotes();
 
 			for each (DiadaDTO ^ d in diades)
@@ -40,8 +43,9 @@ namespace Tronketis {
 				);
 			}
 
-			castellers =
-				CercadorCasteller::obtenirTots();
+			// Carreguem tots els castellers disponibles i els afegim al desplegable.
+			// Es mostra el DNI i el nom d'usuari per identificar-los millor.
+			castellers = CercadorCasteller::obtenirTots();
 
 			for each (CastellerDTO ^ c in castellers)
 			{
@@ -51,11 +55,10 @@ namespace Tronketis {
 				);
 			}
 
+			// Afegim els possibles estats d'assistència que pot tenir un casteller.
 			cmbEstat->Items->Add("Apuntat");
 			cmbEstat->Items->Add("Confirmat");
 			cmbEstat->Items->Add("Cancelat");
-
-
 		}
 
 	protected:
@@ -84,7 +87,7 @@ namespace Tronketis {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -216,30 +219,36 @@ namespace Tronketis {
 		}
 #pragma endregion
 	private: System::Void btnRegistrar_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		// Comprovem que l'usuari hagi seleccionat una diada.
 		if (cmbDiades->SelectedIndex < 0)
 		{
 			MessageBox::Show("Selecciona una diada");
 			return;
 		}
 
+		// Comprovem que s'hagi seleccionat un casteller.
 		if (cmbCastellers->SelectedIndex < 0)
 		{
 			MessageBox::Show("Selecciona un casteller");
 			return;
 		}
 
+		// Comprovem que s'hagi seleccionat un estat d'assistència.
 		if (cmbEstat->SelectedIndex < 0)
 		{
 			MessageBox::Show("Selecciona un estat");
 			return;
 		}
 
+		// Recuperem la diada i el casteller seleccionats a partir de l'índex del ComboBox.
 		DiadaDTO^ diada =
 			diades[cmbDiades->SelectedIndex];
 
 		CastellerDTO^ casteller =
 			castellers[cmbCastellers->SelectedIndex];
 
+		// Creem el DTO amb les dades necessàries per registrar l'assistència.
 		ParticipacioDiadaDTO^ dto =
 			gcnew ParticipacioDiadaDTO();
 
@@ -251,12 +260,14 @@ namespace Tronketis {
 
 		String^ error;
 
+		// Enviem el DTO al controlador, que s'encarrega de fer el registre.
 		bool ok =
 			CtrlRegistrarAssistencia::executar(
 				dto,
 				error
 			);
 
+		// Si el registre s'ha fet correctament, mostrem un missatge positiu.
 		if (ok)
 		{
 			lblMissatge->ForeColor =
@@ -271,6 +282,7 @@ namespace Tronketis {
 		}
 		else
 		{
+			// Si hi ha hagut algun error, el mostrem tant al formulari com en una finestra emergent.
 			lblMissatge->ForeColor =
 				Color::Red;
 
