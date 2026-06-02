@@ -248,6 +248,9 @@
     <ClInclude Include="AssignarCastellersForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ConsultarEstructuraCastellForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -431,6 +434,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AssignarCastellersForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultarEstructuraCastellForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

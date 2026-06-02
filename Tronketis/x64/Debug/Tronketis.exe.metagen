@@ -158,6 +158,9 @@ Class Tronketis.PasarelaMuntatgeCastell: AutoLayout, AnsiClass, Class, Public, B
     obtenirCastellersPerColla(String): PrivateScope, Public, Static, HideBySig
     obtenirAssignacions(Int32, String): PrivateScope, Public, Static, HideBySig
     guardarAssignacions(Int32, String, List`1, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.ConsultarEstructuraCastellForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, Tronketis.CastellDTO): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Tronketis.AssignarCastellersForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

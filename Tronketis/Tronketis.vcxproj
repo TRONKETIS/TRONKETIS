@@ -138,6 +138,9 @@
     <ClInclude Include="ConsultarCollaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ConsultarEstructuraCastellForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CrearDiadaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -262,6 +265,7 @@
     <ClCompile Include="CercadorDiada.cpp" />
     <ClCompile Include="ConsultarAssaigForm.cpp" />
     <ClCompile Include="ConsultarCastellForm.cpp" />
+    <ClCompile Include="ConsultarEstructuraCastellForm.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CrearAssaigForm.cpp" />
     <ClCompile Include="CrearCastellForm.cpp" />

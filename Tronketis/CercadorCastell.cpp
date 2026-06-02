@@ -60,9 +60,9 @@ List<PasarelaCastell^>^ CercadorCastell::cercaPerNomIColla(String^ nom, String^ 
         conn->Open();
 
         String^ query =
-            "SELECT id, nom, tipus, num_pisos, colla "
+            "SELECT id, nom, num_pisos, tipus, colla "
             "FROM castell "
-            "WHERE colla = @colla";
+            "WHERE nom = @nom AND colla = @colla";
 
         MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
         cmd->Parameters->AddWithValue("@nom", nom);
@@ -73,6 +73,8 @@ List<PasarelaCastell^>^ CercadorCastell::cercaPerNomIColla(String^ nom, String^ 
         while (reader->Read()) {
             llista->Add(construirPasarelaCastell(reader));
         }
+
+        reader->Close();
     }
     finally {
         if (conn->State == ConnectionState::Open) {
@@ -123,7 +125,8 @@ List<PasarelaCastell^>^ CercadorCastell::obtenirPerColla(String^ colla)
         String^ query =
             "SELECT id, nom, num_pisos, tipus, colla "
             "FROM castell "
-            "WHERE nom = @nom AND colla = @colla";
+            "WHERE colla = @colla "
+            "ORDER BY nom";
 
         MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
         cmd->Parameters->AddWithValue("@colla", colla);
@@ -133,6 +136,8 @@ List<PasarelaCastell^>^ CercadorCastell::obtenirPerColla(String^ colla)
         while (reader->Read()) {
             llista->Add(construirPasarelaCastell(reader));
         }
+
+        reader->Close();
     }
     finally {
         if (conn->State == ConnectionState::Open) {

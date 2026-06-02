@@ -6,6 +6,7 @@
 #include "CastellDTO.h"
 #include "CastellerDTO.h"
 #include "PosicioCastellDTO.h"
+#include "ConsultarEstructuraCastellForm.h"
 
 namespace Tronketis {
 
@@ -61,6 +62,7 @@ namespace Tronketis {
         Label^ lblInfo;
         Label^ lblResum;
         Panel^ panelEstructura;
+        Button^ btnVeure;
         Button^ btnGuardar;
         Button^ btnCancelar;
         Label^ lblMissatge;
@@ -81,6 +83,7 @@ namespace Tronketis {
             this->lblInfo = gcnew Label();
             this->lblResum = gcnew Label();
             this->panelEstructura = gcnew Panel();
+            this->btnVeure = gcnew Button();
             this->btnGuardar = gcnew Button();
             this->btnCancelar = gcnew Button();
             this->lblMissatge = gcnew Label();
@@ -128,6 +131,14 @@ namespace Tronketis {
             this->panelEstructura->Name = L"panelEstructura";
             this->panelEstructura->Size = Drawing::Size(710, 285);
 
+            UiStyle::ApplyButton(this->btnVeure);
+            this->btnVeure->Location = Point(270, 470);
+            this->btnVeure->Name = L"btnVeure";
+            this->btnVeure->Size = Drawing::Size(150, 38);
+            this->btnVeure->Text = L"Veure estructura";
+            this->btnVeure->Enabled = false;
+            this->btnVeure->Click += gcnew EventHandler(this, &AssignarCastellersForm::btnVeure_Click);
+
             UiStyle::ApplyButton(this->btnGuardar);
             this->btnGuardar->Location = Point(430, 470);
             this->btnGuardar->Name = L"btnGuardar";
@@ -154,6 +165,7 @@ namespace Tronketis {
             this->panelCard->Controls->Add(this->lblInfo);
             this->panelCard->Controls->Add(this->lblResum);
             this->panelCard->Controls->Add(this->panelEstructura);
+            this->panelCard->Controls->Add(this->btnVeure);
             this->panelCard->Controls->Add(this->btnGuardar);
             this->panelCard->Controls->Add(this->btnCancelar);
             this->panelCard->Controls->Add(this->lblMissatge);
@@ -177,7 +189,7 @@ namespace Tronketis {
 
             cmbCastell->Items->Clear();
 
-            for each(CastellDTO ^ c in castells) {
+            for each (CastellDTO ^ c in castells) {
                 cmbCastell->Items->Add(c->nom + " (" + c->tipus + c->pisos + ")");
             }
 
@@ -185,6 +197,7 @@ namespace Tronketis {
                 lblMissatge->Text = L"No hi ha castells creats per aquesta colla.";
                 lblMissatge->ForeColor = Color::DarkRed;
                 btnGuardar->Enabled = false;
+                btnVeure->Enabled = false;
                 return;
             }
 
@@ -192,6 +205,7 @@ namespace Tronketis {
                 lblMissatge->Text = L"No hi ha castellers a la colla per assignar.";
                 lblMissatge->ForeColor = Color::DarkRed;
                 btnGuardar->Enabled = false;
+                btnVeure->Enabled = false;
                 return;
             }
 
@@ -262,6 +276,7 @@ namespace Tronketis {
             comboPisos->Clear();
             comboPosicions->Clear();
             btnGuardar->Enabled = false;
+            btnVeure->Enabled = false;
 
             if (cmbCastell->SelectedIndex < 0 || cmbCastell->SelectedIndex >= castells->Count) {
                 return;
@@ -317,13 +332,13 @@ namespace Tronketis {
                     cb->BackColor = Color::FromArgb(235, 240, 245);
                     cb->Items->Add("(buida)");
 
-                    for each(CastellerDTO ^ casteller in castellers) {
+                    for each (CastellerDTO ^ casteller in castellers) {
                         cb->Items->Add(casteller->nomUsuari);
                     }
 
                     cb->SelectedIndex = 0;
 
-                    for each(PosicioCastellDTO ^ ex in assignacionsExistents) {
+                    for each (PosicioCastellDTO ^ ex in assignacionsExistents) {
                         if (ex->numPis == numPis && ex->numPosicio == pos) {
                             for (int c = 0; c < castellers->Count; c++) {
                                 if (castellers[c]->dniCasteller == ex->castellerDni) {
@@ -347,7 +362,7 @@ namespace Tronketis {
             }
 
             int total = 0;
-            for each(int n in floors) {
+            for each (int n in floors) {
                 total += n;
             }
 
@@ -363,13 +378,14 @@ namespace Tronketis {
 
             ActualitzarResum();
             btnGuardar->Enabled = true;
+            btnVeure->Enabled = true;
         }
 
         void ActualitzarResum()
         {
             int assignats = 0;
 
-            for each(ComboBox ^ cb in comboBoxes) {
+            for each (ComboBox ^ cb in comboBoxes) {
                 if (cb->SelectedIndex > 0) {
                     assignats++;
                 }
@@ -405,6 +421,18 @@ namespace Tronketis {
             }
 
             ActualitzarResum();
+        }
+
+        System::Void btnVeure_Click(System::Object^ sender, System::EventArgs^ e)
+        {
+            if (cmbCastell->SelectedIndex < 0 || cmbCastell->SelectedIndex >= castells->Count) {
+                MessageBox::Show("Selecciona un castell.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                return;
+            }
+
+            CastellDTO^ castell = castells[cmbCastell->SelectedIndex];
+            ConsultarEstructuraCastellForm^ f = gcnew ConsultarEstructuraCastellForm(this->collaName, castell);
+            f->ShowDialog();
         }
 
         System::Void btnGuardar_Click(System::Object^ sender, System::EventArgs^ e)
