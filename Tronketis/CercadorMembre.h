@@ -1,0 +1,140 @@
+#pragma once
+
+#include "DB.h"
+
+using namespace System;
+using namespace MySql::Data::MySqlClient;
+
+public ref class CercadorMembre
+{
+public:
+	static bool existeixMembre(String^ dni, String^ collaName, String^ uniName)
+	{ 
+		bool existeix = false;
+		MySqlConnection^ conn = DB::GetConnection();
+
+		try {
+			conn->Open();
+			String^ sql = "SELECT COUNT(*) FROM membre "
+				"WHERE dni = @dni AND colla_name = @collaName AND uni_name = @uniName";
+			MySqlCommand^ cmd = gcnew MySqlCommand(sql, conn);
+			cmd->Parameters->AddWithValue("@dni", dni);
+			cmd->Parameters->AddWithValue("@collaName", collaName);
+			cmd->Parameters->AddWithValue("@uniName", uniName);
+
+			int count = Convert::ToInt32(cmd->ExecuteScalar());
+			existeix = (count > 0);
+		}
+		catch (Exception^) {
+			return false;
+		}
+		finally {
+			conn->Close();
+		}
+		return existeix;
+	}
+
+	static bool existeixMembre(String^ dni)
+	{
+		bool existeix = false;
+		MySqlConnection^ conn = DB::GetConnection();
+		try {
+			conn->Open();
+			String^ sql = "SELECT COUNT(*) FROM membre WHERE dni = @dni";
+			MySqlCommand^ cmd = gcnew MySqlCommand(sql, conn);
+			cmd->Parameters->AddWithValue("@dni", dni);
+			int count = Convert::ToInt32(cmd->ExecuteScalar());
+			existeix = (count > 0);
+		}
+		catch (Exception^) {
+			return false;
+		}
+		finally {
+			conn->Close();
+		}
+		return existeix;
+	}
+
+	static bool teAlgunaColla(String^ dni)
+	{
+		bool teColla = false;
+		MySqlConnection^ conn = DB::GetConnection();
+
+		try {
+			conn->Open();
+			String^ sql = "SELECT COUNT(*) FROM membre WHERE dni = @dni";
+			MySqlCommand^ cmd = gcnew MySqlCommand(sql, conn);
+			cmd->Parameters->AddWithValue("@dni", dni);
+
+			int count = Convert::ToInt32(cmd->ExecuteScalar());
+			teColla = (count > 0);
+		}
+		catch (Exception^) {
+			return false;
+		}
+		finally {
+			conn->Close();
+		}
+		return teColla;
+	}
+
+	static bool obtenirCollaDeMembre(String^ dni, String^% collaName)
+	{
+		bool trobada = false;
+		MySqlConnection^ conn = DB::GetConnection();
+		collaName = "";
+
+		try {
+			conn->Open();
+			String^ query = "SELECT colla_name FROM membre WHERE dni = @dni LIMIT 1";
+			MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+			cmd->Parameters->AddWithValue("@dni", dni);
+
+			Object^ resultat = cmd->ExecuteScalar();
+
+			if (resultat != nullptr && resultat != DBNull::Value) {
+				collaName = resultat->ToString();
+				trobada = true;
+			}
+		}
+		catch (Exception^) {
+			trobada = false;
+		}
+		finally {
+			conn->Close();
+		}
+
+		return trobada;
+	}
+
+	static Collections::Generic::List<String^>^ obtenirDnisMembresPerColla(String^ collaName)
+	{
+		Collections::Generic::List<String^>^ dnis =
+			gcnew Collections::Generic::List<String^>();
+
+		MySqlConnection^ conn = DB::GetConnection();
+
+		try {
+			conn->Open();
+
+			String^ query =
+				"SELECT dni FROM membre WHERE colla_name = @collaName ORDER BY dni";
+
+			MySqlCommand^ cmd = gcnew MySqlCommand(query, conn);
+			cmd->Parameters->AddWithValue("@collaName", collaName);
+
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+
+			while (reader->Read()) {
+				dnis->Add(reader["dni"]->ToString());
+			}
+		}
+		catch (Exception^) {
+		}
+		finally {
+			conn->Close();
+		}
+
+		return dnis;
+	}
+};

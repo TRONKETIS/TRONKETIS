@@ -1,0 +1,431 @@
+  Tronketis.ConsultarCollaForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.AsignarCapForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.ConsultarCastellForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.CrearCollaForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.GestioMembresForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.InhabilitarUsuarioForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.IniciarSesionForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.MenuAdminForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.RegisterCastellerForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.RegistrarAssistenciaForm.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.MenuCapColla.resources - Embedded, ContainedInManifestFile, 
+  Tronketis.RegistrarForm.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly Tronketis, Version=1.0.*, Culture=Todos los idiomas (todos los países): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly MySql.Data, Version=9.6.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class DB: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetConnection(): PrivateScope, Public, Static, HideBySig
+Class Tronketis.UsuariDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String email : Public
+    System.String password : Public
+    System.String rol : Public
+  Properties:
+    System.String username 'get set' : 
+    System.String dni 'get set' : 
+  Methods:
+    get_dni(): PrivateScope, Public, HideBySig, SpecialName
+    set_dni(String): PrivateScope, Public, HideBySig, SpecialName
+    get_username(): PrivateScope, Public, HideBySig, SpecialName
+    set_username(String): PrivateScope, Public, HideBySig, SpecialName
+Class Tronketis.PasarelaUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    insertar(UsuariDTO): PrivateScope, Public, Static, HideBySig
+    Inhabilitar(String): PrivateScope, Public, Static, HideBySig
+    obtenirTots(): PrivateScope, Public, Static, HideBySig
+    modificarUsuari(UsuariDTO): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CollaDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean actiu 'get set' : 
+    System.String univ 'get set' : 
+    System.String localitzacio 'get set' : 
+    Byte[] logo 'get set' : 
+    System.String nom 'get set' : 
+    Int32 id   'get set' : 
+  Methods:
+    get_id(): PrivateScope, Public, HideBySig, SpecialName
+    set_id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_nom(): PrivateScope, Public, HideBySig, SpecialName
+    set_nom(String): PrivateScope, Public, HideBySig, SpecialName
+    get_logo(): PrivateScope, Public, HideBySig, SpecialName
+    set_logo(Byte[]): PrivateScope, Public, HideBySig, SpecialName
+    get_localitzacio(): PrivateScope, Public, HideBySig, SpecialName
+    set_localitzacio(String): PrivateScope, Public, HideBySig, SpecialName
+    get_univ(): PrivateScope, Public, HideBySig, SpecialName
+    set_univ(String): PrivateScope, Public, HideBySig, SpecialName
+    get_actiu(): PrivateScope, Public, HideBySig, SpecialName
+    set_actiu(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class Tronketis.PasarelaColla: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    insertar(CollaDTO, String&): PrivateScope, Public, Static, HideBySig
+    insertarConCap(CollaDTO, String, String, String&): PrivateScope, Public, Static, HideBySig
+    existeixNom(String): PrivateScope, Public, Static, HideBySig
+    obtenirPerId(Int32): PrivateScope, Public, Static, HideBySig
+    actualitzar(CollaDTO, String&): PrivateScope, Public, Static, HideBySig
+    asignarCapDeColla(String, String, String, String&): PrivateScope, Public, Static, HideBySig
+    obtenerTodas(): PrivateScope, Public, Static, HideBySig
+Class CtrlAdminMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    IrARegistrarUsuario(): PrivateScope, Public, Static, HideBySig
+    InhabilitarUsuario(String): PrivateScope, Public, Static, HideBySig
+    ObtenerListaCollas(): PrivateScope, Public, Static, HideBySig
+    ObtenerListaUsuarios(): PrivateScope, Public, Static, HideBySig
+    AsignarCapDeColla(String, String, String, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.AsignarCapForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AppColors: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Properties:
+    System.Drawing.Color Background 'get ' : 
+    System.Drawing.Color White 'get ' : 
+    System.Drawing.Color Yellow 'get ' : 
+    System.Drawing.Color Black 'get ' : 
+    System.Drawing.Color DarkRed 'get ' : 
+  Methods:
+    get_DarkRed(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Black(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Yellow(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_White(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Background(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class UiStyle: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    ApplyBase(Form, Int32, Int32, String): PrivateScope, Public, Static, HideBySig
+    ApplyHeader(Panel, Label, Label, Int32, String, String): PrivateScope, Public, Static, HideBySig
+    ApplyCard(Panel, Int32, Int32, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    ApplyButton(Button): PrivateScope, Public, Static, HideBySig
+    ApplySecondaryButton(Button): PrivateScope, Public, Static, HideBySig
+    ApplyLogoutButton(Button): PrivateScope, Public, Static, HideBySig
+    ApplyDangerButton(Button): PrivateScope, Public, Static, HideBySig
+    ApplyTitle(Label): PrivateScope, Public, Static, HideBySig
+    ApplySection(Label): PrivateScope, Public, Static, HideBySig
+    ApplyLabel(Label): PrivateScope, Public, Static, HideBySig
+    ApplyValueLabel(Label): PrivateScope, Public, Static, HideBySig
+    ApplyInput(TextBox, Int32): PrivateScope, Public, Static, HideBySig
+    ApplyCombo(ComboBox, Int32): PrivateScope, Public, Static, HideBySig
+    ApplyMessage(Label, Int32): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CastellDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 idCastell : Public
+    System.String nom : Public
+    Int32 pisos : Public
+    System.String tipus : Public
+    System.String colla : Public
+Class Tronketis.CastellerDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String dniCasteller : Public
+    System.String telefon : Public
+    System.String nomUsuari : Public
+Class Tronketis.PosicioCastellDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 numPis : Public
+    Int32 numPosicio : Public
+    System.String castellerDni : Public
+    System.String castellerNom : Public
+Class Tronketis.CtrlAssignarCastellers: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    CarregarCastells(String): PrivateScope, Public, Static, HideBySig
+    CarregarCastellers(String): PrivateScope, Public, Static, HideBySig
+    Assignar(Int32, String, List`1, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.PasarelaMuntatgeCastell: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    obtenirCastellsPerColla(String): PrivateScope, Public, Static, HideBySig
+    obtenirCastellersPerColla(String): PrivateScope, Public, Static, HideBySig
+    obtenirAssignacions(Int32, String): PrivateScope, Public, Static, HideBySig
+    guardarAssignacions(Int32, String, List`1, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.ConsultarEstructuraCastellForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, Tronketis.CastellDTO): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.AssignarCastellersForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.ConsultarCollaForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.DiadaDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String nom : Public
+    System.DateTime data : Public
+    System.String ubicacio : Public
+    System.String descripcio : Public
+    System.String tipus : Public
+Class Tronketis.CercadorDiada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    obtenirTotes(): PrivateScope, Public, Static, HideBySig
+    obtenirDiadesPerMes(Int32, Int32): PrivateScope, Public, Static, HideBySig
+    obtenirDiadesDisponibles(): PrivateScope, Public, Static, HideBySig
+Class Tronketis.PasarelaCastell: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Tronketis.CastellDTO): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    insertar(CastellDTO, String&): PrivateScope, Public, Static, HideBySig
+    getId(): PrivateScope, Public, HideBySig
+    getNom(): PrivateScope, Public, HideBySig
+    getPisos(): PrivateScope, Public, HideBySig
+    getTipus(): PrivateScope, Public, HideBySig
+    getColla(): PrivateScope, Public, HideBySig
+Class CercadorCastell: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    cercaPerNom(String): PrivateScope, Public, Static, HideBySig
+    cercaPerNomIColla(String, String): PrivateScope, Public, Static, HideBySig
+    obtenirTots(): PrivateScope, Public, Static, HideBySig
+    obtenirPerColla(String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CercadorAssignacioCastellDiada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    existeixAssignacio(String, DateTime, Int32, String): PrivateScope, Public, Static, HideBySig
+    obtenirCastellsAssignats(String, DateTime, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.PasarelaAssignacioCastellDiada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    inserir(String, DateTime, Int32, String, String, String&): PrivateScope, Public, Static, HideBySig
+Class CercadorColla: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    InhabilitarColla(String): PrivateScope, Public, Static, HideBySig
+    obtenirNomsColles(): PrivateScope, Public, Static, HideBySig
+    obtenirUniPerNomColla(String, String&): PrivateScope, Public, Static, HideBySig
+    obtenirCollaPerCap(String, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CtrlAssignarCastellDiada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    assignarCastell(String, DateTime, Int32, String, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.AssignarCastellsDiadaForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.CercadorCasteller: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    obtenirTots(): PrivateScope, Public, Static, HideBySig
+Class Tronketis.AssaigDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, System.DateTime, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String CollaUniName 'get set' : 
+    System.String CollaName 'get set' : 
+    System.DateTime DataHora 'get set' : 
+    Int32 Id   'get set' : 
+  Methods:
+    get_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DataHora(): PrivateScope, Public, HideBySig, SpecialName
+    set_DataHora(DateTime): PrivateScope, Public, HideBySig, SpecialName
+    get_CollaName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CollaName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CollaUniName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CollaUniName(String): PrivateScope, Public, HideBySig, SpecialName
+Class Tronketis.CtrlConsultarAssaig: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ConsultarAssaigs(String, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.ConsultarAssaigForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.ConsultarCastellForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CercadorUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    CercaPerEmail(String, String&, String&, String&, String&): PrivateScope, Public, Static, HideBySig
+    CercaPerEmail(String, String&, String&): PrivateScope, Public, Static, HideBySig
+    existeEmail(String): PrivateScope, Public, Static, HideBySig
+    existeDni(String): PrivateScope, Public, Static, HideBySig
+    buscaPorDNI(String): PrivateScope, Public, Static, HideBySig
+    obtenerTodosLosDnis(): PrivateScope, Public, Static, HideBySig
+    CercaPerEmailAmbDni(String, String&, String&, String&): PrivateScope, Public, Static, HideBySig
+    obtenirDnisCastellersActius(): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CtrlRegistrarUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    registrar(UsuariDTO, String&): PrivateScope, Public, HideBySig
+Class Tronketis.RegisterCastellerForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.RegistrarForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.InhabilitarUsuarioForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.CtrlModificarUsuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    modificar(UsuariDTO, String&): PrivateScope, Public, HideBySig
+Class Tronketis.ModificarUsuariForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.CtrlCrearColla: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Crear(Int32, CollaDTO, String&): PrivateScope, Public, Static, HideBySig
+    CrearAmbCap(Int32, CollaDTO, String, String, String&): PrivateScope, Public, Static, HideBySig
+    ObtenirCapsDisponibles(): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CrearCollaForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CrearDiadaForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.MenuAdminForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.MenuCapColla: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.EventoDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 AproxMem 'get set' : 
+    System.String Location 'get set' : 
+    System.DateTime EvDate 'get set' : 
+    System.String EvName 'get set' : 
+  Methods:
+    get_EvName(): PrivateScope, Public, HideBySig, SpecialName
+    set_EvName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EvDate(): PrivateScope, Public, HideBySig, SpecialName
+    set_EvDate(DateTime): PrivateScope, Public, HideBySig, SpecialName
+    get_Location(): PrivateScope, Public, HideBySig, SpecialName
+    set_Location(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AproxMem(): PrivateScope, Public, HideBySig, SpecialName
+    set_AproxMem(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class Tronketis.CercadorEvento: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    obtenirEventsPerMes(Int32, Int32): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CercadorAssaig: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    obtenirAssaigsPerMesIColla(Int32, Int32, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CtrlConsultarCalendari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    obtenirActivitatsDelDia(DateTime, String, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.ConsultarCalendariForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.ParticipacioDiadaDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String diadaName : Public
+    System.DateTime dateDiada : Public
+    System.String dni : Public
+    System.String estat : Public
+Class Tronketis.CtrlRegistrarAssistencia: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    executar(ParticipacioDiadaDTO, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.RegistrarAssistenciaForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.MenuCastellerForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CercadorMembre: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    existeixMembre(String): PrivateScope, Public, Static, HideBySig
+    existeixMembre(String, String, String): PrivateScope, Public, Static, HideBySig
+    teAlgunaColla(String): PrivateScope, Public, Static, HideBySig
+    obtenirCollaDeMembre(String, String&): PrivateScope, Public, Static, HideBySig
+    obtenirDnisMembresPerColla(String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.IniciarSesionForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.ModificarEsdevenimentForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.EditarCollaForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.CtrlCrearAssaig: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    CrearAssaig(DateTime, String, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CrearAssaigForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.CtrlCrearCastell: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Crear(CastellDTO, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CrearCastellForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.PasarelaAssaig: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    InsertarAssaig(AssaigDTO): PrivateScope, Public, Static, HideBySig
+    GetAssaigsDeColla(String, String): PrivateScope, Public, Static, HideBySig
+Class PasarelaMembre: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    insertar(String, String, String, DateTime): PrivateScope, Public, Static, HideBySig
+    eliminarMembre(String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CtrlGestioMembreColla: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    afegirMembre(String, String, String&): PrivateScope, Public, Static, HideBySig
+    eliminarMembre(String, String, String&): PrivateScope, Public, Static, HideBySig
+Class AuthService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Login(String, String, String&, String&): PrivateScope, Public, Static, HideBySig
+Class Tronketis.CtrlModificarEsdeveniment: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ModificarEsdeveniment(DiadaDTO): PrivateScope, Public, HideBySig
+Class Tronketis.PasarelaCasteller: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    insertar(CastellerDTO): PrivateScope, Public, Static, HideBySig
+Class Tronketis.PasarelaParticipacioDiada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    registrar(ParticipacioDiadaDTO, String&): PrivateScope, Public, Static, HideBySig
+    actualitzarEstat(ParticipacioDiadaDTO, String&): PrivateScope, Public, Static, HideBySig
+    existeix(String, DateTime, String): PrivateScope, Public, Static, HideBySig
+Class Tronketis.AfegirMembresForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.DetallCollaForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.EliminarMembreForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Tronketis.GestioMembresForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
